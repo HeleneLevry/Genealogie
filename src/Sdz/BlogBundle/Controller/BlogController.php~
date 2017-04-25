@@ -1,0 +1,32 @@
+<?php
+
+// src/Sdz/BlogBundle/Controller/BlogController.php
+
+namespace Sdz\BlogBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
+class BlogController extends Controller
+{
+	public function indexAction()
+	{
+		//return new Response("Hello World !");
+		return $this->render('SdzBlogBundle:Blog:index.html.twig',array ('nom' => 'Marine'));
+	}
+
+	public function voirAction($id)
+	{
+		// Ici on recuperera depuis la base de données l'article correspondant a l'id $id
+		// Puis on passera l'article a la vue qu'elle puisse l'afficher
+		return new Response("Affichage de l'article d'id: ".$id.".	");
+	}
+
+	//On recupere tous les parametres en arguments de la methode
+	/*public function voirSlugAction($slug, $annee, $format)
+	{
+		//Ici le contenu de la methode 
+		return new Response("On pourrait afficher l'article correspondant au slug'".$slug."',créé en".$annee."et au format ".$format.".");
+	}*/
+}
+?>

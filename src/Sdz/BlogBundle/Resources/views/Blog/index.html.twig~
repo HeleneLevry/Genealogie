@@ -1,0 +1,16 @@
+{ # src/Sdz/BlogBundle/Resources/views/Blog/index.html.twif #}
+
+<! DOCTYPE html>
+<html>
+	<head>
+		<title> Bienvenue sur ma premiere page ! </title>
+	</head>
+	<body>
+		<h1>Hello World!</h1>
+
+		<p>
+			Le Hello World est un grand classique de la programmation.
+			afficher ce hello world!
+		</p>
+	</body>
+</html>		

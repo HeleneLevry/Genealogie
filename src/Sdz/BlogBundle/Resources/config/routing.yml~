@@ -1,0 +1,22 @@
+# src/Sdz/BlogBundle/Resources/config/routing.yml #
+
+sdzblog_accueil1:
+    path:	/
+    defaults: { _controller:SdzBlogBundle:Blog:index }
+
+sdzblog_accueil:
+    path:	/blog
+    defaults: { _controller:SdzBlogBundle:Blog:index }
+
+
+sdzblog_voir:
+    path:	/blog/article/{id}
+    defaults: { _controller:SdzBlogBundle:Blog:voir }
+
+sdzblog_ajouter:
+    path:	/blog/ajouter
+    defaults: { _controller: SdzBlogBundle:Blog:ajouter }
+
+sdzblog_voir_slug:
+    path:	/blog/{annee}/{slug}.{format}
+    defaults: { _controller: SdzBlogBundle:Blog:voirSlug }

@@ -1,0 +1,20 @@
+{# scr/Sdz/BlogBundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+	BLog - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	{# Sous titres commun a toutes les pages du bundle #}
+	<h1> Blog </h1>
+	
+	<hr>
+	
+	{# on definti un nouveau bloc que les vues du bundle pourront remplir #}
+	{% block sdzblog_body %}
+	{% endblock %}
+	
+{% endblock %}

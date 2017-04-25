@@ -1,0 +1,38 @@
+# src/Sdz/BlogBundle/Resources/config/routing.yml #
+
+sdzblog_accueil:
+    path:	/{page}
+    defaults: { _controller:SdzBlogBundle:Blog:index, page:1 }
+    requirements:
+        page: \d*
+
+
+sdzblog_voir:
+    path:	/article/{id}
+    defaults: { _controller:SdzBlogBundle:Blog:voir }
+    requirements:
+        id: \d+
+
+sdzblog_ajouter:
+    path:	/ajouter
+    defaults: { _controller: SdzBlogBundle:Blog:ajouter }
+    
+sdzblog_modifier:
+    path:	/modifier/{id}
+    defaults: { _controller: SdzBlogBundle:Blog:modifier }
+    requirements:
+        id: \d+
+        
+sdzblog_supprimer:
+    path: /supprimer/{id}
+    defaults: { _controller: SdzBlogBundle:Blog:supprimer }
+    requirements:
+        id: \d+
+
+sdzblog_voir_slug:
+    path:	/{annee}/{slug}.{format}
+    defaults: { _controller: SdzBlogBundle:Blog:voirSlug,format: html }	
+    #le format permet de rendre la variable format facultative dans l'url en lui appliquant un choix par default
+    requirements:	#controle des variables envoyées
+        annee: \d{4}
+        format: html|xml 
