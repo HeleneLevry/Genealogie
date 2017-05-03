@@ -14,6 +14,17 @@ class BlogController extends Controller
 {
 	public function indexAction()
 	{
+		$text = "jhub.ub@yanado, jnlhnu@gmail , iouyvgfgdse@gmail";
+		
+		$mailer = $this->container->get('mailer');//on a acces au controlleur
+		//on peut maintenant envoyer des mails 
+		
+		//On recupere le service de traitement des spams
+		$antispam= $this->container->get('sdz_blog.antispam');
+		if($antispam->isSpam($text)){
+			throw new \Exception('Votre message a ete detecte commme spam!');
+		}
+		
 		$page=1;
 		//On ne sait pas combien de page il y aura mais une page doit etre >=1
 		if($page <1)

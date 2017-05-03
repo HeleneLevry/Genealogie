@@ -1,7 +1,21 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sdz_blog:
     resource: "@SdzBlogBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /blog
 
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+login:
+    pattern:  /login
+    defaults: { _controller: UserBundle:Security:login }
+ 
+login_check:
+    pattern:  /login_check
+
+logout:
+    pattern:  /logout
