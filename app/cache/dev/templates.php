@@ -90,6 +90,7 @@
   'SdzBlogBundle:Blog:modifier.html.twig' => '/var/www/genealogie/src/Sdz/BlogBundle/Resources/views/Blog/modifier.html.twig',
   'SdzBlogBundle::layout.html.twig' => '/var/www/genealogie/src/Sdz/BlogBundle/Resources/views/layout.html.twig',
   'UserBundle:Security:login.html.twig' => '/var/www/genealogie/src/UserBundle/Resources/views/Security/login.html.twig',
+  'AdminBundle:Default:index.html.twig' => '/var/www/genealogie/src/AdminBundle/Resources/views/Default/index.html.twig',
   'DebugBundle:Profiler:dump.html.twig' => '/var/www/genealogie/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views/Profiler/dump.html.twig',
   'WebProfilerBundle:Router:panel.html.twig' => '/var/www/genealogie/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Router/panel.html.twig',
   'WebProfilerBundle:Collector:translation.html.twig' => '/var/www/genealogie/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views/Collector/translation.html.twig',
