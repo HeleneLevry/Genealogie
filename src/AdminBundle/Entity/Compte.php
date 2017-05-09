@@ -3,6 +3,7 @@
 namespace AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Compte
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="compte")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\CompteRepository")
  */
-class Compte
+class Compte implements UserInterface
 {
     /**
      * @var int
@@ -27,6 +28,20 @@ class Compte
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255, unique=true)
+     */
+    private $salt; //pour encoder le mot de passe
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=255, unique=true)
+     */
+    private $role; //pour definir des admins
 
     /**
      * @var string
@@ -52,7 +67,54 @@ class Compte
     {
         return $this->id;
     }
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return Compte
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
 
+        return $this;
+    }
+    
+    /**
+     * Get role
+     *
+     * @return string 
+     */
+
+    public function getRoles()
+    {
+        return $this->role;
+    }
+
+
+   /**
+     * Set role
+     *
+     * @param string $role
+     * @return Compte
+     */
+    public function setRoles($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+    
+    /**
+     * Get salt
+     *
+     * @return string 
+     */
+
+    public function getSalt()
+    {
+        return $this->salt;
+    }
     /**
      * Set email
      *
@@ -82,7 +144,7 @@ class Compte
      * @param string $user
      * @return Compte
      */
-    public function setUser($user)
+    public function setUsername($user)
     {
         $this->user = $user;
 
@@ -94,7 +156,7 @@ class Compte
      *
      * @return string 
      */
-    public function getUser()
+    public function getUsername()
     {
         return $this->user;
     }
@@ -121,4 +183,8 @@ class Compte
     {
         return $this->password;
     }
+    
+    public function eraseCredentials()
+    {
+	}
 }
