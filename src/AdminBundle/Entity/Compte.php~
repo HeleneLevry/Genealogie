@@ -187,27 +187,4 @@ class Compte implements UserInterface
     public function eraseCredentials()
     {
 	}
-
-    /**
-     * Set user
-     *
-     * @param string $user
-     * @return Compte
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return string 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }
