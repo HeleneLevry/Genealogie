@@ -12,11 +12,9 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] } 
+        main:
+            entity: { class:AdminBundle\Entity\Compte,
+                property: user }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -33,7 +31,7 @@ security:
         main:
             pattern:    ^/
             anonymous:  false
-            provider:   in_memory
+            provider:   main
             form_login:
                 login_path: login
                 check_path: login_check
