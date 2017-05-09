@@ -15,8 +15,13 @@ class __TwigTemplate_168043174fd8ad89cdf96bee80c890270372e54283f5a1571d598bf2769
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_d0bebb9f115a103bf7335f3ffc68d16adfa4545798dc31fc1053900d51444421 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_d0bebb9f115a103bf7335f3ffc68d16adfa4545798dc31fc1053900d51444421->enter($__internal_d0bebb9f115a103bf7335f3ffc68d16adfa4545798dc31fc1053900d51444421_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/form_rest.html.php"));
+=======
+        $__internal_6c05ab78b3002ac72c1c532043318f590080b3ad98471f610440ffba3848df54 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6c05ab78b3002ac72c1c532043318f590080b3ad98471f610440ffba3848df54->enter($__internal_6c05ab78b3002ac72c1c532043318f590080b3ad98471f610440ffba3848df54_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/form_rest.html.php"));
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
         // line 1
         echo "<?php foreach (\$form as \$child): ?>
@@ -26,7 +31,11 @@ class __TwigTemplate_168043174fd8ad89cdf96bee80c890270372e54283f5a1571d598bf2769
 <?php endforeach; ?>
 ";
         
+<<<<<<< HEAD
         $__internal_d0bebb9f115a103bf7335f3ffc68d16adfa4545798dc31fc1053900d51444421->leave($__internal_d0bebb9f115a103bf7335f3ffc68d16adfa4545798dc31fc1053900d51444421_prof);
+=======
+        $__internal_6c05ab78b3002ac72c1c532043318f590080b3ad98471f610440ffba3848df54->leave($__internal_6c05ab78b3002ac72c1c532043318f590080b3ad98471f610440ffba3848df54_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 

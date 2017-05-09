@@ -15,8 +15,13 @@ class __TwigTemplate_f8067ffc260cdcf508f95ca9b6837c8d589b299f9a52cb0c49d503063ec
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_e0ef223737f43e62512d9570a4314b9948c70ceb294a83bae2acf0e8b44468cc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_e0ef223737f43e62512d9570a4314b9948c70ceb294a83bae2acf0e8b44468cc->enter($__internal_e0ef223737f43e62512d9570a4314b9948c70ceb294a83bae2acf0e8b44468cc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/datetime_widget.html.php"));
+=======
+        $__internal_89b4696ce676fad21403c98fe7a1113790a8588feb2620de6cbddaba2d498096 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_89b4696ce676fad21403c98fe7a1113790a8588feb2620de6cbddaba2d498096->enter($__internal_89b4696ce676fad21403c98fe7a1113790a8588feb2620de6cbddaba2d498096_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/datetime_widget.html.php"));
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
         // line 1
         echo "<?php if (\$widget == 'single_text'): ?>
@@ -28,7 +33,11 @@ class __TwigTemplate_f8067ffc260cdcf508f95ca9b6837c8d589b299f9a52cb0c49d503063ec
 <?php endif ?>
 ";
         
+<<<<<<< HEAD
         $__internal_e0ef223737f43e62512d9570a4314b9948c70ceb294a83bae2acf0e8b44468cc->leave($__internal_e0ef223737f43e62512d9570a4314b9948c70ceb294a83bae2acf0e8b44468cc_prof);
+=======
+        $__internal_89b4696ce676fad21403c98fe7a1113790a8588feb2620de6cbddaba2d498096->leave($__internal_89b4696ce676fad21403c98fe7a1113790a8588feb2620de6cbddaba2d498096_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 

@@ -15,8 +15,13 @@ class __TwigTemplate_34ad51d0802c19d4595340e12dcfbe266a582c8ab26f795c455d0d8e2ed
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_981d199fef411fadd91c99bec491d29494e427bf46f2cf852d638de1aa81712a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_981d199fef411fadd91c99bec491d29494e427bf46f2cf852d638de1aa81712a->enter($__internal_981d199fef411fadd91c99bec491d29494e427bf46f2cf852d638de1aa81712a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:profiler.css.twig"));
+=======
+        $__internal_6ce84a707878644a143558fb35005af284d790ce6d817a5fd42711a49848edb6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6ce84a707878644a143558fb35005af284d790ce6d817a5fd42711a49848edb6->enter($__internal_6ce84a707878644a143558fb35005af284d790ce6d817a5fd42711a49848edb6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:profiler.css.twig"));
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
         // line 3
         $context["mixins"] = array("break_long_words" => "-ms-word-break: break-all; word-break: break-all; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto;", "monospace_font" => "font-family: monospace; font-size: 13px; font-size-adjust: 0.5;", "sans_serif_font" => "font-family: Helvetica, Arial, sans-serif;", "subtle_border_and_shadow" => "background: #FFF; border: 1px solid #E0E0E0; box-shadow: 0px 0px 1px rgba(128, 128, 128, .2);");
@@ -1062,7 +1067,11 @@ table.logs .sf-call-stack abbr {
 }
 ";
         
+<<<<<<< HEAD
         $__internal_981d199fef411fadd91c99bec491d29494e427bf46f2cf852d638de1aa81712a->leave($__internal_981d199fef411fadd91c99bec491d29494e427bf46f2cf852d638de1aa81712a_prof);
+=======
+        $__internal_6ce84a707878644a143558fb35005af284d790ce6d817a5fd42711a49848edb6->leave($__internal_6ce84a707878644a143558fb35005af284d790ce6d817a5fd42711a49848edb6_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 

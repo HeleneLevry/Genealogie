@@ -15,8 +15,13 @@ class __TwigTemplate_4774e4cf4d9eaf04a4cc167c970c3649af2e06f050b851ad43925ce95d0
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_8080cdb8b9ba8c83e0c661d31c370910ea8fc50c82f76417b7e25d1d176d0cf3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_8080cdb8b9ba8c83e0c661d31c370910ea8fc50c82f76417b7e25d1d176d0cf3->enter($__internal_8080cdb8b9ba8c83e0c661d31c370910ea8fc50c82f76417b7e25d1d176d0cf3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/button_row.html.php"));
+=======
+        $__internal_30c4970aa110fdc2383836c6ed2b68ab8836d62830ccaf7ae8a484ca4a8a24cb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_30c4970aa110fdc2383836c6ed2b68ab8836d62830ccaf7ae8a484ca4a8a24cb->enter($__internal_30c4970aa110fdc2383836c6ed2b68ab8836d62830ccaf7ae8a484ca4a8a24cb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/button_row.html.php"));
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
         // line 1
         echo "<div>
@@ -24,7 +29,11 @@ class __TwigTemplate_4774e4cf4d9eaf04a4cc167c970c3649af2e06f050b851ad43925ce95d0
 </div>
 ";
         
+<<<<<<< HEAD
         $__internal_8080cdb8b9ba8c83e0c661d31c370910ea8fc50c82f76417b7e25d1d176d0cf3->leave($__internal_8080cdb8b9ba8c83e0c661d31c370910ea8fc50c82f76417b7e25d1d176d0cf3_prof);
+=======
+        $__internal_30c4970aa110fdc2383836c6ed2b68ab8836d62830ccaf7ae8a484ca4a8a24cb->leave($__internal_30c4970aa110fdc2383836c6ed2b68ab8836d62830ccaf7ae8a484ca4a8a24cb_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 

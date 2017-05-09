@@ -15,8 +15,13 @@ class __TwigTemplate_419190cecd59e5c23d403bf686d093599453e1394740b16fb94a9239abd
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_16f27a2c2d3043b2dca82d0b20df149eaec3f488faf2bc660e425bdb3aafc095 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_16f27a2c2d3043b2dca82d0b20df149eaec3f488faf2bc660e425bdb3aafc095->enter($__internal_16f27a2c2d3043b2dca82d0b20df149eaec3f488faf2bc660e425bdb3aafc095_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/FormTable/button_row.html.php"));
+=======
+        $__internal_49909f4a92a50ee0b392a415191284ca421d2a899d3b111893af12eca876dec5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_49909f4a92a50ee0b392a415191284ca421d2a899d3b111893af12eca876dec5->enter($__internal_49909f4a92a50ee0b392a415191284ca421d2a899d3b111893af12eca876dec5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/FormTable/button_row.html.php"));
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
         // line 1
         echo "<tr>
@@ -27,7 +32,11 @@ class __TwigTemplate_419190cecd59e5c23d403bf686d093599453e1394740b16fb94a9239abd
 </tr>
 ";
         
+<<<<<<< HEAD
         $__internal_16f27a2c2d3043b2dca82d0b20df149eaec3f488faf2bc660e425bdb3aafc095->leave($__internal_16f27a2c2d3043b2dca82d0b20df149eaec3f488faf2bc660e425bdb3aafc095_prof);
+=======
+        $__internal_49909f4a92a50ee0b392a415191284ca421d2a899d3b111893af12eca876dec5->leave($__internal_49909f4a92a50ee0b392a415191284ca421d2a899d3b111893af12eca876dec5_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 

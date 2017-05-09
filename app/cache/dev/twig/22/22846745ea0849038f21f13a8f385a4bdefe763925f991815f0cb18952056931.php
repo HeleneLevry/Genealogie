@@ -15,11 +15,19 @@ class __TwigTemplate_f75c33656449cd0cd2bcddc7cea622cff0fed74b0e9e42e6f66650b1b44
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_b7ccab11f596642d29e8b0ab15f8e287a6de4e8f72de943225a90a9772e031e4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_b7ccab11f596642d29e8b0ab15f8e287a6de4e8f72de943225a90a9772e031e4->enter($__internal_b7ccab11f596642d29e8b0ab15f8e287a6de4e8f72de943225a90a9772e031e4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/button_label.html.php"));
 
         
         $__internal_b7ccab11f596642d29e8b0ab15f8e287a6de4e8f72de943225a90a9772e031e4->leave($__internal_b7ccab11f596642d29e8b0ab15f8e287a6de4e8f72de943225a90a9772e031e4_prof);
+=======
+        $__internal_5119c9492c8688144e271831cd153d1892dcbf666f5e1f6880d7828b612b3789 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5119c9492c8688144e271831cd153d1892dcbf666f5e1f6880d7828b612b3789->enter($__internal_5119c9492c8688144e271831cd153d1892dcbf666f5e1f6880d7828b612b3789_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/button_label.html.php"));
+
+        
+        $__internal_5119c9492c8688144e271831cd153d1892dcbf666f5e1f6880d7828b612b3789->leave($__internal_5119c9492c8688144e271831cd153d1892dcbf666f5e1f6880d7828b612b3789_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 

@@ -15,8 +15,13 @@ class __TwigTemplate_aa81483fafd8ff213e0a7ec982ef5e692f7ceb07a3065a478ac0b465054
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_fcc227cc47c9856c2610c3874dc29ea2e2bf27e8f8d1ab1fd9fea070a6dc59bf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_fcc227cc47c9856c2610c3874dc29ea2e2bf27e8f8d1ab1fd9fea070a6dc59bf->enter($__internal_fcc227cc47c9856c2610c3874dc29ea2e2bf27e8f8d1ab1fd9fea070a6dc59bf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/form_label.html.php"));
+=======
+        $__internal_665ac310ae5725988e47b97e9100d9284acfbee2526f98710b700fa5cf6f0fab = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_665ac310ae5725988e47b97e9100d9284acfbee2526f98710b700fa5cf6f0fab->enter($__internal_665ac310ae5725988e47b97e9100d9284acfbee2526f98710b700fa5cf6f0fab_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/form_label.html.php"));
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
         // line 1
         echo "<?php if (false !== \$label): ?>
@@ -29,7 +34,11 @@ class __TwigTemplate_aa81483fafd8ff213e0a7ec982ef5e692f7ceb07a3065a478ac0b465054
 <?php endif ?>
 ";
         
+<<<<<<< HEAD
         $__internal_fcc227cc47c9856c2610c3874dc29ea2e2bf27e8f8d1ab1fd9fea070a6dc59bf->leave($__internal_fcc227cc47c9856c2610c3874dc29ea2e2bf27e8f8d1ab1fd9fea070a6dc59bf_prof);
+=======
+        $__internal_665ac310ae5725988e47b97e9100d9284acfbee2526f98710b700fa5cf6f0fab->leave($__internal_665ac310ae5725988e47b97e9100d9284acfbee2526f98710b700fa5cf6f0fab_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 

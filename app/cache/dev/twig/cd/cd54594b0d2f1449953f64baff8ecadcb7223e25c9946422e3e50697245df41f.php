@@ -15,14 +15,23 @@ class __TwigTemplate_70504ce62270a68cbae3620f5f39e2befadd77427d1318f45f090826a0f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_f2d3a9a94c297a901526f774b8303afc99a21a5fa620785aa9316feab4489b31 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_f2d3a9a94c297a901526f774b8303afc99a21a5fa620785aa9316feab4489b31->enter($__internal_f2d3a9a94c297a901526f774b8303afc99a21a5fa620785aa9316feab4489b31_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/textarea_widget.html.php"));
+=======
+        $__internal_d7a4f1b1274397219118425239ad362199c1c3cfecb2534609868dfec30d4b87 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d7a4f1b1274397219118425239ad362199c1c3cfecb2534609868dfec30d4b87->enter($__internal_d7a4f1b1274397219118425239ad362199c1c3cfecb2534609868dfec30d4b87_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/textarea_widget.html.php"));
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
         // line 1
         echo "<textarea <?php echo \$view['form']->block(\$form, 'widget_attributes') ?>><?php echo \$view->escape(\$value) ?></textarea>
 ";
         
+<<<<<<< HEAD
         $__internal_f2d3a9a94c297a901526f774b8303afc99a21a5fa620785aa9316feab4489b31->leave($__internal_f2d3a9a94c297a901526f774b8303afc99a21a5fa620785aa9316feab4489b31_prof);
+=======
+        $__internal_d7a4f1b1274397219118425239ad362199c1c3cfecb2534609868dfec30d4b87->leave($__internal_d7a4f1b1274397219118425239ad362199c1c3cfecb2534609868dfec30d4b87_prof);
+>>>>>>> dad7e77fe42341e214f1ecf6ee30dc3c3b86ede6
 
     }
 
