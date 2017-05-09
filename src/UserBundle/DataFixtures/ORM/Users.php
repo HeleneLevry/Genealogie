@@ -26,3 +26,12 @@ class Users implements FictureInterface
 			//Le sel et le rôles sont vides pour l'instant
 			$users[$i]->setSalt('');
 			$users[$i]->setRoles(array());
+			
+			//on le persiste
+			$manager->persist($users[$i]);
+		}
+			
+		//On déclenche l'enregistrement
+		$manager->flush();
+	}
+}
