@@ -13,7 +13,7 @@ class Users implements FictureInterface
 	public function load(ObjectManager $manager)
 	{
 		//Les noms d'utilisateurs a créer
-		$noms = array('winzou', 'John', 'Talus');
+		$noms = array('Maiko', 'John', 'Talus');
 		
 		foreach($noms as $i => $nom){
 			//On crée l'utilisateur
