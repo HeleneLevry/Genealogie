@@ -32,16 +32,16 @@ class Compte implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="salt", type="string", length=255, unique=true)
+     * @ORM\Column(name="salt", type="string", length=255)
      */
     private $salt; //pour encoder le mot de passe
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="role", type="string", length=255, unique=true)
+     * @ORM\Column(name="roles", type="string", length=255)
      */
-    private $role; //pour definir des admins
+    private $roles; //pour definir des admins
 
     /**
      * @var string
@@ -83,24 +83,24 @@ class Compte implements UserInterface
     /**
      * Get role
      *
-     * @return string 
+     * @return array 
      */
 
     public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
     }
 
 
    /**
      * Set role
      *
-     * @param string $role
+     * @param array $roles
      * @return Compte
      */
-    public function setRoles($role)
+    public function setRoles($roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
