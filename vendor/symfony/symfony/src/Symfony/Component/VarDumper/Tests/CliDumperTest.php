@@ -120,7 +120,7 @@ EOTXT
         $var = xml_parser_create();
 
         $this->assertDumpMatchesFormat(
-            <<<EOTXT
+            <<<'EOTXT'
 xml resource {
   current_byte_index: %i
   current_column_number: %i
@@ -142,7 +142,7 @@ EOTXT
         $var[''] = 2;
 
         $this->assertDumpMatchesFormat(
-            <<<EOTXT
+            <<<'EOTXT'
 array:4 [
   "0" => {}
   "1" => &1 null
@@ -161,7 +161,7 @@ EOTXT
         $var->{1} = 2;
 
         $this->assertDumpMatchesFormat(
-            <<<EOTXT
+            <<<'EOTXT'
 {
   +1: 1
   +"1": 2
@@ -254,7 +254,7 @@ stream resource {@{$ref}
     -trace: {
       %d. __TwigTemplate_VarDumperFixture_u75a09->doDisplay() ==> new Exception(): {
         src: {
-          %sTwig.php:19: """
+          %sTwig.php:21: """
                 // line 2\\n
                 throw new \Exception('Foobar');\\n
             }\\n
@@ -289,16 +289,14 @@ stream resource {@{$ref}
           %sTemplate.php:%d: """
             try {\\n
                 \$this->display(\$context);\\n
-            } catch (Exception \$e) {\\n
+            } catch (%s \$e) {\\n
             """
         }
       }
       %d. %slosure%s() ==> Twig_Template->render(): {
         src: {
           %sCliDumperTest.php:{$line}: """
-                    }\\n
-                };'),\\n
-            ));\\n
+%A
             """
         }
       }
@@ -351,7 +349,7 @@ EOTXT
         $var = $this->getSpecialVars();
 
         $this->assertDumpEquals(
-            <<<EOTXT
+            <<<'EOTXT'
 array:3 [
   0 => array:1 [
     0 => &1 array:1 [
@@ -397,7 +395,7 @@ EOTXT
         $dumper->dump($data);
 
         $this->assertSame(
-            <<<EOTXT
+            <<<'EOTXT'
 array:2 [
   1 => array:1 [
     "GLOBALS" => &1 array:1 [
@@ -439,7 +437,7 @@ EOTXT
         });
 
         $this->assertSame(
-            <<<EOTXT
+            <<<'EOTXT'
 array:1 [
   0 => array:1 [
     0 => array:1 [

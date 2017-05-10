@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pathologie
 {
+	// Liaison OneToOne avec la Banque_Patho 
+	/**
+	* @ORM\OneToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
+	*/
+    private $banque_patho;
+	
     /**
      * @var int
      *
@@ -270,5 +276,29 @@ class Pathologie
     public function getNomPathologie()
     {
         return $this->nomPathologie;
+    }
+
+    /**
+     * Set banquePatho
+     *
+     * @param \AdminBundle\Entity\Banque_Patho $banquePatho
+     *
+     * @return Pathologie
+     */
+    public function setBanquePatho(\AdminBundle\Entity\Banque_Patho $banquePatho = null)
+    {
+        $this->banque_patho = $banquePatho;
+
+        return $this;
+    }
+
+    /**
+     * Get banquePatho
+     *
+     * @return \AdminBundle\Entity\Banque_Patho
+     */
+    public function getBanquePatho()
+    {
+        return $this->banque_patho;
     }
 }

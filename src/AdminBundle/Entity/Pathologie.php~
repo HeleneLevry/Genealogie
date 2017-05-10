@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pathologie
 {
+	// Liaison OneToOne avec la Banque_Patho 
+	/**
+	* @ORM\OneToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
+	*/
+    private $banque_patho;
+	
     /**
      * @var int
      *
