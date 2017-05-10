@@ -15,9 +15,9 @@ class DefaultController extends Controller
     {
     // Création de l'entité
     $compte = new Compte();
-    $compte->setEmail(monemail@mail.com);
-    $compte->setUser(monuser);
-    $compte->setPassword(monpassword);
+    $compte->setEmail('monemail@mail.com');
+    $compte->setUser('monuser');
+    $compte->setPassword('monpassword');
     // On récupère l'EntityManager
     $em = $this->getDoctrine()->getManager();
     // Étape 1 : On « persiste » l'entité
