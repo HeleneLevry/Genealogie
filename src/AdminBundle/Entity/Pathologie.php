@@ -17,6 +17,13 @@ class Pathologie
 	* @ORM\OneToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
 	*/
     private $banque_patho;
+    
+    //// Liaison ManyToZero avec la Banque_Patho 
+	///**
+	//* @ORM\OneToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
+	//* @ORM\JoinColumn(nullable=false)
+	//*/
+    //private $banque_patho;
 	
     /**
      * @var int
