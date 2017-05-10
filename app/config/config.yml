@@ -69,3 +69,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+fos_user:
+    db_driver:        orm 
+    # Le type de BDD a utiliser, nous utilisons l'ORM Doctrine depuis le debut
+    firewall_name:    main
+    # LE nom du firewall derriere lequel on utilisera ces utilisateurs
+    user_class:       AdminBundle\Entity\Compte
+    # La classe de l'entité 

@@ -4,7 +4,7 @@
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        AdminBundle\Entity\User: plaintext
+        AdminBundle\Entity\Compte: sha512
         
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -13,7 +13,8 @@ security:
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         main:
-            entity: { class: AdminBundle\Entity\Compte, property: user }
+            id: fos_user.user_provider.username
+            # entity: { class: AdminBundle\Entity\Compte, property: user }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -29,7 +30,7 @@ security:
         
         main:
             pattern:    ^/
-            anonymous:  false
+            anonymous:  true
             provider:   main
             form_login:
                 login_path: login
@@ -37,6 +38,9 @@ security:
             logout:
                 path:    logout
                 target:  /blog
+            remember_me:
+                key:     %secret%
+            # %secret% est un parametre de parametre.yml
             
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
