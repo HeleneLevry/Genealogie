@@ -22,10 +22,10 @@ security:
             pattern:    ^/(_(profiler|wdt)|css|images|js)/
             security:   false
             
-        main_login:
+       # main_login:
             # Cette expression régulière permet de prendre /login 
-            pattern: ^/login$
-            anonymous: true
+        #    pattern: ^/login$
+         #   anonymous: true
             # On autorise les anonymes sur ce parfeu --> connexion
         
         main:
