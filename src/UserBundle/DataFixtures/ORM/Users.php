@@ -8,7 +8,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AdminBundle\Entity\Compte;
 
-class Users implements FictureInterface
+class Users implements FixtureInterface
 {
 	public function load(ObjectManager $manager)
 	{
