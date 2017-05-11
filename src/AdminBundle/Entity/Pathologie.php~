@@ -70,28 +70,6 @@ class Pathologie
     private $commentaire;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="num_individu", type="integer")
-     */
-    private $numIndividu;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="gravite", type="string", length=255)
-     */
-    private $gravite;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_pathologie", type="string", length=255, unique=true)
-     */
-    private $nomPathologie;
-
-
-    /**
      * Get id
      *
      * @return integer 
