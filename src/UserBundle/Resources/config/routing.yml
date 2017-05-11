@@ -5,3 +5,15 @@ user_connected_index:
 user_accueil:
     path:     /accueil
     defaults: { _controller:UserBundle:User:accueil }
+
+user_modifier:
+    path:     /modifier
+    defaults: { _controller:UserBundle:User:modifier }
+ 
+user_ajouter:
+    path:     /ajouter
+    defaults: { _controller:UserBundle:User:ajouter }
+    
+user_supprimer:
+    path:     /supprimer
+    defaults: { _controller:UserBundle:User:supprimer }
