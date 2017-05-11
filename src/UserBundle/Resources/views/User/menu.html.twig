@@ -1,0 +1,32 @@
+{# src/UserBundle/Resources/views/User/menu.html.twig #}
+
+{# Ce template n'herite de personne, tout comme le template inclus avec {% include %}. #}
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+	<h3> Mes proches</h3>
+	<br/>
+	<ul class="nav nav-pills nav-stacked">
+		<li> Ajouter </li>
+		<li> Modifier </li>
+		<li> Supprimer </li>
+	</ul>
+	<br/>
+	<h3> Mon compte </h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="http://projet-genealogie/app_dev.php/profile"> Mes informations </a></li>
+		<li><a href="http://projet-genealogie/app_dev.php/profile/edit"> Modifier mes informations </a></li>
+		<li><a href="http://projet-genealogie/app_dev.php/profile/change-password"> Modifier mon mot de passe </a></li> 
+		<li> Supprimer ? </li>
+		<li><a href="http://projet-genealogie/app_dev.php/logout"> Déconnexion </a></li>
+	</ul>
+	
+{% else %}
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="http://projet-genealogie/app_dev.php/register"> Inscription </a></li>
+		<li><a href="http://projet-genealogie/app_dev.php/login"> Connexion </a></li>
+	</ul>
+{% endif %}		
+
+<footer>
+	<p>Nous contacter</p>
+</footer>

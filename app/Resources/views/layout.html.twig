@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>{% block title %}SdzBlog{% endblock %}</title>
+		<title>{% block title %}Your Healthy Tree{% endblock %}</title>
 		
 		{% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" />
@@ -14,21 +14,13 @@
 	<body>
 		<div class="container">
 			<div id="header" class="hero-unit">
-				<h1> Mon Projet Symfony2 </h1>
-				<p> Ce projet est propulsé par Symfony2, et contruit grace au tuto </p>
-				<p><a class="btn btn-primary btn-large" href="http://www.siteduzero.com/informatique/tutoriels/developpez-votre-site-web-avec-le-framework-symfon2">
-				Lire le tutoriel >>
-				</a></p>
+				<h1> Your Healthy Tree </h1>
+				<p> Le site qui vous aide à garder un oeil sur votre santé ! </p>
+				
 			</div>
 			<div class="row">
 				<div id="menu" class="span3">
-					<h3>Le blog</h3>
-					<ul class="nav nav-pills nav-stacked">
-						<li><a href="{{ path('sdzblog_accueil') }}"> Accueil du blog </a></li>
-						<li><a href="{{ path('sdzblog_ajouter') }}"> Ajouter un article</a></li>
-					</ul>
-					
-					{{ render(controller("SdzBlogBundle:Blog:menu",{'nombre':3})) }}
+					{{ render(controller("UserBundle:User:menu")) }}
 				</div>
 				<div id="content" class="span9">
 					{% block body %}
