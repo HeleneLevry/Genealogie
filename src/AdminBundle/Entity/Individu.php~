@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Individu
 {
+	
+	/**
+	* @ORM\ManyToMany(targetEntity="AdminBundle\Entity\Relation", cascade={"persist"})
+	*/
+	private $relations;
+  
+  
     /**
      * @var int
      *

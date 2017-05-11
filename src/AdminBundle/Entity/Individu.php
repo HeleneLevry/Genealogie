@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Individu
 {
+	
+	/**
+	* @ORM\ManyToMany(targetEntity="AdminBundle\Entity\Relation", cascade={"persist"})
+	*/
+	private $typeRelations;
+  
+  
     /**
      * @var int
      *
@@ -270,5 +277,46 @@ class Individu
     public function getGenre()
     {
         return $this->genre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add relation
+     *
+     * @param \AdminBundle\Entity\Relation $relation
+     *
+     * @return Individu
+     */
+    public function addRelation(\AdminBundle\Entity\Relation $relation)
+    {
+        $this->relations[] = $relation;
+
+        return $this;
+    }
+
+    /**
+     * Remove relation
+     *
+     * @param \AdminBundle\Entity\Relation $relation
+     */
+    public function removeRelation(\AdminBundle\Entity\Relation $relation)
+    {
+        $this->relations->removeElement($relation);
+    }
+
+    /**
+     * Get relations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRelations()
+    {
+        return $this->relations;
     }
 }

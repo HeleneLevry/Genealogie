@@ -24,9 +24,9 @@ class Relation
     /**
      * @var string
      *
-     * @ORM\Column(name="relation", type="string", length=255)
+     * @ORM\Column(name="typeRelation", type="string", length=255)
      */
-    private $relation;
+    private $typeRelation;
 
 
     /**
@@ -39,26 +39,6 @@ class Relation
         return $this->id;
     }
 
-    /**
-     * Set relation
-     *
-     * @param string $relation
-     * @return Relation
-     */
-    public function setRelation($relation)
-    {
-        $this->relation = $relation;
-
-        return $this;
-    }
-
-    /**
-     * Get relation
-     *
-     * @return string 
-     */
-    public function getRelation()
-    {
-        return $this->relation;
-    }
+    
+    
 }
