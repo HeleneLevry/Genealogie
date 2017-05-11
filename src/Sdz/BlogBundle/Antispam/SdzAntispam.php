@@ -3,11 +3,24 @@
 
 namespace Sdz\BlogBundle\Antispam;
 
-class SdzAntispam
+class SdzAntispam extends \Twig_Extension
 {	
 	protected $mailer;
 	protected $locale;
 	protected $nbForSpam;
+	
+	/* Twig va executer cette methode pour savoir quelle fonctions ajoute notre service */
+	
+	public function getFunctions()
+	{
+		return array('checkIfSpam' => new \Twig_Function_Method($this, 'isSpam'));
+	}
+	//La methode getName() identifie votre extension Twig, elle et obligatoire
+	
+	public function getName()
+	{
+		return 'SdzAntispam';
+	}
 	
 	public function __construct(\Swift_Mailer $mailer, $locale, $nbForSpam)
 	{
