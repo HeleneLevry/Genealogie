@@ -24,10 +24,22 @@ class Gravite
     /**
      * @var string
      *
-     * @ORM\Column(name="gravite", type="string", length=255)
+     * @ORM\Column(name="gravite_patho", type="string", length=255)
      */
-    private $gravite_patho;
+    private $gravitePatho;
 
+
+    
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     
 }

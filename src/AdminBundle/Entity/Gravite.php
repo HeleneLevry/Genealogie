@@ -24,9 +24,9 @@ class Gravite
     /**
      * @var string
      *
-     * @ORM\Column(name="gravite", type="string", length=255)
+     * @ORM\Column(name="gravite_patho", type="string", length=255)
      */
-    private $gravite_patho;
+    private $gravitePatho;
 
 
     
@@ -41,6 +41,8 @@ class Gravite
         return $this->id;
     }
 
+    
+
     /**
      * Set gravitePatho
      *
@@ -50,7 +52,7 @@ class Gravite
      */
     public function setGravitePatho($gravitePatho)
     {
-        $this->gravite_patho = $gravitePatho;
+        $this->gravitePatho = $gravitePatho;
 
         return $this;
     }
@@ -62,6 +64,6 @@ class Gravite
      */
     public function getGravitePatho()
     {
-        return $this->gravite_patho;
+        return $this->gravitePatho;
     }
 }
