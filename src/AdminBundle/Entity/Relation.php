@@ -28,19 +28,15 @@ class Relation
      */
     private $typeRelation;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-
-    
-    
 
     /**
      * Set typeRelation
@@ -65,4 +61,5 @@ class Relation
     {
         return $this->typeRelation;
     }
+    
 }
