@@ -17,3 +17,7 @@ user_ajouter:
 user_supprimer:
     path:     /supprimer
     defaults: { _controller:UserBundle:User:supprimer }
+
+user_nous_contacter:
+    path:     /nous_contacter
+    defaults: { _controller:UserBundle:User:nous_contacter }

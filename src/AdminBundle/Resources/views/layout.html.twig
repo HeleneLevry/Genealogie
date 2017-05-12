@@ -1,0 +1,14 @@
+{# src/AdminBundle/Resources/views/layout.html.twig #}
+
+{# On étend notre layout #}
+{% extends "::layout.html.twig" %}
+
+{# Dans notre layout, il faut définir le block body #}
+{% block body %}
+	<h1> Admin layout </h1>
+	{# On définit ce block, dns lequel vont venir s'insérer les autres vues du bundle #}
+	{% block admin_block %}
+	{% endblock admin_block %}
+	
+	
+{% endblock %}
