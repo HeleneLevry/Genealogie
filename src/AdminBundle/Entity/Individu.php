@@ -48,6 +48,13 @@ class Individu
      * @ORM\Column(name="prenom", type="string", length=255)
      */
     private $prenom;
+    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="genre", type="boolean")
+     */
+    private $genre;
 
     /**
      * @var \DateTime
@@ -70,13 +77,8 @@ class Individu
      */
     private $commentaire;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="genre", type="boolean")
-     */
-    private $genre;
 
+   
 
     /**
      * Get id
@@ -161,6 +163,30 @@ class Individu
     }
 
     /**
+     * Set genre
+     *
+     * @param boolean $genre
+     *
+     * @return Individu
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return boolean
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
      * Set dateNaissance
      *
      * @param \DateTime $dateNaissance
@@ -230,30 +256,6 @@ class Individu
     public function getCommentaire()
     {
         return $this->commentaire;
-    }
-
-    /**
-     * Set genre
-     *
-     * @param boolean $genre
-     *
-     * @return Individu
-     */
-    public function setGenre($genre)
-    {
-        $this->genre = $genre;
-
-        return $this;
-    }
-
-    /**
-     * Get genre
-     *
-     * @return boolean
-     */
-    public function getGenre()
-    {
-        return $this->genre;
     }
 
     /**

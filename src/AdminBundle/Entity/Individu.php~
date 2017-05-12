@@ -48,6 +48,13 @@ class Individu
      * @ORM\Column(name="prenom", type="string", length=255)
      */
     private $prenom;
+    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="genre", type="boolean")
+     */
+    private $genre;
 
     /**
      * @var \DateTime
@@ -70,11 +77,6 @@ class Individu
      */
     private $commentaire;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="genre", type="boolean")
-     */
-    private $genre;
 
+   
 }
