@@ -77,4 +77,206 @@ class Individu
      */
     private $genre;
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set numIndividu
+     *
+     * @param integer $numIndividu
+     *
+     * @return Individu
+     */
+    public function setNumIndividu($numIndividu)
+    {
+        $this->numIndividu = $numIndividu;
+
+        return $this;
+    }
+
+    /**
+     * Get numIndividu
+     *
+     * @return integer
+     */
+    public function getNumIndividu()
+    {
+        return $this->numIndividu;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Individu
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Individu
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set dateNaissance
+     *
+     * @param \DateTime $dateNaissance
+     *
+     * @return Individu
+     */
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get dateNaissance
+     *
+     * @return \DateTime
+     */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set dateDeces
+     *
+     * @param \DateTime $dateDeces
+     *
+     * @return Individu
+     */
+    public function setDateDeces($dateDeces)
+    {
+        $this->dateDeces = $dateDeces;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDeces
+     *
+     * @return \DateTime
+     */
+    public function getDateDeces()
+    {
+        return $this->dateDeces;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     *
+     * @return Individu
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+
+    /**
+     * Set genre
+     *
+     * @param boolean $genre
+     *
+     * @return Individu
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return boolean
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set compte
+     *
+     * @param \AdminBundle\Entity\Compte $compte
+     *
+     * @return Individu
+     */
+    public function setCompte(\AdminBundle\Entity\Compte $compte)
+    {
+        $this->compte = $compte;
+
+        return $this;
+    }
+
+    /**
+     * Get compte
+     *
+     * @return \AdminBundle\Entity\Compte
+     */
+    public function getCompte()
+    {
+        return $this->compte;
+    }
 }

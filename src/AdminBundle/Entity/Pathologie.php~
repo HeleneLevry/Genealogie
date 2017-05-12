@@ -12,18 +12,23 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pathologie
 {
-	// Liaison OneToOne avec la Banque_Patho 
 	/**
-	* @ORM\OneToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
-	*/
-    private $banque_patho;
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $individu;
     
-    //// Liaison ManyToZero avec la Banque_Patho 
-	///**
-	//* @ORM\OneToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
-	//* @ORM\JoinColumn(nullable=false)
-	//*/
-    //private $banque_patho;
+    /**
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Gravite", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $gravite;
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $banque_patho;
 	
     /**
      * @var int
@@ -65,225 +70,9 @@ class Pathologie
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="string", length=255)
+     * @ORM\Column(name="commentaire_patho", type="string", length=255)
      */
-    private $commentaire;
+    private $commentairePatho;
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    /**
-     * Set numPathologie
-     *
-     * @param integer $numPathologie
-     * @return Pathologie
-     */
-    public function setNumPathologie($numPathologie)
-    {
-        $this->numPathologie = $numPathologie;
-
-        return $this;
-    }
-
-    /**
-     * Get numPathologie
-     *
-     * @return integer 
-     */
-    public function getNumPathologie()
-    {
-        return $this->numPathologie;
-    }
-
-    /**
-     * Set dateDebut
-     *
-     * @param \DateTime $dateDebut
-     * @return Pathologie
-     */
-    public function setDateDebut($dateDebut)
-    {
-        $this->dateDebut = $dateDebut;
-
-        return $this;
-    }
-
-    /**
-     * Get dateDebut
-     *
-     * @return \DateTime 
-     */
-    public function getDateDebut()
-    {
-        return $this->dateDebut;
-    }
-
-    /**
-     * Set dateFin
-     *
-     * @param \DateTime $dateFin
-     * @return Pathologie
-     */
-    public function setDateFin($dateFin)
-    {
-        $this->dateFin = $dateFin;
-
-        return $this;
-    }
-
-    /**
-     * Get dateFin
-     *
-     * @return \DateTime 
-     */
-    public function getDateFin()
-    {
-        return $this->dateFin;
-    }
-
-    /**
-     * Set causeDeces
-     *
-     * @param boolean $causeDeces
-     * @return Pathologie
-     */
-    public function setCauseDeces($causeDeces)
-    {
-        $this->causeDeces = $causeDeces;
-
-        return $this;
-    }
-
-    /**
-     * Get causeDeces
-     *
-     * @return boolean 
-     */
-    public function getCauseDeces()
-    {
-        return $this->causeDeces;
-    }
-
-    /**
-     * Set commentaire
-     *
-     * @param string $commentaire
-     * @return Pathologie
-     */
-    public function setCommentaire($commentaire)
-    {
-        $this->commentaire = $commentaire;
-
-        return $this;
-    }
-
-    /**
-     * Get commentaire
-     *
-     * @return string 
-     */
-    public function getCommentaire()
-    {
-        return $this->commentaire;
-    }
-
-    /**
-     * Set numIndividu
-     *
-     * @param integer $numIndividu
-     * @return Pathologie
-     */
-    public function setNumIndividu($numIndividu)
-    {
-        $this->numIndividu = $numIndividu;
-
-        return $this;
-    }
-
-    /**
-     * Get numIndividu
-     *
-     * @return integer 
-     */
-    public function getNumIndividu()
-    {
-        return $this->numIndividu;
-    }
-
-    /**
-     * Set gravite
-     *
-     * @param string $gravite
-     * @return Pathologie
-     */
-    public function setGravite($gravite)
-    {
-        $this->gravite = $gravite;
-
-        return $this;
-    }
-
-    /**
-     * Get gravite
-     *
-     * @return string 
-     */
-    public function getGravite()
-    {
-        return $this->gravite;
-    }
-
-    /**
-     * Set nomPathologie
-     *
-     * @param string $nomPathologie
-     * @return Pathologie
-     */
-    public function setNomPathologie($nomPathologie)
-    {
-        $this->nomPathologie = $nomPathologie;
-
-        return $this;
-    }
-
-    /**
-     * Get nomPathologie
-     *
-     * @return string 
-     */
-    public function getNomPathologie()
-    {
-        return $this->nomPathologie;
-    }
-
-    /**
-     * Set banquePatho
-     *
-     * @param \AdminBundle\Entity\Banque_Patho $banquePatho
-     *
-     * @return Pathologie
-     */
-    public function setBanquePatho(\AdminBundle\Entity\Banque_Patho $banquePatho = null)
-    {
-        $this->banque_patho = $banquePatho;
-
-        return $this;
-    }
-
-    /**
-     * Get banquePatho
-     *
-     * @return \AdminBundle\Entity\Banque_Patho
-     */
-    public function getBanquePatho()
-    {
-        return $this->banque_patho;
-    }
 }

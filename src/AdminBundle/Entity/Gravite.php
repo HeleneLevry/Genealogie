@@ -30,4 +30,38 @@ class Gravite
 
 
     
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set gravitePatho
+     *
+     * @param string $gravitePatho
+     *
+     * @return Gravite
+     */
+    public function setGravitePatho($gravitePatho)
+    {
+        $this->gravite_patho = $gravitePatho;
+
+        return $this;
+    }
+
+    /**
+     * Get gravitePatho
+     *
+     * @return string
+     */
+    public function getGravitePatho()
+    {
+        return $this->gravite_patho;
+    }
 }

@@ -22,31 +22,17 @@ class Parente
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="num_individu", type="integer", unique=true)
-     */
-    private $numIndividu;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="num_individu_Individu", type="integer", unique=true)
-     */
-    private $numIndividuIndividu;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="relation", type="string", length=255)
+     * @ORM\Column(name="nom_relation", type="string", length=255)
      */
-    private $relation;
-
+    private $nomRelation;
+    
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,71 +40,26 @@ class Parente
     }
 
     /**
-     * Set numIndividu
+     * Set nomRelation
      *
-     * @param integer $numIndividu
+     * @param string $nomRelation
+     *
      * @return Parente
      */
-    public function setNumIndividu($numIndividu)
+    public function setNomRelation($nomRelation)
     {
-        $this->numIndividu = $numIndividu;
+        $this->nomRelation = $nomRelation;
 
         return $this;
     }
 
     /**
-     * Get numIndividu
+     * Get nomRelation
      *
-     * @return integer 
+     * @return string
      */
-    public function getNumIndividu()
+    public function getNomRelation()
     {
-        return $this->numIndividu;
-    }
-
-    /**
-     * Set numIndividuIndividu
-     *
-     * @param integer $numIndividuIndividu
-     * @return Parente
-     */
-    public function setNumIndividuIndividu($numIndividuIndividu)
-    {
-        $this->numIndividuIndividu = $numIndividuIndividu;
-
-        return $this;
-    }
-
-    /**
-     * Get numIndividuIndividu
-     *
-     * @return integer 
-     */
-    public function getNumIndividuIndividu()
-    {
-        return $this->numIndividuIndividu;
-    }
-
-    /**
-     * Set relation
-     *
-     * @param string $relation
-     * @return Parente
-     */
-    public function setRelation($relation)
-    {
-        $this->relation = $relation;
-
-        return $this;
-    }
-
-    /**
-     * Get relation
-     *
-     * @return string 
-     */
-    public function getRelation()
-    {
-        return $this->relation;
+        return $this->nomRelation;
     }
 }

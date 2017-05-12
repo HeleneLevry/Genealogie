@@ -29,4 +29,38 @@ class Banque_Patho
     private $nomPathologie;
     
     
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nomPathologie
+     *
+     * @param string $nomPathologie
+     *
+     * @return Banque_Patho
+     */
+    public function setNomPathologie($nomPathologie)
+    {
+        $this->nomPathologie = $nomPathologie;
+
+        return $this;
+    }
+
+    /**
+     * Get nomPathologie
+     *
+     * @return string
+     */
+    public function getNomPathologie()
+    {
+        return $this->nomPathologie;
+    }
 }
