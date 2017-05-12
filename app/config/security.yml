@@ -33,6 +33,10 @@ security:
         main_register:
             pattern:    ^/register$
             anonymous:   true
+            
+        main_nouscontacter:
+            pattern:    ^/nous_contacter$
+            anonymous:   true
                  
         main:
             pattern:    ^/

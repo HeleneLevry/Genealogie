@@ -36,4 +36,9 @@ class UserController extends Controller
 	{
 		return $this->render('UserBundle:User:supprimer.html.twig');
 	}
+	
+	public function nous_contacterAction()
+	{
+		return $this->render('UserBundle:User:nous_contacter.html.twig');
+	}
 }
