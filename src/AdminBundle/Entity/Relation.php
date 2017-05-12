@@ -17,13 +17,13 @@ class Relation
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
     * @ORM\JoinColumn(nullable=false)
     */
-    private $individu1;
+    private $individuA;
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
     * @ORM\JoinColumn(nullable=false)
     */
-    private $individu2;
+    private $individuB;
     
     /**
      * @var int
@@ -41,8 +41,7 @@ class Relation
      */
     private $typeRelation;
     
-    
-    
+   
 
     /**
      * Get id
@@ -79,50 +78,50 @@ class Relation
     }
 
     /**
-     * Set individu1
+     * Set individuA
      *
-     * @param \AdminBundle\Entity\Individu $individu1
+     * @param \AdminBundle\Entity\Individu $individuA
      *
      * @return Relation
      */
-    public function setIndividu1(\AdminBundle\Entity\Individu $individu1)
+    public function setIndividuA(\AdminBundle\Entity\Individu $individuA)
     {
-        $this->individu1 = $individu1;
+        $this->individuA = $individuA;
 
         return $this;
     }
 
     /**
-     * Get individu1
+     * Get individuA
      *
      * @return \AdminBundle\Entity\Individu
      */
-    public function getIndividu1()
+    public function getIndividuA()
     {
-        return $this->individu1;
+        return $this->individuA;
     }
 
     /**
-     * Set individu2
+     * Set individuB
      *
-     * @param \AdminBundle\Entity\Individu $individu2
+     * @param \AdminBundle\Entity\Individu $individuB
      *
      * @return Relation
      */
-    public function setIndividu2(\AdminBundle\Entity\Individu $individu2)
+    public function setIndividuB(\AdminBundle\Entity\Individu $individuB)
     {
-        $this->individu2 = $individu2;
+        $this->individuB = $individuB;
 
         return $this;
     }
 
     /**
-     * Get individu2
+     * Get individuB
      *
      * @return \AdminBundle\Entity\Individu
      */
-    public function getIndividu2()
+    public function getIndividuB()
     {
-        return $this->individu2;
+        return $this->individuB;
     }
 }

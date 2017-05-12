@@ -17,13 +17,13 @@ class Relation
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
     * @ORM\JoinColumn(nullable=false)
     */
-    private $individu1;
+    private $individuA;
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
     * @ORM\JoinColumn(nullable=false)
     */
-    private $individu2;
+    private $individuB;
     
     /**
      * @var int
@@ -41,6 +41,39 @@ class Relation
      */
     private $typeRelation;
     
-    
-    
+   
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set typeRelation
+     *
+     * @param string $typeRelation
+     *
+     * @return Relation
+     */
+    public function setTypeRelation($typeRelation)
+    {
+        $this->typeRelation = $typeRelation;
+
+        return $this;
+    }
+
+    /**
+     * Get typeRelation
+     *
+     * @return string
+     */
+    public function getTypeRelation()
+    {
+        return $this->typeRelation;
+    }
 }
