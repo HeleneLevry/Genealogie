@@ -26,14 +26,14 @@ security:
             pattern:    ^/accueil$
             anonymous:   true
             
-        main_login:
-            pattern:    ^/login$
-            anonymous:   true
-            
         main_register:
             pattern:    ^/register$
             anonymous:   true
             
+        main_login:
+            pattern:    ^/login$
+            anonymous:   true
+                 
         main_nouscontacter:
             pattern:    ^/nous_contacter$
             anonymous:   true

@@ -27,14 +27,13 @@
 			<li> ajouter un administrateur </li>
 		</ul>
 	{% endif %}
+    
+    <p><a href= "{{ path('user_nous_contacter_2') }}"> Nous contacter</a> </p>
 	
 {% else %}
 	<ul class="nav nav-pills nav-stacked">
 		<li><a href="http://projet-genealogie/app_dev.php/register"> Inscription </a></li>
 		<li><a href="http://projet-genealogie/app_dev.php/login"> Connexion </a></li>
 	</ul>
-{% endif %}		
-
-<footer>
-	<p><a href= "{{ path('user_nous_contacter') }}"> Nous contacter</a> </p>
-</footer>
+	<p><a href= "{{ path('user_nous_contacter_1') }}"> Nous contacter</a> </p>
+{% endif %}

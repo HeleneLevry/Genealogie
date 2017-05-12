@@ -18,6 +18,10 @@ user_supprimer:
     path:     /supprimer
     defaults: { _controller:UserBundle:User:supprimer }
 
-user_nous_contacter:
+user_nous_contacter_1:
     path:     /nous_contacter
+    defaults: { _controller:UserBundle:User:nous_contacter }
+    
+user_nous_contacter_2:
+    path:     /nous_contacter_2
     defaults: { _controller:UserBundle:User:nous_contacter }
