@@ -14,10 +14,6 @@ user_ajouter:
     path:     /ajouter
     defaults: { _controller:UserBundle:User:ajouter }
     
-user_supprimer:
-    path:     /supprimer
-    defaults: { _controller:UserBundle:User:supprimer }
-
 user_nous_contacter_1:
     path:     /nous_contacter
     defaults: { _controller:UserBundle:User:nous_contacter }
@@ -25,3 +21,11 @@ user_nous_contacter_1:
 user_nous_contacter_2:
     path:     /nous_contacter_2
     defaults: { _controller:UserBundle:User:nous_contacter }
+
+supprimer_compte_1:
+    path:     /validation_supprimer
+    defaults: {_controller:UserBundle:User:supprimer_compte_1 }
+
+supprimer_compte_2:
+    path:     /compte_supprime
+    defaults: {_controller:UserBundle:User:supprimer_compte_2 }
