@@ -31,7 +31,7 @@ class UserController extends Controller
 	public function ajouterAction()
 	{
 		$individu = new Individu();
-		$individu->setDateDeces(new \Datetime());
+		//$individu->setDateDeces(new \Datetime());
 		$formBuilder = $this->get('form.factory')->createBuilder('form',$individu);
 		$formBuilder
 			->add('nom',	'text', array('required' => false))
