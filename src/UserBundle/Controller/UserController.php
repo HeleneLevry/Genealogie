@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AdminBundle\Entity\Relation;
 use AdminBundle\Form\RelationType;
+use AdminBundle\Entity\Individu;
+use AdminBundle\Form\IndividuType;
 
 
 class UserController extends Controller
@@ -39,6 +41,18 @@ class UserController extends Controller
 			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
 			return $this->redirect($this->generateUrl('user_connected_index'));
 		}
+		
+		//$individu = new Individu();
+		//$individu->getCompte();
+		//$form = $this->get('form.factory')->create(new IndividuType(),$individu);
+		//if ($form->handleRequest($request)->isValid()){
+			//$em = $this->getDoctrine()->getManager();
+			//$em->persist($individu);
+			//$em->flush();
+			//$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
+			//return $this->redirect($this->generateUrl('user_connected_index'));
+		//}
+		
 		return $this->render('UserBundle:User:ajouter.html.twig', array('form' => $form->createView(),));
 	}
 	

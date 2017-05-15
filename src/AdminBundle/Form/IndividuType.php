@@ -52,6 +52,8 @@ class IndividuType extends AbstractType
 				array('required' => false)
 			)
 			->add('compte')
+			//->getCompte()
+			->add('Enregistrer', 'submit')
 			;
     }
     

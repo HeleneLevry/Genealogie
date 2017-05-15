@@ -3,6 +3,7 @@
 namespace AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Individu
@@ -30,43 +31,43 @@ class Individu
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      */
     private $nom;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="prenom", type="string", length=255)
+     * @Assert\Length(max=255)
      */
     private $prenom;
     
     /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(name="genre", type="boolean")
+     * @ORM\Column(name="genre", type="string", length=255)
      */
     private $genre;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="date_naissance", type="datetime")
+     * @ORM\Column(name="date_naissance", type="date", nullable=true)
+     * @Assert\Date()
      */
     private $dateNaissance;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="date_deces", type="datetime")
+     * @ORM\Column(name="date_deces", type="date", nullable=true)
+     * @Assert\Date()
      */
     private $dateDeces;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="string", length=255)
+     * @ORM\Column(name="commentaire", type="string", length=255, nullable=true)
      */
     private $commentaire;
 
