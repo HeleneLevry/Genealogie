@@ -1,0 +1,17 @@
+{# /src/UserBundle/Resources/views/supprimer_compte_2.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	YourHealthyTree!
+{% endblock %}
+
+{% block fos_user_content %}
+	<h2> Votre compte a été supprimé ! </h2>
+	
+	<p>
+		<a href= "{{ path('user_accueil') }}" class="btn">
+			Accueil
+		</a>
+	</p>
+{% endblock %}
