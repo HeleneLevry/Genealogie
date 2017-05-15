@@ -13,4 +13,8 @@ class AdminController extends Controller
 	{
 		return $this->render('AdminBundle:Admin:ajouter_patho.html.twig');
 	}
+	public function ajout_adminAction()
+	{
+		return $this->render('AdminBundle:Admin:ajout_admin.html.twig');
+	}
 }

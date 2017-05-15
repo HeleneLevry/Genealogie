@@ -6,6 +6,10 @@ namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use AdminBundle\Entity\Individu;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
 {	
@@ -24,7 +28,41 @@ class UserController extends Controller
 	
 	public function ajouterAction()
 	{
-		return $this->render('UserBundle:User:ajouter.html.twig');
+		$individu = new Individu();
+		$individu->setDateDeces(new \Datetime());
+		$formBuilder = $this->get('form.factory')->createBuilder('form',$individu);
+		$formBuilder
+			->add('nom',	'text', array('required' => false))
+			->add('prenom',	'text')
+			->add('genre', ChoiceType::class, array(
+				'choices'  => array(
+					'Masculin' => 'Masculin',
+					'Feminin' => 'Féminin',
+					'Autre' => 'Autre',),
+				))
+			->add('dateNaissance', BirthdayType::class, array(
+				'placeholder' => array(
+					'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'),
+				'format' => 'ddMMyyy'
+			), array('required' => false))
+			->add('dateDeces', BirthdayType::class, array(
+				'placeholder' => array(
+					'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'),
+				'format' => 'ddMMyyy'
+			),array('required' => false))
+			->add('commentaire',	'textarea', array('required' => false))
+			->add('Enregistrer',	'submit')
+		;
+		$form = $formBuilder->getForm();
+		//$form->handleRequest($request);
+		if ($form->isValid()){
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($individu);
+			$em->flush();
+			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrée');
+			return $this->redirect($this->generateUrl('/ajouter'));
+		}
+		return $this->render('UserBundle:User:ajouter.html.twig', array('form' => $form->createView(),));
 	}
 	
 	public function modifierAction()
