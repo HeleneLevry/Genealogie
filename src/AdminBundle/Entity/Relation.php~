@@ -1,9 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Relation
  *
@@ -15,15 +13,16 @@ class Relation
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(name="individu_asc_id", referencedColumnName="id",nullable=false)
     */
-    private $individuA;
+    private $individuAscendant;
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(name="individu_desc_id", referencedColumnName="id",nullable=false)
     */
-    private $individuB;
+    private $individuDescendant;
+    
     
     /**
      * @var int
@@ -33,7 +32,6 @@ class Relation
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
@@ -42,7 +40,6 @@ class Relation
     private $typeRelation;
     
    
-
     /**
      * Get id
      *
@@ -52,7 +49,6 @@ class Relation
     {
         return $this->id;
     }
-
     /**
      * Set typeRelation
      *
@@ -63,10 +59,8 @@ class Relation
     public function setTypeRelation($typeRelation)
     {
         $this->typeRelation = $typeRelation;
-
         return $this;
     }
-
     /**
      * Get typeRelation
      *

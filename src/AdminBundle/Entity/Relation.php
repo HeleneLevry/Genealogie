@@ -1,9 +1,7 @@
 <?php
 
 namespace AdminBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Relation
  *
@@ -15,15 +13,16 @@ class Relation
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(name="individu_asc_id", referencedColumnName="id",nullable=false)
     */
-    private $individuA;
+    private $individuAscendant;
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(name="individu_desc_id", referencedColumnName="id",nullable=false)
     */
-    private $individuB;
+    private $individuDescendant;
+    
     
     /**
      * @var int
@@ -33,7 +32,6 @@ class Relation
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
@@ -42,7 +40,6 @@ class Relation
     private $typeRelation;
     
    
-
     /**
      * Get id
      *
@@ -52,7 +49,6 @@ class Relation
     {
         return $this->id;
     }
-
     /**
      * Set typeRelation
      *
@@ -63,10 +59,8 @@ class Relation
     public function setTypeRelation($typeRelation)
     {
         $this->typeRelation = $typeRelation;
-
         return $this;
     }
-
     /**
      * Get typeRelation
      *
@@ -78,50 +72,50 @@ class Relation
     }
 
     /**
-     * Set individuA
+     * Set individuAscendant
      *
-     * @param \AdminBundle\Entity\Individu $individuA
+     * @param \AdminBundle\Entity\Individu $individuAscendant
      *
      * @return Relation
      */
-    public function setIndividuA(\AdminBundle\Entity\Individu $individuA)
+    public function setIndividuAscendant(\AdminBundle\Entity\Individu $individuAscendant)
     {
-        $this->individuA = $individuA;
+        $this->individuAscendant = $individuAscendant;
 
         return $this;
     }
 
     /**
-     * Get individuA
+     * Get individuAscendant
      *
      * @return \AdminBundle\Entity\Individu
      */
-    public function getIndividuA()
+    public function getIndividuAscendant()
     {
-        return $this->individuA;
+        return $this->individuAscendant;
     }
 
     /**
-     * Set individuB
+     * Set individuDescendant
      *
-     * @param \AdminBundle\Entity\Individu $individuB
+     * @param \AdminBundle\Entity\Individu $individuDescendant
      *
      * @return Relation
      */
-    public function setIndividuB(\AdminBundle\Entity\Individu $individuB)
+    public function setIndividuDescendant(\AdminBundle\Entity\Individu $individuDescendant)
     {
-        $this->individuB = $individuB;
+        $this->individuDescendant = $individuDescendant;
 
         return $this;
     }
 
     /**
-     * Get individuB
+     * Get individuDescendant
      *
      * @return \AdminBundle\Entity\Individu
      */
-    public function getIndividuB()
+    public function getIndividuDescendant()
     {
-        return $this->individuB;
+        return $this->individuDescendant;
     }
 }

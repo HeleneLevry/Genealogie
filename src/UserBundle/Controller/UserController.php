@@ -5,11 +5,11 @@
 namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-use AdminBundle\Entity\Individu;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use AdminBundle\Entity\Relation;
+use AdminBundle\Form\RelationType;
+
 
 class UserController extends Controller
 {	
@@ -28,41 +28,16 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:menu.html.twig');
 	}
 	
-	public function ajouterAction()
+	public function ajouterAction(Request $request)
 	{
-		$individu = new Individu();
-		//$individu->setDateDeces(new \Datetime());
-		$formBuilder = $this->get('form.factory')->createBuilder('form',$individu);
-		$formBuilder
-			->add('nom',	'text', array('required' => false))
-			->add('prenom',	'text')
-			->add('genre', ChoiceType::class, array(
-				'choices'  => array(
-					'Masculin' => 'Masculin',
-					'Feminin' => 'Féminin',
-					'Autre' => 'Autre',),
-				))
-			->add('dateNaissance', BirthdayType::class, array(
-				'placeholder' => array(
-					'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'),
-				'format' => 'ddMMyyy'
-			), array('required' => false))
-			->add('dateDeces', BirthdayType::class, array(
-				'placeholder' => array(
-					'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'),
-				'format' => 'ddMMyyy'
-			),array('required' => false))
-			->add('commentaire',	'textarea', array('required' => false))
-			->add('Enregistrer',	'submit')
-		;
-		$form = $formBuilder->getForm();
-		//$form->handleRequest($request);
-		if ($form->isValid()){
+		$relation = new Relation();
+		$form = $this->get('form.factory')->create(new RelationType(),$relation);
+		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
-			$em->persist($individu);
+			$em->persist($relation);
 			$em->flush();
-			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrée');
-			return $this->redirect($this->generateUrl('/ajouter'));
+			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
+			return $this->redirect($this->generateUrl('user_connected_index'));
 		}
 		return $this->render('UserBundle:User:ajouter.html.twig', array('form' => $form->createView(),));
 	}

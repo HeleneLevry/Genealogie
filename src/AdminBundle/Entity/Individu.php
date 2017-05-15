@@ -29,13 +29,6 @@ class Individu
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="num_individu", type="integer", unique=true)
-     */
-    private $numIndividu;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
@@ -93,30 +86,6 @@ class Individu
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set numIndividu
-     *
-     * @param integer $numIndividu
-     *
-     * @return Individu
-     */
-    public function setNumIndividu($numIndividu)
-    {
-        $this->numIndividu = $numIndividu;
-
-        return $this;
-    }
-
-    /**
-     * Get numIndividu
-     *
-     * @return integer
-     */
-    public function getNumIndividu()
-    {
-        return $this->numIndividu;
     }
 
     /**
