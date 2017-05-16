@@ -53,14 +53,12 @@ class Individu
     /**
      * @var \DateTime
      * @ORM\Column(name="date_naissance", type="date", nullable=true)
-     * @Assert\Date()
      */
     private $dateNaissance;
 
     /**
      * @var \DateTime
      * @ORM\Column(name="date_deces", type="date", nullable=true)
-     * @Assert\Date()
      */
     private $dateDeces;
 

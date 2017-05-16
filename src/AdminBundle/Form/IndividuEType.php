@@ -9,8 +9,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class IndividuType extends AbstractType
+class IndividuEType extends AbstractType
 {
 	
 
@@ -73,7 +74,12 @@ class IndividuType extends AbstractType
 			//)
 			//->add('compte')
 			//->getCompte() app.user.username
-			->add('Enregistrer', 'submit')
+			//->add('Enregistrer', 'submit')
+			->add(
+				'commentaire_indiv', 
+				TextType::class,
+				array('data' => $options['compte'], 'mapped' => false)
+			)
 			;
     }
     
@@ -83,7 +89,8 @@ class IndividuType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Individu'
+            'data_class' => 'AdminBundle\Entity\Individu',
+            'compte' => null
         ));
     }
 

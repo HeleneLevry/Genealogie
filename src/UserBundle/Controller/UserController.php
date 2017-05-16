@@ -9,8 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AdminBundle\Entity\Relation;
 use AdminBundle\Form\RelationType;
+use AdminBundle\Form\RelationEType;
 use AdminBundle\Entity\Individu;
 use AdminBundle\Form\IndividuType;
+use AdminBundle\Form\IndividuEType;
 
 
 class UserController extends Controller
@@ -33,9 +35,10 @@ class UserController extends Controller
 	public function ajouterAction(Request $request)
 	{
 		$relation = new Relation();
-		//$individu = new Individu();
-		//$individu->setCompte($this->getUser());
-		$form = $this->get('form.factory')->create(new RelationType(),$relation);
+		$individu = new Individu();
+		$individu->setCompte($this->getUser());
+		//$form = $this->get('form.factory')->create(new RelationType(),$relation, array('compte' => $individu));
+		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $this->getUser()));
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($relation);
@@ -46,7 +49,7 @@ class UserController extends Controller
 		
 		//$individu = new Individu();
 		//$individu->setCompte($this->getUser());
-		//$form = $this->get('form.factory')->create(new IndividuType(),$individu);
+		//$form = $this->get('form.factory')->create(new IndividuEType(),$individu);
 		//if ($form->handleRequest($request)->isValid()){
 			//$em = $this->getDoctrine()->getManager();
 			//$em->persist($individu);
