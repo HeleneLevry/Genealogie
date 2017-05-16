@@ -6,3 +6,6 @@ admin_supprimer_patho:
     path:     /supprimer_patho
     defaults: { _controller: AdminBundle:Admin:supprimer_patho }
 
+admin_lister_patho:
+    path:     /lister_patho
+    defaults: { _controller: AdminBundle:Admin:lister_patho }

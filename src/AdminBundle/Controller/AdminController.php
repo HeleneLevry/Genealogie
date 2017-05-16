@@ -36,7 +36,7 @@ class AdminController extends Controller
 				 $em->persist($new_patho);
 				 $em->flush();
 				 
-			return $this->redirect($this->generateUrl('user_connected_index'));
+			return $this->redirect($this->generateUrl('admin_lister_patho'));
 			}
 		}
 		
@@ -75,10 +75,22 @@ class AdminController extends Controller
 					$em->flush();
 					
 				}
-			return $this->redirect($this->generateUrl('user_connected_index'));
+			return $this->redirect($this->generateUrl('admin_lister_patho'));
 			}
 		}
 		
 		return $this->render('AdminBundle:Admin:supprimer_patho.html.twig',array('form' => $form->createView()));
+	}
+	
+	public function lister_pathoAction()
+	{
+		 $nom_patho= new Banque_Patho;
+		
+		 $em = $this->getDoctrine()->getManager();
+		 $repository=$em->getRepository('AdminBundle:Banque_Patho');
+		 
+		 $liste_pathologies = $repository->findAll();
+				 
+		return $this->render('AdminBundle:Admin:lister_patho.html.twig',array('liste_patho'=>$liste_pathologies));
 	}
 }

@@ -1,0 +1,18 @@
+{# src/AdminBundle/Resources/views/lister_patho.html.twig #}
+
+{% extends "AdminBundle::layout.html.twig" %} 
+
+{% block title %}
+	YourHealthyTree!
+{% endblock %}
+
+
+{% block admin_block %}
+	<h4> Voici les pathologies présentes dans la base de données:  </h4>
+	
+	<ul>
+		{% for patho in liste_patho %}
+			<li>{{ patho.nomPathologie }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
