@@ -11,6 +11,9 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
 class IndividuType extends AbstractType
 {
+	
+
+	
     /**
      * {@inheritdoc}
      */
@@ -35,15 +38,21 @@ class IndividuType extends AbstractType
 					'Autre' => 'Autre'))
 			)
 			->add(
-				'dateNaissance', 
-				BirthdayType::class, 
-				array('placeholder' => array('year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'), 'format' => 'ddMMyyy'), 
+				'dateNaissance',
+				BirthdayType::class,
+				array(
+					'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+					'format' => 'ddMMyyyy'
+				),
 				array('required' => false)
 			)
 			->add(
 				'dateDeces', 
 				BirthdayType::class, 
-				array('placeholder' => array('year' => 'Année', 'month' => 'Mois', 'day' => 'Jour'),'format' => 'ddMMyyy'),
+				array(
+					'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+					'format' => 'ddMMyyyy'
+				),
 				array('required' => false)
 			)
 			->add(
@@ -51,9 +60,17 @@ class IndividuType extends AbstractType
 				'textarea', 
 				array('required' => false)
 			)
-			->add('compte')
-			//->getCompte()
-			->add('Enregistrer', 'submit')
+			//->add(
+				//'your_embedded_field', 
+				//CollectionType::class, 
+				//array(
+					//'entry_type' => IndividuType::class,
+					//'entry_options' => array('compte' => $this->compte)
+				//)
+			//)
+			//->add('compte')
+			//->getCompte() app.user.username
+			//->add('Enregistrer', 'submit')
 			;
     }
     

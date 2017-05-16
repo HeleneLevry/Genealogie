@@ -33,6 +33,8 @@ class UserController extends Controller
 	public function ajouterAction(Request $request)
 	{
 		$relation = new Relation();
+		//$individu = new Individu();
+		//$individu->setCompte($this->getUser());
 		$form = $this->get('form.factory')->create(new RelationType(),$relation);
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
@@ -43,7 +45,7 @@ class UserController extends Controller
 		}
 		
 		//$individu = new Individu();
-		//$individu->getCompte();
+		//$individu->setCompte($this->getUser());
 		//$form = $this->get('form.factory')->create(new IndividuType(),$individu);
 		//if ($form->handleRequest($request)->isValid()){
 			//$em = $this->getDoctrine()->getManager();

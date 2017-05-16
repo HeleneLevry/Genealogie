@@ -13,15 +13,15 @@ class Relation
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(name="individu_asc_id", referencedColumnName="id",nullable=false)
+    * @ORM\JoinColumn(name="individu_connu_id", referencedColumnName="id",nullable=false)
     */
-    private $individuAscendant;
+    private $individuConnu;
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(name="individu_desc_id", referencedColumnName="id",nullable=false)
+    * @ORM\JoinColumn(name="individu_a_lier_id", referencedColumnName="id",nullable=false)
     */
-    private $individuDescendant;
+    private $individuALier;
     
     
     /**
@@ -117,5 +117,53 @@ class Relation
     public function getIndividuDescendant()
     {
         return $this->individuDescendant;
+    }
+
+    /**
+     * Set individuConnu
+     *
+     * @param \AdminBundle\Entity\Individu $individuConnu
+     *
+     * @return Relation
+     */
+    public function setIndividuConnu(\AdminBundle\Entity\Individu $individuConnu)
+    {
+        $this->individuConnu = $individuConnu;
+
+        return $this;
+    }
+
+    /**
+     * Get individuConnu
+     *
+     * @return \AdminBundle\Entity\Individu
+     */
+    public function getIndividuConnu()
+    {
+        return $this->individuConnu;
+    }
+
+    /**
+     * Set individuALier
+     *
+     * @param \AdminBundle\Entity\Individu $individuALier
+     *
+     * @return Relation
+     */
+    public function setIndividuALier(\AdminBundle\Entity\Individu $individuALier)
+    {
+        $this->individuALier = $individuALier;
+
+        return $this;
+    }
+
+    /**
+     * Get individuALier
+     *
+     * @return \AdminBundle\Entity\Individu
+     */
+    public function getIndividuALier()
+    {
+        return $this->individuALier;
     }
 }

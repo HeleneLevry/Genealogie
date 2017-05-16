@@ -13,15 +13,15 @@ class Relation
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(name="individu_asc_id", referencedColumnName="id",nullable=false)
+    * @ORM\JoinColumn(name="individu_connu_id", referencedColumnName="id",nullable=false)
     */
-    private $individuAscendant;
+    private $individuConnu;
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(name="individu_desc_id", referencedColumnName="id",nullable=false)
+    * @ORM\JoinColumn(name="individu_a_lier_id", referencedColumnName="id",nullable=false)
     */
-    private $individuDescendant;
+    private $individuALier;
     
     
     /**
@@ -69,5 +69,53 @@ class Relation
     public function getTypeRelation()
     {
         return $this->typeRelation;
+    }
+
+    /**
+     * Set individuAscendant
+     *
+     * @param \AdminBundle\Entity\Individu $individuAscendant
+     *
+     * @return Relation
+     */
+    public function setIndividuAscendant(\AdminBundle\Entity\Individu $individuAscendant)
+    {
+        $this->individuAscendant = $individuAscendant;
+
+        return $this;
+    }
+
+    /**
+     * Get individuAscendant
+     *
+     * @return \AdminBundle\Entity\Individu
+     */
+    public function getIndividuAscendant()
+    {
+        return $this->individuAscendant;
+    }
+
+    /**
+     * Set individuDescendant
+     *
+     * @param \AdminBundle\Entity\Individu $individuDescendant
+     *
+     * @return Relation
+     */
+    public function setIndividuDescendant(\AdminBundle\Entity\Individu $individuDescendant)
+    {
+        $this->individuDescendant = $individuDescendant;
+
+        return $this;
+    }
+
+    /**
+     * Get individuDescendant
+     *
+     * @return \AdminBundle\Entity\Individu
+     */
+    public function getIndividuDescendant()
+    {
+        return $this->individuDescendant;
     }
 }

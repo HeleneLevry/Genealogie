@@ -17,8 +17,17 @@ class RelationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		
+		//$this->id_compte = $option['id_compte'];
         $builder
+			->add(
+				'individuConnu',
+				'entity',
+				array(
+					'class' => 'AdminBundle:Individu', 
+					'property' => 'prenom', 
+					'multiple' => true
+				)
+			)	
 			->add(
 				'typeRelation', 
 				ChoiceType::class, 
@@ -27,40 +36,14 @@ class RelationType extends AbstractType
 					'Descendant' => 'descendant'))
 			)
 			->add(
+				'individuALier',
+				new IndividuType()
+			)
+			->add(
 				'Enregistrer',
 				'submit'
 			)
 			;
-			
-		 $builder->addEventListener(
-			FormEvents::POST_SET_DATA, 
-			function(FormEvent $event) {
-				$relation = $event->getData();
-				if (null === $relation) {
-					return; // On sort de la fonction sans rien faire lorsque $advert vaut null
-				}
-				if ($relation->getTypeRelation() === 'ascendant') {
-					$event->getForm()
-						->add(
-							'individuDescendant',
-							'collection',
-							array(
-								'noms'	=> new IndividuType(),
-								'allow_add' => true,
-								'allow_delete' => true)
-						)
-						->add(
-							'individuAscendant',
-							new IndividuType()
-						);
-				} else {
-					$event->getForm()
-						->add(
-							'individuDescendant',
-							new IndividuType()
-						);
-				}
-			});
 	}
     
     /**
@@ -69,7 +52,9 @@ class RelationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Relation'
+            'data_class' => 'AdminBundle\Entity\Relation',
+            //'compte'=>null
+			//'id_compte' => $this->getUser()
         ));
     }
 
