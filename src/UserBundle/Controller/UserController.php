@@ -54,7 +54,7 @@ class UserController extends Controller
 		//récupération user	
 		$user = $this->container->get('security.context')->getToken()->getUser();
 		
-		//récupération service USerMAnager 
+		//récupération service USerManager 
 		$userManager = $this->get('fos_user.user_manager');
 		$userManager->deleteUser($user);
 		
