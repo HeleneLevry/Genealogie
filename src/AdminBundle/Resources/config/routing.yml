@@ -1,3 +1,7 @@
 admin_ajouter_patho:
     path:     /ajouter_patho
     defaults: { _controller: AdminBundle:Admin:ajouter_patho }
+
+ajouter_un_admin:
+    path:     /ajouter_admin
+    defaults: { _controller: AdminBundle:Admin:ajouter_admin }
