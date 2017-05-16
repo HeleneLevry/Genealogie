@@ -46,6 +46,39 @@ class AdminController extends Controller
 	
 	public function supprimer_pathoAction()
 	{
-		return $this->render('AdminBundle:Admin:supprimer_patho.html.twig');
+		$nom_patho= new Banque_Patho;
+		
+		//On genere le formulaire
+		 $form=$this->createForm(new Banque_PathoType, $nom_patho);
+		 
+		 //On récupère la requête
+		 $request = $this->get('request');
+
+		 //On verifie qu'elle est de type POST
+		 
+		 if (($this->get('request')->getMethod()) == 'POST'){
+			 $form->bind($request);
+			 
+			 if ($form->isValid()){
+				
+				 //On enregistre notre objet dans la bdd
+				 $em = $this->getDoctrine()->getManager();
+				 $repository=$em->getRepository('AdminBundle:Banque_Patho');
+				 
+				 $patho=$nom_patho->getNomPathologie();
+				 
+				 $pathologie=$repository->findOneBy(array('nomPathologie' => $patho));
+				 
+				 if ($pathologie){
+					 
+					$em->remove($pathologie);
+					$em->flush();
+					
+				}
+			return $this->redirect($this->generateUrl('user_connected_index'));
+			}
+		}
+		
+		return $this->render('AdminBundle:Admin:supprimer_patho.html.twig',array('form' => $form->createView()));
 	}
 }
