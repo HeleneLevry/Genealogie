@@ -44,6 +44,7 @@ class UserController extends Controller
 		$individu = new Individu();
 		$user = $this->get('security.context')->getToken()->getUser();
 		$userId = $user->getId();
+		$_SESSION['iduser']=$userId;
 		//$individu->setCompte($userId);
 		//$individu->setCompte($this->getUser()->getId());
 		//$individu->setCompte($this->getUser());

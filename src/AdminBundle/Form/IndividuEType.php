@@ -45,43 +45,41 @@ class IndividuEType extends AbstractType
 						'Autre' => 'Autre'),
 					'required' => false)
 			)
-			->add('dateNaissance')
-			->add('dateDeces')
-			//->add(
-				//'dateNaissance',
-				//BirthdayType::class,
-				//array(
-					//'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
-					//'format' => 'ddMMyyyy'
-				//),
-				//array('required' => false)
-			//)
-			//->add(
-				//'dateDeces', 
-				//BirthdayType::class, 
-				//array(
-					//'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
-					//'format' => 'ddMMyyyy'
-				//),
-				//array('required' => false)
-			//)
+			//->add('dateNaissance')
+			//->add('dateDeces')
+			->add(
+				'dateNaissance',
+				BirthdayType::class,
+				array(
+					'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+					'format' => 'ddMMyyyy',
+					'required' => false)
+				)
+			->add(
+				'dateDeces', 
+				BirthdayType::class, 
+				array(
+					'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+					'format' => 'ddMMyyyy',
+					'required' => false)
+			)
+			->add(
+				'compte',
+				'hidden',
+				array('data' => $_SESSION['iduser'])
+			)
 			->add(
 				'commentaire', 
 				'textarea', 
 				array('required' => false)
 			)
-			//->add('Enregistrer', 'submit')
-			->add(
-				'commentaire_indiv', 
-				TextType::class,
-				array('data' => $options['compte'], 'mapped' => false)
-			)
 			->add(
 				'commentaire_indiv_2', 
 				TextType::class,
-				array('data' => $idcompte, 'mapped' => false)
+				array('data' => $_SESSION['iduser'], 'mapped' => false)
 			)
 			;
+			getCompte() = $_SESSION['iduser'];
     }
     
     /**

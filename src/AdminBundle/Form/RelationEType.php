@@ -65,6 +65,7 @@ class RelationEType extends AbstractType
 				array('data' => $idcompte, 'mapped' => false)
 			)
 			;
+			
 	}
     
     /**
