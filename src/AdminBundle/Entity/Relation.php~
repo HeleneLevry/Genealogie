@@ -35,7 +35,7 @@ class Relation
     /**
      * @var string
      *
-     * @ORM\Column(name="type_relation", type="string", length=255)
+     * @ORM\Column(name="type_de_relation", type="boolean", length=255)
      */
     private $typeRelation;
     
@@ -117,5 +117,53 @@ class Relation
     public function getIndividuDescendant()
     {
         return $this->individuDescendant;
+    }
+
+    /**
+     * Set individuConnu
+     *
+     * @param \AdminBundle\Entity\Individu $individuConnu
+     *
+     * @return Relation
+     */
+    public function setIndividuConnu(\AdminBundle\Entity\Individu $individuConnu)
+    {
+        $this->individuConnu = $individuConnu;
+
+        return $this;
+    }
+
+    /**
+     * Get individuConnu
+     *
+     * @return \AdminBundle\Entity\Individu
+     */
+    public function getIndividuConnu()
+    {
+        return $this->individuConnu;
+    }
+
+    /**
+     * Set individuALier
+     *
+     * @param \AdminBundle\Entity\Individu $individuALier
+     *
+     * @return Relation
+     */
+    public function setIndividuALier(\AdminBundle\Entity\Individu $individuALier)
+    {
+        $this->individuALier = $individuALier;
+
+        return $this;
+    }
+
+    /**
+     * Get individuALier
+     *
+     * @return \AdminBundle\Entity\Individu
+     */
+    public function getIndividuALier()
+    {
+        return $this->individuALier;
     }
 }

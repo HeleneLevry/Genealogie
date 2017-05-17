@@ -33,12 +33,12 @@ class RelationEType extends AbstractType
 				'typeRelation', 
 				ChoiceType::class, 
 				array('choices'  => array(
-					'Ascendant' => 'ascendant',
-					'Descendant' => 'descendant'))
+					true => 'ascendant',
+					false => 'descendant'))
 			)
 			->add(
 				'individuALier',
-				new IndividuEType($options['compte'])
+				new IndividuEType(array($options['compte']))
 			)
 			->add(
 				'Enregistrer',

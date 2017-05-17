@@ -35,7 +35,7 @@ class Relation
     /**
      * @var string
      *
-     * @ORM\Column(name="type_relation", type="string", length=255)
+     * @ORM\Column(name="type_de_relation", type="boolean", length=255)
      */
     private $typeRelation;
     

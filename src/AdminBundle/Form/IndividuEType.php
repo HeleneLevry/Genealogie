@@ -34,10 +34,13 @@ class IndividuEType extends AbstractType
 			->add(
 				'genre', 
 				ChoiceType::class, 
-				array('choices'  => array(
-					'Masculin' => 'Masculin',
-					'Feminin' => 'Féminin',
-					'Autre' => 'Autre'))
+				array(
+					'choices'  => array(
+						null => '...',
+						'Masculin' => 'Masculin',
+						'Feminin' => 'Féminin',
+						'Autre' => 'Autre'),
+					'required' => false)
 			)
 			->add('dateNaissance')
 			->add('dateDeces')
