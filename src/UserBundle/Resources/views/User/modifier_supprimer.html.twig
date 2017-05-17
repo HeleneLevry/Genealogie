@@ -9,4 +9,10 @@
 
 {% block fos_user_content %}
 	<h2> Modifier ou supprimer un proche </h2>
+	
+	<ul>
+		{% for individu in liste_indiv %}
++			<li>{{ individu.nom }} {{ individu.prenom }}</li>
++		{% endfor %}
+	</ul>
 {% endblock %}
