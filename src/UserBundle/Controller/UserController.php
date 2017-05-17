@@ -61,9 +61,41 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:ajouter.html.twig', array('form' => $form->createView(),));
 	}
 	
-	public function modifierAction()
+	public function modifier_supprimerAction()
 	{
-		return $this->render('UserBundle:User:modifier.html.twig');
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Individu')
+		;
+		$listIndividu = $repository->findAll();
+		return $this->render('UserBundle:User:modifier_supprimer.html.twig', array('liste_indiv'=>$listIndividu));
+	}
+	
+	public function modifier_infos_individuAction()
+	{
+		return $this->render('UserBundle:User:modifier_infos_individu.html.twig');
+	}
+	
+	public function choix_patho_modifierAction()
+	{
+		return $this->render('UserBundle:User:choix_patho_modifier.html.twig');
+	}
+	
+	public function modifier_patho_individuAction()
+	{
+		return $this->render('UserBundle:User:modifier_patho_individu.html.twig');
+	}
+	
+	public function lister_prochesAction()
+	{
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Individu')
+		;
+		$listIndividu = $repository->findAll();
+		return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu));
 	}
 	
 	public function supprimerAction()
