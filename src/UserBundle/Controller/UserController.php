@@ -38,7 +38,7 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:menu.html.twig');
 	}
 	
-	public function ajouterAction(Request $request)
+	public function ajouter_procheAction(Request $request)
 	{
 		$relation = new Relation();
 		$individu = new Individu();
@@ -63,7 +63,7 @@ class UserController extends Controller
 			//return $this->redirect($this->generateUrl('user_connected_index'));
 		//}
 		
-		return $this->render('UserBundle:User:ajouter.html.twig', array('form' => $form->createView(),));
+		return $this->render('UserBundle:User:ajouter_proche.html.twig', array('form' => $form->createView(),));
 	}
 	
 	public function modifier_supprimerAction()

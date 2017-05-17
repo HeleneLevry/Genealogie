@@ -254,4 +254,14 @@ class Individu
     {
         return $this->compte;
     }
+    
+    /**
+     * Get nom complet
+     *
+     * @return string
+     */
+    public function getNomComplet()
+    {
+        return $this->nom." ".$this->prenom;
+    }
 }

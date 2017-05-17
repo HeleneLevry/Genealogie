@@ -30,9 +30,9 @@ user_lister_proches:
     path:    /lister_proches
     defaults: { _controller:UserBundle:User:lister_proches }
  
-user_ajouter:
-    path:     /ajouter
-    defaults: { _controller:UserBundle:User:ajouter }
+user_ajouter_proche:
+    path:     /ajouter_proche
+    defaults: { _controller:UserBundle:User:ajouter_proche }
     
 user_nous_contacter_1:
     path:     /nous_contacter

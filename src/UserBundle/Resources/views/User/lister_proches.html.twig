@@ -16,6 +16,8 @@
 				{{ individu.nom }} {{ individu.prenom }}
 				<br/>
 				{{ individu.dateNaissance|date("d/m/Y") }} - {{ individu.datedeces|date("d/m/Y") }}
+				{% for individu in liste_indiv %}
+				{% endfor %}
 			</li>
 		{% endfor %}
 	</ul>
