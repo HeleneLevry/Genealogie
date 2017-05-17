@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+
+
 class IndividuEType extends AbstractType
 {
 	
@@ -21,6 +23,7 @@ class IndividuEType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		$idcompte=$options['compte'];
         $builder
 			->add(
 				'nom', 
@@ -67,21 +70,16 @@ class IndividuEType extends AbstractType
 				'textarea', 
 				array('required' => false)
 			)
-			//->add(
-				//'your_embedded_field', 
-				//CollectionType::class, 
-				//array(
-					//'entry_type' => IndividuType::class,
-					//'entry_options' => array('compte' => $this->compte)
-				//)
-			//)
-			//->add('compte')
-			//->getCompte() app.user.username
 			//->add('Enregistrer', 'submit')
 			->add(
 				'commentaire_indiv', 
 				TextType::class,
 				array('data' => $options['compte'], 'mapped' => false)
+			)
+			->add(
+				'commentaire_indiv_2', 
+				TextType::class,
+				array('data' => $idcompte, 'mapped' => false)
 			)
 			;
     }

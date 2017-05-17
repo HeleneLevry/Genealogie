@@ -13,6 +13,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
+use AdminBundle\Entity\Individu;
+use AdminBundle\Form\IndividuEType;
+
+
 class RelationEType extends AbstractType
 {
     /**
@@ -21,16 +25,17 @@ class RelationEType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 		$idcompte=$options['compte'];
-		//$this->id_compte = $option['id_compte'];
         $builder
 			->add(
 				'individuConnu',
 				EntityType::class,
 				array(
 					'class' => 'AdminBundle:Individu', 
-					'query_builder' => function (EntityRepository $er) {
+					'query_builder' => function (EntityRepository $er) use ($idcompte) {
 						return $er->createQueryBuilder('i')
 							->where('i.compte = :idcompte')
+							->setParameter('idcompte', $idcompte)
+							//->where('i.compte = 19')
 							->orderBy('i.nom', 'ASC')
 							->orderBy('i.prenom','ASC');
 					},
@@ -44,11 +49,13 @@ class RelationEType extends AbstractType
 				ChoiceType::class, 
 				array('choices'  => array(
 					true => 'ascendant',
-					false => 'descendant'))
+					false => 'descendant',
+					null => 'Moi - Premier individu'))
 			)
 			->add(
 				'individuALier',
-				new IndividuEType(array('data' => $options['compte']))
+				new IndividuEType($idcompte)
+				//$this->createForm('AdminBundle\Form\IndividuEType', $individu, array('compte' => $idcompte))
 			)
 			->add(
 				'Enregistrer',
