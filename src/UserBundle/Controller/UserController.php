@@ -108,6 +108,14 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:modifier_patho_individu.html.twig');
 	}
 	
+		//public function myFindAll($compte)
+		//{
+				//return $this
+					//->createQueryBuilder('p')
+					//->getQuery()
+					//->getResult()
+				//;
+		//}
 	public function lister_prochesAction()
 	{
 		$repository = $this
@@ -115,10 +123,18 @@ class UserController extends Controller
 			->getManager()
 			->getRepository('AdminBundle:Individu')
 		;
-		$listIndividu = $repository->findAll();
-		return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu));
+		$user = $this->container->get('security.context')->getToken()->getUser();
+		$listIndividu = $repository->findBy(array('compte' => $user), array('dateNaissance' => 'desc'));		
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Pathologie')
+		;
+		//$num_individus_compte = $repository->myFindAll($user);
+		//$listPathologie = $repository->findBy(array('num_individu_id' => $num_individus_compte), array('dateNaissance' => 'desc'));
+		return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu)); //, 'list_pathologies'=>$num_individus_compte));
 	}
-	
+
 	public function supprimerAction()
 	{
 		return $this->render('UserBundle:User:supprimer.html.twig');
