@@ -29,3 +29,7 @@ supprimer_compte_1:
 supprimer_compte_2:
     path:     /compte_supprime
     defaults: {_controller:UserBundle:User:supprimer_compte_2 }
+    
+user_lister:
+    path:     /lister_membre
+    defaults: { _controller:UserBundle:User:lister_relation }

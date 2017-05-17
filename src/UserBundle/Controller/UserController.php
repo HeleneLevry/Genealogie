@@ -15,6 +15,9 @@ use AdminBundle\Form\IndividuType;
 use AdminBundle\Form\IndividuEType;
 
 
+use AdminBundle\Entity\Individu;
+use AdminBundle\Entity\Compte;
+
 class UserController extends Controller
 {	
 	
@@ -86,10 +89,26 @@ class UserController extends Controller
 		//récupération user	
 		$user = $this->container->get('security.context')->getToken()->getUser();
 		
-		//récupération service USerMAnager 
+		//récupération service USerManager 
 		$userManager = $this->get('fos_user.user_manager');
 		$userManager->deleteUser($user);
 		
 		return $this->render('UserBundle:User:supprimer_compte_2.html.twig');
+	}
+	
+	public function lister_relationAction()
+	{
+		 $les_individu= new Individu;
+		  
+		 $em = $this->getDoctrine()->getManager();
+		 $repository=$em->getRepository('AdminBundle:Individu');
+		
+		 //on recupere notre utilisateur
+		 $user = $this->container->get('security.context')->getToken()->getUser();
+				
+		 $liste_individu = $repository->findBy(array('compte' => $user),array('nom' => 'desc'),30,0);
+		 
+		 
+		 return $this->render('UserBundle:User:lister_relation.html.twig',array('liste_individu'=>$liste_individu));
 	}
 }

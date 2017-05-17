@@ -1,6 +1,6 @@
 {# src/AdminBundle/Resources/views/ajouter_patho.html.twig #}
 
-{% extends "UserBundle::layout.html.twig" %} 
+{% extends "AdminBundle::layout.html.twig" %} 
 
 {% block title %}
 	YourHealthyTree!
@@ -8,5 +8,6 @@
 
 
 {% block admin_block %}
-	<h2> Ajouter des pathologies à la bse de données  </h2>
+	<h2> Ajouter des pathologies à la base de données  </h2>
+	{% include "AdminBundle:Admin:formulaire_1.html.twig" %}
 {% endblock %}

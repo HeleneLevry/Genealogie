@@ -1,0 +1,17 @@
+{# src/AdminBundle/Resources/views/bdd_vide_patho.html.twig #}
+
+{% extends "AdminBundle::layout.html.twig" %} 
+
+{% block title %}
+	YourHealthyTree!
+{% endblock %}
+
+
+{% block admin_block %}
+	<p> Désolé la base de données est actuellement vide de toute pathologie.<p>
+	
+	<p> <a href= "{{ path('admin_ajouter_patho') }}" class="btn">
+				Ajouter une nouvelle pathologie
+		</a>
+	</p>
+{% endblock %}
