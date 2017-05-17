@@ -5,6 +5,10 @@ admin_ajouter_patho:
 admin_supprimer_patho:
     path:     /supprimer_patho
     defaults: { _controller: AdminBundle:Admin:supprimer_patho }
+    
+admin_suppr_patho:
+    path:     /suppr_patho
+    defaults: { _controller: AdminBundle:Admin:suppr_patho }
 
 admin_lister_patho:
     path:     /lister_patho

@@ -6,9 +6,11 @@ namespace AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 use AdminBundle\Entity\Banque_Patho;
 use AdminBundle\Form\Banque_PathoType;
+use AdminBundle\Form\Banque_PathoSupprType;
 
 class AdminController extends Controller
 {	
@@ -85,6 +87,20 @@ class AdminController extends Controller
 		}
 		
 		return $this->render('AdminBundle:Admin:supprimer_patho.html.twig',array('form' => $form->createView()));
+	}
+	
+	public function suppr_pathoAction(Request $request)
+	{
+		$banque_patho = new Banque_Patho();
+		$form = $this->get('form.factory')->create(new Banque_PathoSupprType(),$banque_patho);
+		if ($form->handleRequest($request)->isValid()){
+			$em = $this->getDoctrine()->getManager();
+			$em->remove($banque_patho);
+			$em->flush();
+			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
+			return $this->redirect($this->generateUrl('admin_lister_patho'));
+		}
+		return $this->render('AdminBundle:Admin:suppr_patho.html.twig', array('form' => $form->createView(),));
 	}
 	
 	public function lister_pathoAction()
