@@ -25,17 +25,23 @@ class AdminController extends Controller
 		 //On verifie qu'elle est de type POST
 		 
 		 if (($this->get('request')->getMethod()) == 'POST'){
-			 echo('apres if POST');
 			 $form->bind($request);
-			 echo('avant if VALID');
 			 
 			 if ($form->isValid()){
-				 echo('apres if VALID');
+				 
 				 //On enregistre notre objet dans la bdd
 				 $em = $this->getDoctrine()->getManager();
+				 $repository=$em->getRepository('AdminBundle:Banque_Patho');
+				 
+				 $patho=$new_patho->getNomPathologie();
+				 $pathologie=$repository->findOneBy(array('nomPathologie' => $patho));
+				  
+				 if ($pathologie){
+				 
+					return $this->redirect($this->generateUrl('admin_Patho_existente'));
+				}
 				 $em->persist($new_patho);
 				 $em->flush();
-				 
 			return $this->redirect($this->generateUrl('admin_lister_patho'));
 			}
 		}
@@ -61,7 +67,6 @@ class AdminController extends Controller
 			 
 			 if ($form->isValid()){
 				
-				 //On enregistre notre objet dans la bdd
 				 $em = $this->getDoctrine()->getManager();
 				 $repository=$em->getRepository('AdminBundle:Banque_Patho');
 				 
@@ -73,9 +78,9 @@ class AdminController extends Controller
 					 
 					$em->remove($pathologie);
 					$em->flush();
-					
+					return $this->redirect($this->generateUrl('admin_lister_patho'));
 				}
-			return $this->redirect($this->generateUrl('admin_lister_patho'));
+			return $this->redirect($this->generateUrl('admin_Patho_inconnu'));
 			}
 		}
 		
@@ -90,7 +95,25 @@ class AdminController extends Controller
 		 $repository=$em->getRepository('AdminBundle:Banque_Patho');
 		 
 		 $liste_pathologies = $repository->findAll();
-				 
-		return $this->render('AdminBundle:Admin:lister_patho.html.twig',array('liste_patho'=>$liste_pathologies));
+		 
+		 if($liste_pathologies){
+			return $this->render('AdminBundle:Admin:lister_patho.html.twig',array('liste_patho'=>$liste_pathologies));
+		}
+		return $this->redirect($this->generateUrl('admin_bdd_vide_patho'));
+	}
+	
+	public function patho_existanteAction()
+	{
+		return $this->render('AdminBundle:Admin:patho_existante.html.twig');
+	}
+	
+	public function patho_inconnuAction()
+	{
+		return $this->render('AdminBundle:Admin:patho_inconnu.html.twig');
+	}
+	
+	public function bdd_vide_pathoAction()
+	{
+		return $this->render('AdminBundle:Admin:bdd_vide_patho.html.twig');
 	}
 }

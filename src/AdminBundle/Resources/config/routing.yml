@@ -9,3 +9,15 @@ admin_supprimer_patho:
 admin_lister_patho:
     path:     /lister_patho
     defaults: { _controller: AdminBundle:Admin:lister_patho }
+
+admin_Patho_existente:
+    path:     /patho_existante
+    defaults: { _controller: AdminBundle:Admin:patho_existante }
+
+admin_Patho_inconnu:
+    path:     /patho_inconnu
+    defaults: { _controller: AdminBundle:Admin:patho_inconnu }
+
+admin_bdd_vide_patho:
+    path:     /bdd_vide_patho
+    defaults: { _controller: AdminBundle:Admin:bdd_vide_patho }

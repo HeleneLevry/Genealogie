@@ -1,0 +1,21 @@
+{# src/AdminBundle/Resources/views/patho_existante.html.twig #}
+
+{% extends "AdminBundle::layout.html.twig" %} 
+
+{% block title %}
+	YourHealthyTree!
+{% endblock %}
+
+
+{% block admin_block %}
+	<p> Désolé la pathologie que vous essayez de rentrer est déjà présente dans la base de données.<p>
+	
+	<p> <a href= "{{ path('admin_lister_patho') }}" class="btn">
+				Afficher la liste des pathologies
+		</a>
+		
+		<a href= "{{ path('admin_ajouter_patho') }}" class="btn">
+				Ajouter une nouvelle pathologie
+		</a>
+	</p>
+{% endblock %}

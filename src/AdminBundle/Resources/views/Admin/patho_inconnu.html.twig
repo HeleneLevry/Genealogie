@@ -1,4 +1,4 @@
-{# src/AdminBundle/Resources/views/lister_patho.html.twig #}
+{# src/AdminBundle/Resources/views/patho_inconnu.html.twig #}
 
 {% extends "AdminBundle::layout.html.twig" %} 
 
@@ -8,20 +8,18 @@
 
 
 {% block admin_block %}
-	<h4> Voici les pathologies présentes dans la base de données:  </h4>
+	<p> Désolé la pathologie que vous essayez de supprimer n'est pas présente dans la base de données.<p>
 	
-	<ul>
-		{% for patho in liste_patho %}
-			<li>{{ patho.nomPathologie }}</li>
-		{% endfor %}
-	</ul>
-	<p>
+	<p> <a href= "{{ path('admin_lister_patho') }}" class="btn">
+				Afficher la liste des pathologies
+		</a>
+		
 		<a href= "{{ path('admin_ajouter_patho') }}" class="btn">
 				Ajouter une nouvelle pathologie
 		</a>
 		
 		<a href= "{{ path('admin_supprimer_patho') }}" class="btn">
-				Supprimer une pathologie
+				Supprimer une autre pathologie
 		</a>
 	</p>
 {% endblock %}
