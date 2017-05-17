@@ -262,6 +262,6 @@ class Individu
      */
     public function getNomComplet()
     {
-        return $this->nom." ".$this->prenom;
+        return $this->prenom." ".$this->nom;
     }
 }

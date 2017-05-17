@@ -42,8 +42,12 @@ class UserController extends Controller
 	{
 		$relation = new Relation();
 		$individu = new Individu();
-		$individu->setCompte($this->getUser());
-		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $this->getUser()));
+		$user = $this->get('security.context')->getToken()->getUser();
+		$userId = $user->getId();
+		//$individu->setCompte($userId);
+		//$individu->setCompte($this->getUser()->getId());
+		//$individu->setCompte($this->getUser());
+		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $userId));
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($relation);
