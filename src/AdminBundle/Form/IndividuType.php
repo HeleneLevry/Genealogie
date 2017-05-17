@@ -66,16 +66,6 @@ class IndividuType extends AbstractType
 				'textarea', 
 				array('required' => false)
 			)
-			//->add(
-				//'your_embedded_field', 
-				//CollectionType::class, 
-				//array(
-					//'entry_type' => IndividuType::class,
-					//'entry_options' => array('compte' => $this->compte)
-				//)
-			//)
-			//->add('compte')
-			//->getCompte() app.user.username
 			->add('Enregistrer', 'submit')
 			;
     }
