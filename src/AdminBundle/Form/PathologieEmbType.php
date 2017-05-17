@@ -6,14 +6,23 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PathologieType extends AbstractType
+class PathologieEmbType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('numPathologie')->add('dateDebut')->add('dateFin')->add('causeDeces')->add('commentairePatho')->add('individu')->add('gravite')->add('banque_patho');
+        $builder
+			->add('numPathologie')
+			->add('dateDebut')
+			->add('dateFin')
+			->add('causeDeces')
+			->add('commentairePatho')
+			->add('individu')
+			->add('gravite')
+			->add('banque_patho')
+		;
     }
     
     /**
@@ -23,6 +32,7 @@ class PathologieType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AdminBundle\Entity\Pathologie'
+            //'compte' => null
         ));
     }
 

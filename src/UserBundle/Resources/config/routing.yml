@@ -18,6 +18,10 @@ user_choix_patho_modifier:
     path:     /choix_patho_modifier
     defaults: { _controller:UserBundle:User:choix_patho_modifier }
     
+user_ajouter_patho_individu:
+    path:     /ajouter_patho_individu
+    defaults: { _controller:UserBundle:User:ajouter_patho_individu }
+    
 user_modifier_patho_individu:
     path:     /modifier_patho_individu
     defaults: { _controller:UserBundle:User:modifier_patho_individu }

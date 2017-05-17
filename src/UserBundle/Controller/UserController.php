@@ -7,16 +7,19 @@ namespace UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use AdminBundle\Entity\Relation;
-use AdminBundle\Form\RelationType;
-use AdminBundle\Form\RelationEType;
+use AdminBundle\Entity\Compte;
 use AdminBundle\Entity\Individu;
+use AdminBundle\Entity\Relation;
+use AdminBundle\Entity\Pathologie;
+use AdminBundle\Entity\Gravite;
+use AdminBundle\Entity\Banque_Patho;
 use AdminBundle\Form\IndividuType;
 use AdminBundle\Form\IndividuEType;
+use AdminBundle\Form\RelationType;
+use AdminBundle\Form\RelationEType;
+use AdminBundle\Form\PathologieEmbType;
 
 
-use AdminBundle\Entity\Individu;
-use AdminBundle\Entity\Compte;
 
 class UserController extends Controller
 {	
@@ -40,7 +43,6 @@ class UserController extends Controller
 		$relation = new Relation();
 		$individu = new Individu();
 		$individu->setCompte($this->getUser());
-		//$form = $this->get('form.factory')->create(new RelationType(),$relation, array('compte' => $individu));
 		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $this->getUser()));
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
@@ -83,6 +85,22 @@ class UserController extends Controller
 	public function choix_patho_modifierAction()
 	{
 		return $this->render('UserBundle:User:choix_patho_modifier.html.twig');
+	}
+	
+	public function ajouter_patho_individuAction(Request $request)
+	{
+		$pathologie = new Pathologie();
+		$individu = new Individu();
+		$individu->setCompte($this->getUser());
+		$form = $this->createForm('AdminBundle\Form\PathologieEmbType', $pathologie); //array('compte' => $this->getUser())
+		if ($form->handleRequest($request)->isValid()){
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($pathologie);
+			$em->flush();
+			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
+			//return $this->redirect($this->generateUrl('user_connected_index'));
+		}
+		return $this->render('UserBundle:User:ajouter_patho_individu.html.twig', array('form' => $form->createView()));
 	}
 	
 	public function modifier_patho_individuAction()

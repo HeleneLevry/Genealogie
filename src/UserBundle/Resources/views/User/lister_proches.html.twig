@@ -12,7 +12,11 @@
 	
 	<ul>
 		{% for individu in liste_indiv %}
-+			<li>{{ individu.nom }} {{ individu.prenom }}</li>
-+		{% endfor %}
+			<li>
+				{{ individu.nom }} {{ individu.prenom }}
+				<br/>
+				{{ individu.dateNaissance|date("d/m/Y") }} - {{ individu.datedeces|date("d/m/Y") }}
+			</li>
+		{% endfor %}
 	</ul>
 {% endblock %}
