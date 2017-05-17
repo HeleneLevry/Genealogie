@@ -1,0 +1,18 @@
+{# src/UserBundle/Resources/views/modifier.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	YourHealthyTree!
+{% endblock %}
+
+
+{% block fos_user_content %}
+	<h2> Modifier ou supprimer un proche </h2>
+	
+	<ul>
+		{% for individu in liste_indiv %}
++			<li>{{ individu.nom }} {{ individu.prenom }}</li>
++		{% endfor %}
+	</ul>
+{% endblock %}

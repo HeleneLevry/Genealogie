@@ -20,15 +20,15 @@ class RelationEType extends AbstractType
     {
 		//$this->id_compte = $option['id_compte'];
         $builder
-			//->add(
-				//'individuConnu',
-				//'entity',
-				//array(
-					//'class' => 'AdminBundle:Individu', 
-					//'property' => 'prenom', 
-					//'multiple' => true
-				//)
-			//)	
+			->add(
+				'individuConnu',
+				'entity',
+				array(
+					'class' => 'AdminBundle:Individu', 
+					'property' => 'prenom', 
+					'multiple' => true
+				)
+			)	
 			->add(
 				'typeRelation', 
 				ChoiceType::class, 

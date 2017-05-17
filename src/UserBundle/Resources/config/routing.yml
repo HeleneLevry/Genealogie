@@ -6,9 +6,25 @@ user_accueil:
     path:     /accueil
     defaults: { _controller:UserBundle:User:accueil }
 
-user_modifier:
-    path:     /modifier
-    defaults: { _controller:UserBundle:User:modifier }
+user_modifier_supprimer:
+    path:     /modifier_supprimer
+    defaults: { _controller:UserBundle:User:modifier_supprimer }
+    
+user_modifier_infos_individu:
+    path:     /modifier_infos_individu
+    defaults: { _controller:UserBundle:User:modifier_infos_individu }
+
+user_choix_patho_modifier:
+    path:     /choix_patho_modifier
+    defaults: { _controller:UserBundle:User:choix_patho_modifier }
+    
+user_modifier_patho_individu:
+    path:     /modifier_patho_individu
+    defaults: { _controller:UserBundle:User:modifier_patho_individu }
+ 
+user_lister_proches:
+    path:    /lister_proches
+    defaults: { _controller:UserBundle:User:lister_proches }
  
 user_ajouter:
     path:     /ajouter
