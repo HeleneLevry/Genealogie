@@ -17,7 +17,6 @@ class RelationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		//$this->id_compte = $option['id_compte'];
         $builder
 			->add(
 				'individuConnu',
@@ -32,13 +31,18 @@ class RelationType extends AbstractType
 				'typeRelation', 
 				ChoiceType::class, 
 				array('choices'  => array(
-					'Ascendant' => 'ascendant',
-					'Descendant' => 'descendant'))
+					true => 'ascendant',
+					false => 'descendant'))
 			)
 			->add(
 				'individuALier',
-				new IndividuType()
-			)
+				'entity',
+				array(
+					'class' => 'AdminBundle:Individu', 
+					'property' => 'prenom', 
+					'multiple' => true
+				)
+			)	
 			->add(
 				'Enregistrer',
 				'submit'
@@ -52,9 +56,7 @@ class RelationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Relation',
-            //'compte'=>null
-			//'id_compte' => $this->getUser()
+            'data_class' => 'AdminBundle\Entity\Relation'
         ));
     }
 
