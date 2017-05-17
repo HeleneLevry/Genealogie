@@ -66,7 +66,7 @@ class IndividuEType extends AbstractType
 			->add(
 				'compte',
 				'hidden',
-				array('data' => $_SESSION['iduser'])
+				array('data' => '19') //$_SESSION['iduser'])
 			)
 			->add(
 				'commentaire', 
@@ -79,7 +79,7 @@ class IndividuEType extends AbstractType
 				array('data' => $_SESSION['iduser'], 'mapped' => false)
 			)
 			;
-			getCompte() = $_SESSION['iduser'];
+			//getCompte() = $_SESSION['iduser'];
     }
     
     /**
