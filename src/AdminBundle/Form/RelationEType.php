@@ -35,7 +35,6 @@ class RelationEType extends AbstractType
 						return $er->createQueryBuilder('i')
 							->where('i.compte = :idcompte')
 							->setParameter('idcompte', $idcompte)
-							//->where('i.compte = 19')
 							->orderBy('i.nom', 'ASC')
 							->orderBy('i.prenom','ASC');
 					},
@@ -55,19 +54,13 @@ class RelationEType extends AbstractType
 			->add(
 				'individuALier',
 				new IndividuEType($idcompte)
-				//$this->createForm('AdminBundle\Form\IndividuEType', $individu, array('compte' => $idcompte))
 			)
 			->add(
 				'Enregistrer',
 				'submit'
 			)
 			->add(
-				'commentaire', 
-				TextType::class,
-				array('data' => $options['compte'], 'mapped' => false)
-			)
-			->add(
-				'commentaire_2', 
+				'commentaire_relation', 
 				TextType::class,
 				array('data' => $idcompte, 'mapped' => false)
 			)
