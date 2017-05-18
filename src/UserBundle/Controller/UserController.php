@@ -77,7 +77,21 @@ class UserController extends Controller
 	
 	public function choix_patho_modifierAction()
 	{
-		return $this->render('UserBundle:User:choix_patho_modifier.html.twig');
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Individu')
+		;
+		$id_user = $this->container->get('security.context')->getToken()->getUser()->getId();
+		$listIndividu = $repository->findBy(array('compte' => $id_user), array('dateNaissance' => 'desc'));		
+		
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Pathologie')
+		;
+		$listPathologies = $repository->findBy(array('banque_patho' => $listIndividu), array('dateDebut' => 'desc'));
+		return $this->render('UserBundle:User:choix_patho_modifier.html.twig', array('liste_patho'=>$listPathologies));
 	}
 	
 	public function ajouter_patho_individuAction(Request $request)
@@ -100,14 +114,6 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:modifier_patho_individu.html.twig');
 	}
 	
-		//public function myFindAll($compte)
-		//{
-				//return $this
-					//->createQueryBuilder('p')
-					//->getQuery()
-					//->getResult()
-				//;
-		//}
 	public function lister_prochesAction()
 	{
 		$repository = $this
