@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PathologieAjoutType extends AbstractType
 {
@@ -16,6 +17,17 @@ class PathologieAjoutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+			->add( // Uniquement les bons individus ...
+				'individu',
+				EntityType::class,
+				array(
+					'class' => 'AdminBundle:Individu',
+					'choice_label' => 'getNomComplet', 
+					'placeholder' => 'Individu',
+					'multiple' => false,
+					'expanded' => false
+				)
+			)
 			->add(
 				'banque_patho',
 				new Banque_PathoListType
@@ -54,9 +66,14 @@ class PathologieAjoutType extends AbstractType
 				)
 			->add(
 				'gravite',
-				new GraviteListType
+				new GraviteListType,
+				array('required' => false)
 			)
 			//->add('individu')
+			->add(
+				'Enregistrer',
+				'submit'
+			)
 			;
     }
     
