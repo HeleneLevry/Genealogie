@@ -96,14 +96,14 @@ class UserController extends Controller
 	{
 		$pathologie = new Pathologie();
 		$individu = new Individu();
-		$individu->setCompte($this->getUser());
-		$form = $this->createForm('AdminBundle\Form\PathologieEmbType', $pathologie); //array('compte' => $this->getUser())
+		//$individu->setCompte($this->getUser());
+		$form = $this->createForm('AdminBundle\Form\PathologieAjoutType', $pathologie); //array('compte' => $this->getUser())
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($pathologie);
 			$em->flush();
 			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
-			//return $this->redirect($this->generateUrl('user_connected_index'));
+			return $this->redirect($this->generateUrl('user_connected_index'));
 		}
 		return $this->render('UserBundle:User:ajouter_patho_individu.html.twig', array('form' => $form->createView()));
 	}

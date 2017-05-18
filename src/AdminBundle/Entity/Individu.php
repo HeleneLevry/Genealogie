@@ -238,7 +238,8 @@ class Individu
      *
      * @return Individu
      */
-    public function setCompte(\AdminBundle\Entity\Compte $compte)
+    //public function setCompte(\AdminBundle\Entity\Compte $compte)
+    public function setCompte($compte)
     {
         $this->compte = $compte;
 

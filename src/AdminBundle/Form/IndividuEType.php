@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+use AdminBundle\Entity\Individu;
 
 
 class IndividuEType extends AbstractType
@@ -63,11 +64,11 @@ class IndividuEType extends AbstractType
 					'format' => 'ddMMyyyy',
 					'required' => false)
 			)
-			->add(
-				'compte',
-				'hidden',
-				array('data' => '19') //$_SESSION['iduser'])
-			)
+			//->add(
+				//'compte',
+				//'hidden',
+				//array('data' => $_SESSION['iduser'])
+			//)
 			->add(
 				'commentaire', 
 				'textarea', 
@@ -79,6 +80,8 @@ class IndividuEType extends AbstractType
 				array('data' => $_SESSION['iduser'], 'mapped' => false)
 			)
 			;
+			//$individu = new Individu();
+			//$individu->setCompte($_SESSION['iduser']);
 			//getCompte() = $_SESSION['iduser'];
     }
     

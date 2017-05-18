@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PathologieEmbType extends AbstractType
+class PathologieAjoutType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -19,9 +19,9 @@ class PathologieEmbType extends AbstractType
 			->add('dateFin')
 			->add('causeDeces')
 			->add('commentairePatho')
-			->add('individu')
+			//->add('individu')
 			->add('gravite')
-			->add('banque_patho')
+			//->add('banque_patho')
 		;
     }
     
