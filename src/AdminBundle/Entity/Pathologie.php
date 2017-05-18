@@ -49,28 +49,28 @@ class Pathologie
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_debut", type="datetime")
+     * @ORM\Column(name="date_début", type="date", nullable=true)
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_fin", type="datetime")
+     * @ORM\Column(name="date_fin", type="date", nullable=true)
      */
     private $dateFin;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="cause_deces", type="boolean")
+     * @ORM\Column(name="cause_deces", type="boolean", nullable=true)
      */
     private $causeDeces;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire_patho", type="string", length=255)
+     * @ORM\Column(name="commentaire_patho", type="string", length=255, nullable=true)
      */
     private $commentairePatho;
 

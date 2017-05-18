@@ -21,7 +21,7 @@ class Banque_PathoSupprType extends AbstractType
 				array(
 					'class' => 'AdminBundle:Banque_Patho',
 					'choice_label' => 'nom_pathologie', 
-					'multiple' => false,
+					'multiple' => true,
 					'expanded' => true
 				)
 			)
