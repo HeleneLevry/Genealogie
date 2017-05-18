@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class Banque_PathoSupprType extends AbstractType
+class GraviteListType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -16,20 +16,16 @@ class Banque_PathoSupprType extends AbstractType
     {
         $builder
 			->add(
-				'nomPathologie',
+				'gravitePatho',
 				EntityType::class,
 				array(
-					'class' => 'AdminBundle:Banque_Patho',
-					'choice_label' => 'nom_pathologie', 
+					'class' => 'AdminBundle:Gravite',
+					'choice_label' => 'gravite_patho', 
+					'placeholder' => 'gravité de la pathologie',
 					'multiple' => false,
-					'expanded' => true
+					'expanded' => false
 				)
-			)
-			->add(
-				'Enregistrer',
-				'submit'
-			)	
-			;
+			);
     }
     
     /**
@@ -38,7 +34,7 @@ class Banque_PathoSupprType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Banque_Patho'
+            'data_class' => 'AdminBundle\Entity\Gravite'
         ));
     }
 
@@ -47,7 +43,7 @@ class Banque_PathoSupprType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'adminbundle_banque_patho';
+        return 'adminbundle_gravite';
     }
 
 

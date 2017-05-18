@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class Banque_PathoSupprType extends AbstractType
+class Banque_PathoListType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -21,13 +21,10 @@ class Banque_PathoSupprType extends AbstractType
 				array(
 					'class' => 'AdminBundle:Banque_Patho',
 					'choice_label' => 'nom_pathologie', 
+					'placeholder' => 'nom de la pathologie',
 					'multiple' => false,
-					'expanded' => true
+					'expanded' => false
 				)
-			)
-			->add(
-				'Enregistrer',
-				'submit'
 			)	
 			;
     }

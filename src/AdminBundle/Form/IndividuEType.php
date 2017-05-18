@@ -25,6 +25,8 @@ class IndividuEType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 		$idcompte=$options['compte'];
+		//settype($_SESSION['iduser'], "integer");
+		$id_compte = settype($_SESSION['iduser'], "string");
         $builder
 			->add(
 				'nom', 
@@ -66,8 +68,13 @@ class IndividuEType extends AbstractType
 			)
 			//->add(
 				//'compte',
-				//'hidden',
-				//array('data' => $_SESSION['iduser'])
+				////'hidden',
+				//array('data' => $id_compte, 'required' => false)
+				////array('data' => $_SESSION['iduser'])
+			//)
+			//->add(
+				//'compte', 
+				//new CompteIdType()
 			//)
 			->add(
 				'commentaire', 
@@ -75,14 +82,13 @@ class IndividuEType extends AbstractType
 				array('required' => false)
 			)
 			->add(
-				'commentaire_indiv_2', 
+				'commentaire_num_compte', 
 				TextType::class,
 				array('data' => $_SESSION['iduser'], 'mapped' => false)
 			)
 			;
 			//$individu = new Individu();
-			//$individu->setCompte($_SESSION['iduser']);
-			//getCompte() = $_SESSION['iduser'];
+			//$individu->setCompte() = $_SESSION['iduser'];
     }
     
     /**

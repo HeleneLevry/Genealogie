@@ -8,7 +8,7 @@
 
 
 {% block fos_user_content %}
-	<h2> Enregistrer une nouvelle pathologie </h2>
+	<h2> Ajouter un proche </h2>
 	
 	<div class="well">
 		{{form(form)}}

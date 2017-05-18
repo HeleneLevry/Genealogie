@@ -45,7 +45,7 @@ class UserController extends Controller
 		$user = $this->get('security.context')->getToken()->getUser();
 		$userId = $user->getId();
 		$_SESSION['iduser']=$userId;
-		//$individu->setCompte($userId);
+		$individu->setCompte($userId);
 		//$individu->setCompte($this->getUser()->getId());
 		//$individu->setCompte($this->getUser());
 		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $userId));
@@ -55,19 +55,7 @@ class UserController extends Controller
 			$em->flush();
 			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
 			return $this->redirect($this->generateUrl('user_connected_index'));
-		}
-		
-		//$individu = new Individu();
-		//$individu->setCompte($this->getUser());
-		//$form = $this->get('form.factory')->create(new IndividuEType(),$individu);
-		//if ($form->handleRequest($request)->isValid()){
-			//$em = $this->getDoctrine()->getManager();
-			//$em->persist($individu);
-			//$em->flush();
-			//$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
-			//return $this->redirect($this->generateUrl('user_connected_index'));
-		//}
-		
+		}		
 		return $this->render('UserBundle:User:ajouter_proche.html.twig', array('form' => $form->createView(),));
 	}
 	
@@ -96,8 +84,7 @@ class UserController extends Controller
 	{
 		$pathologie = new Pathologie();
 		$individu = new Individu();
-		//$individu->setCompte($this->getUser());
-		$form = $this->createForm('AdminBundle\Form\PathologieAjoutType', $pathologie); //array('compte' => $this->getUser())
+		$form = $this->createForm('AdminBundle\Form\PathologieAjoutType', $pathologie);
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($pathologie);
