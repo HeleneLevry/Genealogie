@@ -14,15 +14,14 @@ class PathologieAjoutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-			->add('numPathologie')
 			->add('dateDebut')
 			->add('dateFin')
 			->add('causeDeces')
 			->add('commentairePatho')
 			//->add('individu')
-			->add('gravite')
+			//->add('gravite')
 			//->add('banque_patho')
-		;
+			;
     }
     
     /**
@@ -32,7 +31,6 @@ class PathologieAjoutType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AdminBundle\Entity\Pathologie'
-            //'compte' => null
         ));
     }
 

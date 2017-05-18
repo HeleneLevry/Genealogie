@@ -39,12 +39,12 @@ class Pathologie
      */
     private $id;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="num_pathologie", type="integer", unique=true)
-     */
-    private $numPathologie;
+    ///**
+     //* @var int
+     //*
+     //* @ORM\Column(name="num_pathologie", type="integer", unique=true)
+     //*/
+    //private $numPathologie;
 
     /**
      * @var \DateTime
