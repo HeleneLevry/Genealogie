@@ -16,11 +16,15 @@
 			<li>
 				{{ individu.nom }} {{ individu.prenom }}
 				<br/>
-				{{ individu.dateNaissance|date("d/m/Y") }} - {{ individu.datedeces|date("d/m/Y") }}
-				
-				{#{% for pathologie in liste_patho %}
-					{{ pathologie.banque_patho}} {{pathologie.date_debut}} - {{pathologie.date_deces}}
-				{% endfor %}#}
+				{% if individu.dateNaissance and individu.datedeces %} 
+					né(e) le {{ individu.dateNaissance|date("d/m/Y") }} - décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
+				{% elseif individu.dateNaissance %} 
+					né(e) le {{ individu.dateNaissance|date("d/m/Y") }}
+				{% elseif individu.datedeces %}
+					décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
+				{% else %}
+					<p></p>
+				{%endif%}
 			</li>
 		{% endfor %}
 	</ul>
