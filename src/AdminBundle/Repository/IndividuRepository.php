@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class IndividuRepository extends EntityRepository
 {
+	
+	public function findIndividusCompte()
+	{
+		$qb = $this
+			->createQueryBuilder('i')
+			->leftJoin('i.compte', 'id')
+			->addSelect('id')
+	
+	;
+	
+	
+	return $qb
+	
+    ->getQuery()
+	
+    ->getResult()
+	
+	;
+	}
 }
