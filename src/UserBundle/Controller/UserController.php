@@ -131,12 +131,12 @@ class UserController extends Controller
 			->getRepository('AdminBundle:Individu')
 		;
 		$user = $this->container->get('security.context')->getToken()->getUser();
-		$listIndividu = $repository->findBy(array('compte' => $user), array('dateNaissance' => 'desc'));		
-		$repository = $this
-			->getDoctrine()
-			->getManager()
-			->getRepository('AdminBundle:Pathologie')
-		;
+		$listIndividu = $repository->findBy(array('compte' => $user), array('dateNaissance' => 'desc'));
+				
+		if($listIndividu){
+			return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu));
+		}
+		return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 		
 		//$queryBuilder = $this->_em->createQueryBuilder()
 			//->select('a')
@@ -162,7 +162,13 @@ class UserController extends Controller
 		//$listPathologies = $repository->findBy()
 		//$num_individus_compte = $repository->myFindAll($user);
 		//$listPathologie = $repository->findBy(array('num_individu_id' => $num_individus_compte), array('dateNaissance' => 'desc'));
-		return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu)); //, 'list_pathologies'=>$num_individus_compte));
+		//return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu)); //, 'list_pathologies'=>$num_individus_compte));
+	}
+	
+/////
+	public function liste_proches_videAction()
+	{
+		return $this->render('UserBundle:User:liste_proches_vide.html.twig');
 	}
 
 /////

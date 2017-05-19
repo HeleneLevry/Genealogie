@@ -12,7 +12,7 @@
 	
 	<ul>
 		{% for individu in liste_indiv %}
-			<li>{{ individu.nom }} {{ individu.prenom }}</li>
-		{% endfor %}
++			<li>{{ individu.nom }} {{ individu.prenom }}</li>
++		{% endfor %}
 	</ul>
 {% endblock %}
