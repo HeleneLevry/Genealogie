@@ -42,10 +42,17 @@ class UserController extends Controller
 	{
 		$relation = new Relation();
 		$individu = new Individu();
+		$compte = new Compte();
+		
+		$repository = $this ->getDoctrine()
+							->getManager()
+							->getRepository('AdminBundle:Compte');
+		
 		$user = $this->get('security.context')->getToken()->getUser();
 		$userId = $user->getId();
+		$compte= $repository->findOneBy(array('id' => $userId));
 		$_SESSION['iduser']=$userId;
-		$individu->setCompte($userId);
+		$individu->setCompte($compte);
 		//$individu->setCompte($this->getUser()->getId());
 		//$individu->setCompte($this->getUser());
 		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $userId));
