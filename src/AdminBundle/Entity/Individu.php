@@ -16,7 +16,7 @@ class Individu
 		
 	/**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Compte", cascade={"persist"})
-    * @ORM\JoinColumn(name="compte_id", referencedColumnName="id",nullable=false)
+    * @ORM\JoinColumn(name="compte_id", referencedColumnName="id",nullable=true)
     */
     private $compte;
   

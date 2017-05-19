@@ -146,24 +146,23 @@ class UserController extends Controller
 		//$query = $queryBuilder->getQuery();
 		//$results = $query->getResult();
 		//$numIndiv = Individu->getId();
-		$qb = $this
-			->createQueryBuilder('p')
-			->join('p.num_individu', 'indiv')
-			->addSelect('indiv')
-			;
-		$qb 
-			->where('p.num_individu = :idIndividu')
-			->setParameter('idIndividu', $numIndiv)
-		;
-		$qb
-			->getQuery()
-			->getResult()
-		;
-		$listPathologies = $repository->findBy()
+		//$qb = $this
+			//->createQueryBuilder('p')
+			//->join('p.num_individu', 'indiv')
+			//->addSelect('indiv')
+			//;
+		//$qb 
+			//->where('p.num_individu = :idIndividu')
+			//->setParameter('idIndividu', $numIndiv)
+		//;
+		//$qb
+			//->getQuery()
+			//->getResult()
+		//;
+		//$listPathologies = $repository->findBy()
 		//$num_individus_compte = $repository->myFindAll($user);
 		//$listPathologie = $repository->findBy(array('num_individu_id' => $num_individus_compte), array('dateNaissance' => 'desc'));
-		return $this->render('UserBundle:User:lister
-		_proches.html.twig', array('liste_indiv'=>$listIndividu)); //, 'list_pathologies'=>$num_individus_compte));
+		return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu)); //, 'list_pathologies'=>$num_individus_compte));
 	}
 
 /////
