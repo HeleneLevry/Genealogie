@@ -24,34 +24,34 @@ use AdminBundle\Form\PathologieEmbType;
 class UserController extends Controller
 {	
 	
-/////	
+//----------------------------------------------------------------------	
 	public function indexAction(){
 		return $this->render('UserBundle:User:index.html.twig');
 	}
 
-/////
+//----------------------------------------------------------------------
 	public function accueilAction(){
 		return $this->render('UserBundle:User:accueil.html.twig');
 	}	
 	
-/////
+//----------------------------------------------------------------------
 	public function menuAction()//transmis via le render() depuis la vue /app
 	{		
 		return $this->render('UserBundle:User:menu.html.twig');
 	}
 	
-/////
+////////////////////////////////////////////////////////////////////////
 	public function ajouter_procheAction(Request $request)
 	{
 		$relation = new Relation();
 		$individu = new Individu();
 		$user = $this->get('security.context')->getToken()->getUser();
-		$userId = $user->getId();
-		$_SESSION['iduser']=$userId;
-		$individu->setCompte($userId);
+		//$userId = $user->getId();
+		$_SESSION['iduser']=$user;
+		$individu->setCompte($user);
 		//$individu->setCompte($this->getUser()->getId());
 		//$individu->setCompte($this->getUser());
-		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $userId));
+		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $user));
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($relation);
@@ -62,7 +62,7 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:ajouter_proche.html.twig', array('form' => $form->createView(),));
 	}
 	
-/////
+////////////////////////////////////////////////////////////////////////
 	public function modifier_supprimerAction()
 	{
 		$repository = $this
@@ -74,13 +74,13 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:modifier_supprimer.html.twig', array('liste_indiv'=>$listIndividu));
 	}
 	
-/////
+////////////////////////////////////////////////////////////////////////
 	public function modifier_infos_individuAction()
 	{
 		return $this->render('UserBundle:User:modifier_infos_individu.html.twig');
 	}
 	
-/////
+////////////////////////////////////////////////////////////////////////
 	public function choix_patho_modifierAction()
 	{
 		$repository = $this
@@ -100,7 +100,7 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:choix_patho_modifier.html.twig', array('liste_patho'=>$listPathologies));
 	}
 	
-/////
+////////////////////////////////////////////////////////////////////////
 	public function ajouter_patho_individuAction(Request $request)
 	{
 		$pathologie = new Pathologie();
@@ -116,13 +116,13 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:ajouter_patho_individu.html.twig', array('form' => $form->createView()));
 	}
 	
-/////
+////////////////////////////////////////////////////////////////////////
 	public function modifier_patho_individuAction()
 	{
 		return $this->render('UserBundle:User:modifier_patho_individu.html.twig');
 	}
 	
-/////
+///////////////////////////////////////---------------------------------
 	public function lister_prochesAction()
 	{
 		$repository = $this
@@ -131,10 +131,23 @@ class UserController extends Controller
 			->getRepository('AdminBundle:Individu')
 		;
 		$user = $this->container->get('security.context')->getToken()->getUser();
-		$listIndividu = $repository->findBy(array('compte' => $user), array('dateNaissance' => 'desc'));
-				
-		if($listIndividu){
-			return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu));
+		$listIndividus = $repository->findBy(array('compte' => $user), array('dateNaissance' => 'desc'));
+		
+		
+		
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Pathologie')
+		;
+		foreach ($listIndividus as $listIndividu)
+		{
+			$listPathologies = $repository->findBy(array('individu' => $listIndividu), array('dateDebut' => 'desc'));
+		}
+		//$listPathologies = $repository->findBy(array('individu' => $listIndividus), array('dateDebut' => 'desc'));
+		
+		if($listIndividus){
+			return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividus, 'liste_patho'=>$listPathologies));
 		}
 		return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 		
@@ -165,7 +178,7 @@ class UserController extends Controller
 		//return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividu)); //, 'list_pathologies'=>$num_individus_compte));
 	}
 	
-/////
+//----------------------------------------------------------------------
 	public function liste_proches_videAction()
 	{
 		return $this->render('UserBundle:User:liste_proches_vide.html.twig');
@@ -177,19 +190,19 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:supprimer.html.twig');
 	}
 	
-/////
+//----------------------------------------------------------------------
 	public function nous_contacterAction()
 	{
 		return $this->render('UserBundle:User:nous_contacter.html.twig');
 	}
 	
-/////
+//----------------------------------------------------------------------
 	public function supprimer_compte_1Action()
 	{
 		return $this->render('UserBundle:User:supprimer_compte_1.html.twig');
 	}
 	
-/////
+//----------------------------------------------------------------------
 	public function supprimer_compte_2Action()
 	{
 		//récupération user	
@@ -202,7 +215,7 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:supprimer_compte_2.html.twig');
 	}
 	
-/////
+////////////////////////////////////////////////////////////////////////
 	public function lister_relationAction()
 	{
 		 $les_individu= new Individu;

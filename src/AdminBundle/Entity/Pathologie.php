@@ -20,7 +20,7 @@ class Pathologie
     
     /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Gravite", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\JoinColumn(nullable=true)
     */
     private $gravite;
     
@@ -38,13 +38,6 @@ class Pathologie
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    ///**
-     //* @var int
-     //*
-     //* @ORM\Column(name="num_pathologie", type="integer", unique=true)
-     //*/
-    //private $numPathologie;
 
     /**
      * @var \DateTime
