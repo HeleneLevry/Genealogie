@@ -23,21 +23,25 @@ security:
             security:   false
         
         main_accueil:
-            pattern:    ^/accueil$
+            pattern:    ^/user/accueil$
             anonymous:   true
             
         main_register:
             pattern:    ^/register$
             anonymous:   true
             
+            
         main_login:
             pattern:    ^/login$
             anonymous:   true
+            
                  
         main_nouscontacter:
-            pattern:    ^/nous_contacter$
+            pattern:    ^/user/nous_contacter$
             anonymous:   true
-                 
+
+               
+    
         main:
             pattern:    ^/
             anonymous:  true
@@ -47,7 +51,7 @@ security:
                 check_path: fos_user_security_check
             logout:
                 path:    fos_user_security_logout
-                target:  /accueil
+                target:  /user/accueil
             remember_me:
                 key:     %secret%
             # %secret% est un parametre de parametre.yml
