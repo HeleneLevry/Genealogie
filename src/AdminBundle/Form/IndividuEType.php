@@ -26,7 +26,7 @@ class IndividuEType extends AbstractType
     {
 		$idcompte=$options['compte'];
 		//settype($_SESSION['iduser'], "integer");
-		$id_compte = settype($_SESSION['iduser'], "string");
+		//$id_compte = settype($_SESSION['iduser'], "string");
         $builder
 			->add(
 				'nom', 
@@ -68,9 +68,9 @@ class IndividuEType extends AbstractType
 			)
 			//->add(
 				//'compte',
-				////'hidden',
-				//array('data' => $id_compte, 'required' => false)
-				////array('data' => $_SESSION['iduser'])
+				//'hidden',
+				//array('data' => $this->get('security.context')->getToken()->getUser(), 'required' => false)
+				//////array('data' => $_SESSION['iduser'])
 			//)
 			//->add(
 				//'compte', 

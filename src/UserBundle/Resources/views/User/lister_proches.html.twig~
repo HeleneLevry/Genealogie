@@ -8,18 +8,17 @@
 
 
 {% block fos_user_content %}
-	<h2> Choisir la pathologie à modifier</h2>
+	<h2> Liste de mes proches </h2>
 	
 	<ul>
-		{% for pathologies in liste_patho %}
+		{% for individu in liste_indiv %}
 			<li>
-				{{ pathologie.banque_patho }}
+				{{ individu.nom }} {{ individu.prenom }}
 				<br/>
-				{{ pathologie.dateDebut|date("d/m/Y") }} - {{ pathologie.dateFin|date("d/m/Y") }}
+				{{ individu.dateNaissance|date("d/m/Y") }} - {{ individu.datedeces|date("d/m/Y") }}
 				{% for individu in liste_indiv %}
 				{% endfor %}
 			</li>
 		{% endfor %}
 	</ul>
-	
 {% endblock %}

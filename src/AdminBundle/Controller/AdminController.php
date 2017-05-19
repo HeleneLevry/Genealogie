@@ -93,6 +93,7 @@ class AdminController extends Controller
 	{
 		$banque_patho = new Banque_Patho();
 		$form = $this->get('form.factory')->create(new Banque_PathoSupprType(),$banque_patho);
+		echo "Bonjour le monde";
 		if ($form->handleRequest($request)->isValid()){
 			$em = $this->getDoctrine()->getManager();
 			$em->remove($banque_patho);

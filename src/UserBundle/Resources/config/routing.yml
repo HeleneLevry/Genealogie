@@ -29,6 +29,9 @@ user_modifier_patho_individu:
 user_lister_proches:
     path:    /lister_proches
     defaults: { _controller:UserBundle:User:lister_proches }
+user_liste_proches_vide:
+    path:    /liste_proches_vide
+    defaults: { _controller:UserBundle:User:liste_proches_vide }
  
 user_ajouter_proche:
     path:     /ajouter_proche
