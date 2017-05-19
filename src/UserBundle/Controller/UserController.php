@@ -53,6 +53,7 @@ class UserController extends Controller
 		//$individu->setCompte($this->getUser());
 		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $user));
 		if ($form->handleRequest($request)->isValid()){
+			$individu->setCompte($user);
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($relation);
 			$em->flush();
