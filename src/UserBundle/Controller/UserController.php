@@ -52,16 +52,10 @@ class UserController extends Controller
 							->getRepository('AdminBundle:Compte');
 		
 		$user = $this->get('security.context')->getToken()->getUser();
-<<<<<<< HEAD
 		$userId = $user->getId();
 		$compte= $repository->findOneBy(array('id' => $userId));
 		$_SESSION['iduser']=$userId;
 		$individu->setCompte($compte);
-=======
-		//$userId = $user->getId();
-		$_SESSION['iduser']=$user;
-		$individu->setCompte($user);
->>>>>>> helene
 		//$individu->setCompte($this->getUser()->getId());
 		//$individu->setCompte($this->getUser());
 		$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $user));
@@ -149,19 +143,19 @@ class UserController extends Controller
 		
 		
 		
-		$repository = $this
-			->getDoctrine()
-			->getManager()
-			->getRepository('AdminBundle:Pathologie')
-		;
-		foreach ($listIndividus as $listIndividu)
-		{
-			$listPathologies = $repository->findBy(array('individu' => $listIndividu), array('dateDebut' => 'desc'));
-		}
+		//$repository = $this
+			//->getDoctrine()
+			//->getManager()
+			//->getRepository('AdminBundle:Pathologie')
+		//;
+		//foreach ($listIndividus as $listIndividu)
+		//{
+			//$listPathologies = $repository->findBy(array('individu' => $listIndividu), array('dateDebut' => 'desc'));
+		//}
 		//$listPathologies = $repository->findBy(array('individu' => $listIndividus), array('dateDebut' => 'desc'));
 		
 		if($listIndividus){
-			return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividus, 'liste_patho'=>$listPathologies));
+			return $this->render('UserBundle:User:lister_proches.html.twig', array('liste_indiv'=>$listIndividus)); //, 'liste_patho'=>$listPathologies));
 		}
 		return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 		
