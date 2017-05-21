@@ -1,11 +1,14 @@
+###
 user_connected_index:
     path:     /user
     defaults: {_controller:UserBundle:User:index }
 
+###
 user_accueil:
     path:     /accueil
     defaults: { _controller:UserBundle:User:accueil }
 
+###
 user_ajout_proche:
     path:     /ajout_proche
     defaults: { _controller:UserBundle:User:ajout_proche }
@@ -30,9 +33,11 @@ user_modif_patho_proche:
     path:     /modif_patho_proche
     defaults: { _controller:UserBundle:User:modif_patho_proche }
 
+###
 user_liste_proches:
     path:    /liste_proches
     defaults: { _controller:UserBundle:User:liste_proches }
+###
 user_liste_proches_vide:
     path:    /
 
@@ -50,58 +55,62 @@ user_suppr_relation:
     path:    /suppr_relation
     defaults: { _controller:UserBundle:User:suppr_relation }
 
+###
 user_nous_contacter_1:
     path:     /nous_contacter
     defaults: { _controller:UserBundle:User:nous_contacter }
 
+###
 user_nous_contacter_2:
     path:     /nous_contacter_2
     defaults: { _controller:UserBundle:User:nous_contacter }
 
+###
 supprimer_compte_1:
     path:     /validation_supprimer
     defaults: {_controller:UserBundle:User:supprimer_compte_1 }
 
+###
 supprimer_compte_2:
     path:     /compte_supprime
     defaults: {_controller:UserBundle:User:supprimer_compte_2 }
 
-user_modifier_supprimer:
-    path:     /modifier_supprimer
-    defaults: { _controller:UserBundle:User:modifier_supprimer }
+# user_modifier_supprimer:
+#     path:     /modifier_supprimer
+#     defaults: { _controller:UserBundle:User:modifier_supprimer }
 
-user_modifier_infos_individu:
-    path:     /modifier_infos_individu
-    defaults: { _controller:UserBundle:User:modifier_infos_individu }
+# user_modifier_infos_individu:
+#     path:     /modifier_infos_individu
+#     defaults: { _controller:UserBundle:User:modifier_infos_individu }
 
-user_supprimer_infos_individu:
-    path:     /supprimer_infos_individu
-    defaults: { _controller:UserBundle:User:supprimer_infos_individu }
+# user_supprimer_infos_individu:
+#     path:     /supprimer_infos_individu
+#     defaults: { _controller:UserBundle:User:supprimer_infos_individu }
 
-user_choix_patho_modifier:
-    path:     /choix_patho_modifier
-    defaults: { _controller:UserBundle:User:choix_patho_modifier }
+# user_choix_patho_modifier:
+#     path:     /choix_patho_modifier
+#     defaults: { _controller:UserBundle:User:choix_patho_modifier }
 
-user_supprimer_patho_individu:
-    path:     /supprimer_patho_individu
-    defaults: { _controller:UserBundle:User:supprimer_patho_individu }
+# user_supprimer_patho_individu:
+#     path:     /supprimer_patho_individu
+#     defaults: { _controller:UserBundle:User:supprimer_patho_individu }
 
-user_ajouter_patho_individu:
-    path:     /ajouter_patho_individu
-    defaults: { _controller:UserBundle:User:ajouter_patho_individu }
+# user_ajouter_patho_individu:
+#     path:     /ajouter_patho_individu
+#     defaults: { _controller:UserBundle:User:ajouter_patho_individu }
 
-user_modifier_patho_individu:
-    path:     /modifier_patho_individu
-    defaults: { _controller:UserBundle:User:modifier_patho_individu }
+# user_modifier_patho_individu:
+#     path:     /modifier_patho_individu
+#     defaults: { _controller:UserBundle:User:modifier_patho_individu }
 
-user_ajouter_proche:
-    path:     /ajouter_proche
-    defaults: { _controller:UserBundle:User:ajouter_proche }
+# user_ajouter_proche:
+#     path:     /ajouter_proche
+#     defaults: { _controller:UserBundle:User:ajouter_proche }
 
-user_lister:
-    path:     /lister_membre
-    defaults: { _controller:UserBundle:User:lister_relation }
+# user_lister:
+#     path:     /lister_membre
+#     defaults: { _controller:UserBundle:User:lister_relation }
 
-user_lister_proches:
-    path:    /lister_proches
-    defaults: { _controller:UserBundle:User:lister_proches }
+# user_liste_proches:
+#     path:    /liste_proches
+#     defaults: { _controller:UserBundle:User:liste_proches }

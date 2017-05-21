@@ -83,7 +83,7 @@ class UserController extends Controller
 		return $this->render('UserBundle:User:modif_patho_proche.html.twig');
 	}
 
-////////////////////////////////////////////////////////////////////////	
+//----------------------------------------------------------------------	
 	public function liste_prochesAction(){
 		
 		$repository = $this
@@ -98,7 +98,7 @@ class UserController extends Controller
 		}
 		return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 	}
-////////////////////////////////////////////////////////////////////////	
+//----------------------------------------------------------------------	
 	public function liste_proches_videAction(){
 		return $this->render('UserBundle:User:liste_proches_vide.html.twig');
 	}

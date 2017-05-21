@@ -19,30 +19,30 @@
 				{% if individu.dateNaissance and individu.datedeces %} 
 					né(e) le {{ individu.dateNaissance|date("d/m/Y") }} - décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
 					<br/>
-						<a href= "{{ path('user_modifier_infos_individu') }}" class="btn"> Modifier les <br/> informations </a>
+						<a href= "{{ path('user_modif_proche') }}" class="btn"> Modifier les <br/> informations </a>
 						<a href= "{{ path('user_modif_relation') }}" class="btn"> Modifier les <br/> relations </a>
-						<a href= "{{ path('user_choix_patho_modifier') }}" class="btn"> Voir les <br/> pathologies </a>
-						<a href= "{{ path('user_supprimer_infos_individu') }}" class="btn"> Supprimer ce <br/> proche </a>
+						<a href= "{{ path('user_liste_patho_proche') }}" class="btn"> Voir les <br/> pathologies </a>
+						<a href= "{{ path('user_suppr_proche') }}" class="btn"> Supprimer ce <br/> proche </a>
 				{% elseif individu.dateNaissance %} 
 					né(e) le {{ individu.dateNaissance|date("d/m/Y") }}
 					<br/>
-						<a href= "{{ path('user_modifier_infos_individu') }}" class="btn"> Modifier les <br/> informations </a>
+						<a href= "{{ path('user_modif_proche') }}" class="btn"> Modifier les <br/> informations </a>
 						<a href= "{{ path('user_modif_relation') }}" class="btn"> Modifier les <br/> relations </a>
-						<a href= "{{ path('user_choix_patho_modifier') }}" class="btn"> Voir les <br/> pathologies </a>
-						<a href= "{{ path('user_supprimer_infos_individu') }}" class="btn"> Supprimer ce <br/> proche </a>
+						<a href= "{{ path('user_liste_patho_proche') }}" class="btn"> Voir les <br/> pathologies </a>
+						<a href= "{{ path('user_suppr_proche') }}" class="btn"> Supprimer ce <br/> proche </a>
 				{% elseif individu.datedeces %}
 					décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
 					<br/>
-						<a href= "{{ path('user_modifier_infos_individu') }}" class="btn"> Modifier les <br/> informations </a>
+						<a href= "{{ path('user_modif_proche') }}" class="btn"> Modifier les <br/> informations </a>
 						<a href= "{{ path('user_modif_relation') }}" class="btn"> Modifier les <br/> relations </a>
-						<a href= "{{ path('user_choix_patho_modifier') }}" class="btn"> Voir les <br/> pathologies </a>
-						<a href= "{{ path('user_supprimer_infos_individu') }}" class="btn"> Supprimer ce <br/> proche </a>
+						<a href= "{{ path('user_liste_patho_proche') }}" class="btn"> Voir les <br/> pathologies </a>
+						<a href= "{{ path('user_suppr_proche') }}" class="btn"> Supprimer ce <br/> proche </a>
 				{% else %}
 					<br/>
-						<a href= "{{ path('user_modifier_infos_individu') }}" class="btn"> Modifier les <br/> informations </a>
+						<a href= "{{ path('user_modif_proche') }}" class="btn"> Modifier les <br/> informations </a>
 						<a href= "{{ path('user_modif_relation') }}" class="btn"> Modifier les <br/> relations </a>
-						<a href= "{{ path('user_choix_patho_modifier') }}" class="btn"> Voir les <br/> pathologies </a>
-						<a href= "{{ path('user_supprimer_infos_individu') }}" class="btn"> Supprimer ce <br/> proche </a>
+						<a href= "{{ path('user_liste_patho_proche') }}" class="btn"> Voir les <br/> pathologies </a>
+						<a href= "{{ path('user_suppr_proche') }}" class="btn"> Supprimer ce <br/> proche </a>
 				{%endif%}
 			</li>
 		{% endfor %}
