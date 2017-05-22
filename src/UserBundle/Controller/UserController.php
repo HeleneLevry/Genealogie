@@ -59,7 +59,7 @@ class UserController extends Controller
 	}
 	
 ////////////////////////////////////////////////////////////////////////	
-	public function modif_proche(){
+	public function modif_procheAction($num_individu){
 		return $this->render('UserBundle:User:modif_proche.html.twig');
 	}
 
@@ -69,13 +69,13 @@ class UserController extends Controller
 	}
 
 ////////////////////////////////////////////////////////////////////////	
-	public function liste_patho_procheAction(){
+	public function liste_patho_procheAction($num_indiv){
 		$repository = $this ->getDoctrine()
 							->getManager()
 							->getRepository('AdminBundle:Pathologie');
-		$listePathologies += $repository->findBy(array('individu' => $num_individu)); //,array('dateDebut' => 'desc'));
+		$listePathologies = $repository->findBy(array('individu' => $num_indiv)); //,array('dateDebut' => 'desc'));
 		if($listePathologies){
-			return $this->render('UserBundle:User:liste_patho_proche.html.twig', array('liste_patho'=>$listePathologies));
+			return $this->render('UserBundle:User:liste_patho_proche.html.twig', array('liste_patho'=>$listePathologies, 'num_indiv'=>$num_indiv));
 		}
 		return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig');
 	}
@@ -89,19 +89,15 @@ class UserController extends Controller
 ////////////////////////////////////////////////////////////////////////	
 	public function ajouter_patho_procheAction(Request $request){
 
-		$pathologie = new Pathologie();		
-		//$user = $this->get('security.context')->getToken()->getUser();
-		//$userId = $user->getId();
+		$pathologie = new Pathologie();	
 		$form = $this->createForm('AdminBundle\Form\PathologieType', $pathologie);
 		if ($form->handleRequest($request)->isValid()){
-			//$individu->setCompte($user);
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($pathologie);
 			$em->flush();
 			return $this->redirect($this->generateUrl('user_connected_index'));
 		}		
 		return $this->render('UserBundle:User:ajouter_patho_proche.html.twig', array('form' => $form->createView()));
-		//return $this->render('UserBundle:User:ajouter_patho_proche.html.twig');
 	}
 	
 ////////////////////////////////////////////////////////////////////////	
@@ -154,13 +150,13 @@ class UserController extends Controller
 			{
 				$repository = $this ->getDoctrine()
 									->getManager()
-									->getRepository('AdminBundle:Individu');
+									->getRepository('AdminBundle:Pathologie');
 				$listePathologies[] = $repository->findBy(array('individu' => $listeIndividu), array('dateDebut' => 'desc'));
 			}
 			if($listePathologies){
-				return $this->render('UserBundle:User:liste_patho_proches.html.twig', array('liste_patho'=>$listePathologies));
+				return $this->render('UserBundle:User:liste_patho_proches.html.twig', array('liste_patho'=>$listePathologies, 'liste_indiv'=>$listeIndividus));
 			}
-			return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig');
+			return $this->render('UserBundle:User:liste_patho_proches_vide.html.twig');
 		}
 		return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 		

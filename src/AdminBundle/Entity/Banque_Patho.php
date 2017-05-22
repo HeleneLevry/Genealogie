@@ -63,4 +63,9 @@ class Banque_Patho
     {
         return $this->nomPathologie;
     }
+    
+    public function __toString() {
+        return $this->nomPathologie;
+    }
 }
+

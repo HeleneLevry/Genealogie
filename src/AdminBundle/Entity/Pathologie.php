@@ -14,7 +14,7 @@ class Pathologie
 {
 	/**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist", "remove"})
-    * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+    * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
     */
     private $individu;
     
@@ -25,8 +25,8 @@ class Pathologie
     private $gravite;
     
     /**
-    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="banque_patho_id", nullable=false, onDelete="CASCADE") //referencedColumnName="nom_pathologie",
     */
     private $banque_patho;
 	
@@ -42,7 +42,7 @@ class Pathologie
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_début", type="date", nullable=true)
+     * @ORM\Column(name="date_debut", type="date", nullable=true)
      */
     private $dateDebut;
 

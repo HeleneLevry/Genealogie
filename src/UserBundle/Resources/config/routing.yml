@@ -17,15 +17,19 @@ user_modif_proche:
     path:     /modif_proche
     defaults: { _controller:UserBundle:User:modif_proche }
 
+user_modif_proche:
+    path:     /modif_proche/{num_indiv}
+    defaults: { _controller:UserBundle:User:modif_proche }
+
 user_suppr_proche:
     path:     /suppr_proche
     defaults: { _controller:UserBundle:User:suppr_proche }
 
 user_liste_patho_proche:
-    path:     /liste_patho_proche
+    path:     /liste_patho_proche/{num_indiv}
     defaults: { _controller:UserBundle:User:liste_patho_proche }
 user_liste_patho_proche_vide:
-    path:     /liste_patho_proche_vide/{num_individu}
+    path:     /liste_patho_proche_vide
     defaults: { _controller:UserBundle:User:liste_patho_proche_vide }
 
 user_ajouter_patho_proche:

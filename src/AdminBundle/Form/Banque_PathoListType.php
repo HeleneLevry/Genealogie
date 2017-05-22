@@ -20,10 +20,10 @@ class Banque_PathoListType extends AbstractType
 				EntityType::class,
 				array(
 					'class' => 'AdminBundle:Banque_Patho',
-					'choice_label' => 'nom_pathologie', 
+					'choice_label' => 'nomPathologie', 
 					'placeholder' => 'nom de la pathologie',
 					'multiple' => false,
-					'expanded' => false
+					'expanded' => true
 				)
 			)	
 			;
