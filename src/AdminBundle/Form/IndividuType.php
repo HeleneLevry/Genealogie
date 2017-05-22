@@ -8,66 +8,65 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class IndividuType extends AbstractType
 {
-	
-
-	
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-			->add(
-				'nom', 
-				'text', 
-				array('required' => false)
-			)
-			->add(
-				'prenom', 
-				'text'
-			)
-			->add(
-				'genre', 
-				ChoiceType::class, 
-				array(
-					'choices'  => array(
-						null => '...',
-						'Masculin' => 'Masculin',
-						'Feminin' => 'Féminin',
-						'Autre' => 'Autre'),
-					'required' => false)
-			)
-			->add('dateNaissance')
-			->add('dateDeces')
-			//->add(
-				//'dateNaissance',
-				//BirthdayType::class,
-				//array(
-					//'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
-					//'format' => 'ddMMyyyy'
-				//),
-				//array('required' => false)
-			//)
-			//->add(
-				//'dateDeces', 
-				//BirthdayType::class, 
-				//array(
-					//'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
-					//'format' => 'ddMMyyyy'
-				//),
-				//array('required' => false)
-			//)
-			->add(
-				'commentaire', 
-				'textarea', 
-				array('required' => false)
-			)
-			->add('Enregistrer', 'submit')
-			;
+            ->add(
+                'nom', 
+                'text', 
+                array('required' => false)
+            )
+            ->add(
+                'prenom', 
+                'text'
+            )
+            ->add(
+                'genre', 
+                ChoiceType::class, 
+                array(
+                    'choices'  => array(
+                        null => '...',
+                        'Masculin' => 'Masculin',
+                        'Feminin' => 'Féminin',
+                        'Autre' => 'Autre'),
+                    'required' => false)
+            )
+            ->add(
+                'dateNaissance',
+                BirthdayType::class,
+                array(
+                    'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+                    'format' => 'ddMMyyyy',
+                    'required' => false)
+            )
+            ->add(
+                'dateDeces',
+                BirthdayType::class,
+                array(
+                    'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+                    'format' => 'ddMMyyyy',
+                    'required' => false)
+            )
+            ->add(
+                'commentaire', 
+                'textarea', 
+                array('required' => false)
+            )
+            ->add(
+                'Enregistrer',
+                'submit'
+            )
+
+            // ->add(
+            //     'compte'
+            // )
+            ;
     }
     
     /**

@@ -12,14 +12,14 @@ class Relation
 {
     
     /**
-    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(name="individu_connu_id", referencedColumnName="id",nullable=false)
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="individu_connu_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
     */
     private $individuConnu;
     
     /**
-    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(name="individu_a_lier_id", referencedColumnName="id",nullable=false)
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(name="individu_a_lier_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
     */
     private $individuALier;
     

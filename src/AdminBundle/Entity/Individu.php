@@ -15,12 +15,8 @@ class Individu
 {    
 		
 	/**
-    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Compte", cascade={"persist"})
-<<<<<<< HEAD
-    * @ORM\JoinColumn(nullable=true)
-=======
-    * @ORM\JoinColumn(name="compte_id", referencedColumnName="id",nullable=true)
->>>>>>> helene
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Compte", cascade={"persist", "remove"}) //orphanRemoval=true
+    * @ORM\JoinColumn(name="compte_id", referencedColumnName="id",nullable=true, onDelete="CASCADE")
     */
     private $compte;
   
