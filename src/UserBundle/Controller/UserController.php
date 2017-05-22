@@ -87,8 +87,21 @@ class UserController extends Controller
 
 
 ////////////////////////////////////////////////////////////////////////	
-	public function ajouter_patho_proche(){
-		return $this->render('UserBundle:User:ajouter_patho_proche.html.twig');
+	public function ajouter_patho_procheAction(Request $request){
+
+		$pathologie = new Pathologie();		
+		//$user = $this->get('security.context')->getToken()->getUser();
+		//$userId = $user->getId();
+		$form = $this->createForm('AdminBundle\Form\PathologieType', $pathologie);
+		if ($form->handleRequest($request)->isValid()){
+			//$individu->setCompte($user);
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($pathologie);
+			$em->flush();
+			return $this->redirect($this->generateUrl('user_connected_index'));
+		}		
+		return $this->render('UserBundle:User:ajouter_patho_proche.html.twig', array('form' => $form->createView()));
+		//return $this->render('UserBundle:User:ajouter_patho_proche.html.twig');
 	}
 	
 ////////////////////////////////////////////////////////////////////////	

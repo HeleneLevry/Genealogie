@@ -5,6 +5,8 @@ namespace AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 class Banque_PathoType extends AbstractType
 {
@@ -13,7 +15,19 @@ class Banque_PathoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomPathologie');
+        $builder
+            ->add(
+                'nomPathologie',
+                EntityType::class,
+                array(
+                    'class' => 'AdminBundle:Banque_Patho',
+                    'choice_label' => 'nom_pathologie', 
+                    'placeholder' => 'nom de la pathologie',
+                    'multiple' => false,
+                    'expanded' => false
+                )
+            )
+            ;
     }
     
     /**
