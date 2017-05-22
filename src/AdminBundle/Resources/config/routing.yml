@@ -25,3 +25,7 @@ admin_Patho_inconnu:
 admin_bdd_vide_patho:
     path:     /bdd_vide_patho
     defaults: { _controller: AdminBundle:Admin:bdd_vide_patho }
+
+reserve_admin:
+    path:     /reserve_admin
+    defaults: { _controller: AdminBundle:Admin:reserve_admin }

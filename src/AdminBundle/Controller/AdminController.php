@@ -7,6 +7,7 @@ namespace AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 use AdminBundle\Entity\Banque_Patho;
 use AdminBundle\Form\Banque_PathoType;
@@ -16,6 +17,10 @@ class AdminController extends Controller
 {	
 	public function ajouter_pathoAction()
 	{
+		if (!$this->get('security.context')->isGranted('ROLE_ADMIN')){
+			return $this->redirect($this->generateUrl('reserve_admin'));
+		}
+		
 		$new_patho= new Banque_Patho;
 		
 		//On genere le formulaire
@@ -54,6 +59,10 @@ class AdminController extends Controller
 	
 	public function supprimer_pathoAction()
 	{
+		if (!$this->get('security.context')->isGranted('ROLE_ADMIN')){
+			return $this->redirect($this->generateUrl('reserve_admin'));
+		}
+		
 		$nom_patho= new Banque_Patho;
 		
 		//On genere le formulaire
@@ -91,6 +100,9 @@ class AdminController extends Controller
 	
 	public function suppr_pathoAction(Request $request)
 	{
+		if (!$this->get('security.context')->isGranted('ROLE_ADMIN')){
+			return $this->redirect($this->generateUrl('reserve_admin'));
+		}
 		$banque_patho = new Banque_Patho();
 		$form = $this->get('form.factory')->create(new Banque_PathoSupprType(),$banque_patho);
 		echo "Bonjour le monde";
@@ -106,6 +118,9 @@ class AdminController extends Controller
 	
 	public function lister_pathoAction()
 	{
+		if (!$this->get('security.context')->isGranted('ROLE_ADMIN')){
+			return $this->redirect($this->generateUrl('reserve_admin'));
+		}
 		 $nom_patho= new Banque_Patho;
 		
 		 $em = $this->getDoctrine()->getManager();
@@ -136,5 +151,10 @@ class AdminController extends Controller
 	public function ajout_adminAction()
 	{
 		return $this->render('AdminBundle:Admin:ajout_admin.html.twig');
+	}
+	
+	public function reserve_adminAction()
+	{
+		return $this->render('AdminBundle:Admin:reserve_admin.html.twig');
 	}
 }

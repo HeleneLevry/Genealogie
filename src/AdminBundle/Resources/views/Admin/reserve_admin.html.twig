@@ -1,0 +1,19 @@
+{# src/AdminBundle/Resources/views/reserve_admin.html.twig #}
+
+{% extends "AdminBundle::layout.html.twig" %} 
+
+{% block title %}
+	YourHealthyTree!
+{% endblock %}
+
+
+{% block admin_block %}
+	<p> Désolé vous n'avez pas les droits pour acceder au contenu demandé.<p>
+	
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+	
+	<p> <a href= "{{ path('user_connected_index') }}"  class="btn" > Retour espace membre </a> </p>
+
+	{% endif %}
+
+{% endblock %}
