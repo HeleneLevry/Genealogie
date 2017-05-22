@@ -3,7 +3,7 @@ admin:
     prefix:    /admin
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /user
+    prefix:   /
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
