@@ -22,7 +22,7 @@ user_suppr_proche:
     defaults: { _controller:UserBundle:User:suppr_proche }
 
 user_liste_patho_proche:
-    path:     /liste_patho_proche/{num_individu}
+    path:     /liste_patho_proche
     defaults: { _controller:UserBundle:User:liste_patho_proche }
 user_liste_patho_proche_vide:
     path:     /liste_patho_proche_vide/{num_individu}
@@ -42,13 +42,8 @@ user_liste_proches:
     defaults: { _controller:UserBundle:User:liste_proches }
 ###
 user_liste_proches_vide:
-    path:    /
-
+    path:    /liste_proches_vide
     defaults: { _controller:UserBundle:User:liste_proches_vide }
-
-user_liste_relations:
-    path:    /liste_relations
-    defaults: { _controller:UserBundle:User:liste_relations }
 
 user_modif_relation:
     path:    /modif_relation
@@ -57,6 +52,10 @@ user_modif_relation:
 user_suppr_relation:
     path:    /suppr_relation
     defaults: { _controller:UserBundle:User:suppr_relation }
+
+user_liste_patho_proches:
+    path:    /liste_patho_proches
+    defaults: { _controller:UserBundle:User:liste_patho_proches }
 
 ###
 user_nous_contacter_1:
@@ -117,3 +116,8 @@ supprimer_compte_2:
 # user_liste_proches:
 #     path:    /liste_proches
 #     defaults: { _controller:UserBundle:User:liste_proches }
+
+# user_liste_relations:
+#     path:    /liste_relations
+#     defaults: { _controller:UserBundle:User:liste_relations }
+

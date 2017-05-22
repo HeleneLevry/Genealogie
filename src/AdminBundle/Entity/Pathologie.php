@@ -13,8 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Pathologie
 {
 	/**
-    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
-    * @ORM\JoinColumn(nullable=false)
+    * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist", "remove"})
+    * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
     */
     private $individu;
     
