@@ -151,7 +151,7 @@ class UserController extends Controller
 				$repository = $this ->getDoctrine()
 									->getManager()
 									->getRepository('AdminBundle:Pathologie');
-				$listePathologies[] = $repository->findBy(array('individu' => $listeIndividu), array('dateDebut' => 'desc'));
+				$listePathologies[] = $repository->findBy(array('individu' => $listeIndividu)); //, array('dateDebut' => 'desc'));
 			}
 			if($listePathologies){
 				return $this->render('UserBundle:User:liste_patho_proches.html.twig', array('liste_patho'=>$listePathologies, 'liste_indiv'=>$listeIndividus));

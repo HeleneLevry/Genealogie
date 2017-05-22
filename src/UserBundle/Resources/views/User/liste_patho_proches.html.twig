@@ -31,14 +31,14 @@
 					<li>
 						{#{{ pathologie.banque_patho }}#}
 						<br/>
-							{% if pathologie.dateDebut and pathologie.dateFin %} 
-								Déclarée le {{ pathologie.dateDebut|date("d/m/Y") }} - Finie le {{ pathologie.dateFin|date("d/m/Y") }}
+							{% if pathologie.DateDebut and pathologie.DateFin %} 
+								Déclarée le {{ pathologie.DateDebut|date("d/m/Y") }} - Finie le {{ pathologie.DateFin|date("d/m/Y") }}
 								<br/>	
-							{% elseif pathologie.dateDebut %} 
+							{% elseif pathologie.DateDebut %} 
 								né(e) le {{ pathologie.dateDebut|date("d/m/Y") }}
 								<br/>
-							{% elseif pathologie.dateFin %}
-								décédé(e) le {{ pathologie.dateFin|date("d/m/Y") }}
+							{% elseif pathologie.DateFin %}
+								décédé(e) le {{ pathologie.DateFin|date("d/m/Y") }}
 								<br/>
 							{% else %}
 								<br/>
