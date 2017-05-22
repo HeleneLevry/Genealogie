@@ -22,8 +22,11 @@ user_suppr_proche:
     defaults: { _controller:UserBundle:User:suppr_proche }
 
 user_liste_patho_proche:
-    path:     /liste_patho_proche
+    path:     /liste_patho_proche/{num_individu}
     defaults: { _controller:UserBundle:User:liste_patho_proche }
+user_liste_patho_proche_vide:
+    path:     /liste_patho_proche_vide/{num_individu}
+    defaults: { _controller:UserBundle:User:liste_patho_proche_vide }
 
 user_ajouter_patho_proche:
     path:     /ajouter_patho_proche

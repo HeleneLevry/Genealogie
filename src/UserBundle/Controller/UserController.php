@@ -69,9 +69,22 @@ class UserController extends Controller
 	}
 
 ////////////////////////////////////////////////////////////////////////	
-	public function liste_patho_proche(){
-		return $this->render('UserBundle:User:liste_patho_proche.html.twig');
+	public function liste_patho_procheAction($num_individu){
+		$repository = $this ->getDoctrine()
+							->getManager()
+							->getRepository('AdminBundle:Pathologie');
+		$listePathologies += $repository->findBy(array('individu' => $num_individu)); //,array('dateDebut' => 'desc'));
+		if($listePathologies){
+			return $this->render('UserBundle:User:liste_patho_proche.html.twig', array('liste_patho'=>$listePathologies));
+		}
+		return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig', array($num_individu));
 	}
+
+//----------------------------------------------------------------------	
+	public function liste_patho_proche_videAction($num_individu){
+		return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig');
+	}
+
 
 ////////////////////////////////////////////////////////////////////////	
 	public function ajouter_patho_proche(){
@@ -327,4 +340,27 @@ class UserController extends Controller
 		 
 		 //return $this->render('UserBundle:User:lister_relation.html.twig',array('liste_individu'=>$liste_individu));
 	//}
+
+	// public function liste_patho_procheAction(){
+
+	// 	$repository = $this
+	// 		->getDoctrine()
+	// 		->getManager()
+	// 		->getRepository('AdminBundle:Individu')
+	// 	;
+	// 	$user = $this->container->get('security.context')->getToken()->getUser();
+	// 	$listeIndividus = $repository->findBy(array('compte' => $user), array('dateNaissance' => 'desc'));
+	// 	foreach ($listeIndividus as $listeIndividu)
+	// 	{
+	// 		$repository = $this ->getDoctrine()
+	// 							->getManager()
+	// 							->getRepository('AdminBundle:Individu');
+	// 		$listePathologies += $repository->findBy(array('individu' => $listeIndividu), array('dateDebut' => 'desc'));
+	// 	}
+	// 	if($listePathologies){
+	// 		return $this->render('UserBundle:User:liste_patho_proche.html.twig', array('liste_patho'=>$listePathologies));
+	// 	}
+	// 	return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig');
+	// }
+
 }
