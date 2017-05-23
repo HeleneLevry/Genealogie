@@ -1,10 +1,11 @@
+// src/AdminBundle/Entity/Relation.php
+
 <?php
 
 namespace AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * Relation
- *
  * @ORM\Table(name="relation")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\RelationRepository")
  */
@@ -23,18 +24,16 @@ class Relation
     */
     private $individuALier;
     
-    
     /**
      * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
-     *
      * @ORM\Column(name="type_de_relation", type="boolean", length=255)
      */
     private $typeRelation;
@@ -42,18 +41,16 @@ class Relation
    
     /**
      * Get id
-     *
      * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
+
     /**
      * Set typeRelation
-     *
      * @param string $typeRelation
-     *
      * @return Relation
      */
     public function setTypeRelation($typeRelation)
@@ -63,7 +60,6 @@ class Relation
     }
     /**
      * Get typeRelation
-     *
      * @return string
      */
     public function getTypeRelation()
@@ -73,21 +69,17 @@ class Relation
 
     /**
      * Set individuAscendant
-     *
      * @param \AdminBundle\Entity\Individu $individuAscendant
-     *
      * @return Relation
      */
     public function setIndividuAscendant(\AdminBundle\Entity\Individu $individuAscendant)
     {
         $this->individuAscendant = $individuAscendant;
-
         return $this;
     }
 
     /**
      * Get individuAscendant
-     *
      * @return \AdminBundle\Entity\Individu
      */
     public function getIndividuAscendant()
@@ -97,21 +89,17 @@ class Relation
 
     /**
      * Set individuDescendant
-     *
      * @param \AdminBundle\Entity\Individu $individuDescendant
-     *
      * @return Relation
      */
     public function setIndividuDescendant(\AdminBundle\Entity\Individu $individuDescendant)
     {
         $this->individuDescendant = $individuDescendant;
-
         return $this;
     }
 
     /**
      * Get individuDescendant
-     *
      * @return \AdminBundle\Entity\Individu
      */
     public function getIndividuDescendant()
@@ -121,21 +109,17 @@ class Relation
 
     /**
      * Set individuConnu
-     *
      * @param \AdminBundle\Entity\Individu $individuConnu
-     *
      * @return Relation
      */
     public function setIndividuConnu(\AdminBundle\Entity\Individu $individuConnu)
     {
         $this->individuConnu = $individuConnu;
-
         return $this;
     }
 
     /**
      * Get individuConnu
-     *
      * @return \AdminBundle\Entity\Individu
      */
     public function getIndividuConnu()
@@ -145,21 +129,17 @@ class Relation
 
     /**
      * Set individuALier
-     *
      * @param \AdminBundle\Entity\Individu $individuALier
-     *
      * @return Relation
      */
     public function setIndividuALier(\AdminBundle\Entity\Individu $individuALier)
     {
         $this->individuALier = $individuALier;
-
         return $this;
     }
 
     /**
      * Get individuALier
-     *
      * @return \AdminBundle\Entity\Individu
      */
     public function getIndividuALier()

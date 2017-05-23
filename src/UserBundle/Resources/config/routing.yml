@@ -32,9 +32,9 @@ user_liste_patho_proche_vide:
     path:     /liste_patho_proche_vide/{id_indiv}
     defaults: { _controller:UserBundle:User:liste_patho_proche_vide }
 
-user_ajouter_patho_proche:
-    path:     /ajouter_patho_proche/{id_indiv}
-    defaults: { _controller:UserBundle:User:ajouter_patho_proche }
+user_ajout_patho_proche:
+    path:     /ajout_patho_proche/{id_indiv}
+    defaults: { _controller:UserBundle:User:ajout_patho_proche }
 
 user_modif_patho_proche:
     path:     /modif_patho_proche{id_indiv}
@@ -143,4 +143,3 @@ supprimer_compte_2:
 # user_liste_relations:
 #     path:    /liste_relations
 #     defaults: { _controller:UserBundle:User:liste_relations }
-

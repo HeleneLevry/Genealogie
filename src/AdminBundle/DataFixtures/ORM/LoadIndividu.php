@@ -12,18 +12,6 @@ class LoadIndividu implements FixtureInterface
   // Dans l'argument de la méthode load, l'objet $manager est l'EntityManager
   public function load(ObjectManager $manager)
   {
-    //// Liste des noms à ajouter
-    //$noms = array(
-      //'NomIndividuA',
-      //'NomIndividuB',
-      //'NomIndividuC',
-      //'NomIndividuD',
-      //'NomIndividuE'
-    //);
-	//foreach ($noms as $nom) {
-		//// On crée la catégorie
-		//$individu = new Individu();
-		//$individu->setName($individu);
 	$individu = new Individu();
     $individu->setNom('NomIndividuA');
     $individu->setPrenom('PrenomIndividuA');

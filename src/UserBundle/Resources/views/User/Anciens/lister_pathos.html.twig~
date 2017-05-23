@@ -8,4 +8,4 @@
 
 {% block fos_user_content %}
 	<h2> Lister les pathogies du proche </h2>
-{% endblock %}
+{% endblock %}s

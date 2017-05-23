@@ -1,3 +1,5 @@
+// src/AdminBundle/Form/Banque_PathoListType.php
+
 <?php
 
 namespace AdminBundle\Form;
@@ -15,18 +17,18 @@ class Banque_PathoListType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-			->add(
-				'nomPathologie',
-				EntityType::class,
-				array(
-					'class' => 'AdminBundle:Banque_Patho',
-					'choice_label' => 'nomPathologie', 
-					'placeholder' => 'nom de la pathologie',
-					'multiple' => false,
-					'expanded' => true
-				)
-			)	
-			;
+           ->add(
+               'nomPathologie',
+               EntityType::class,
+               array(
+                   'class' => 'AdminBundle:Banque_Patho',
+                   'choice_label' => 'nomPathologie', 
+                   'placeholder' => 'nom de la pathologie',
+                   'multiple' => false,
+                   'expanded' => true
+               )
+           )   
+           ;
     }
     
     /**
@@ -34,9 +36,9 @@ class Banque_PathoListType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Banque_Patho'
-        ));
+        $resolver->setDefaults(
+            array('data_class' => 'AdminBundle\Entity\Banque_Patho')
+        );
     }
 
     /**
@@ -46,6 +48,5 @@ class Banque_PathoListType extends AbstractType
     {
         return 'adminbundle_banque_patho';
     }
-
 
 }

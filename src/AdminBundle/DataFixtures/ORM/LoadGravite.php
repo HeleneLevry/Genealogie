@@ -12,7 +12,6 @@ class LoadGravite implements FixtureInterface
   // Dans l'argument de la méthode load, l'objet $manager est l'EntityManager
   public function load(ObjectManager $manager)
   {
-    
     $gravite_pathos = array(
       '1',
       '2',
@@ -30,7 +29,6 @@ class LoadGravite implements FixtureInterface
 		$gravite->setGravitePatho($gravite_patho);
 		$manager->persist($gravite);
 	}
-
 	// On déclenche l'enregistrement de toutes les catégories
 	$manager->flush();
 	}

@@ -1,3 +1,5 @@
+// src/AdminBundle/Form/IndividuType.php
+
 <?php
 
 namespace AdminBundle\Form;
@@ -62,10 +64,6 @@ class IndividuType extends AbstractType
                 'Enregistrer',
                 'submit'
             )
-
-            // ->add(
-            //     'compte'
-            // )
             ;
     }
     
@@ -74,9 +72,9 @@ class IndividuType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Individu'
-        ));
+        $resolver->setDefaults(
+           array('data_class' => 'AdminBundle\Entity\Individu')
+        );
     }
 
     /**
@@ -86,6 +84,5 @@ class IndividuType extends AbstractType
     {
         return 'adminbundle_individu';
     }
-
 
 }

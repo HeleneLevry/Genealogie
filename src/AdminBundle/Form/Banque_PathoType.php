@@ -1,3 +1,5 @@
+// src/AdminBundle/Form/Banque_PathoType.php
+
 <?php
 
 namespace AdminBundle\Form;
@@ -6,7 +8,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
 
 class Banque_PathoType extends AbstractType
 {
@@ -35,9 +36,9 @@ class Banque_PathoType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Banque_Patho'
-        ));
+        $resolver->setDefaults(
+            array('data_class' => 'AdminBundle\Entity\Banque_Patho')
+        );
     }
 
     /**
@@ -47,6 +48,5 @@ class Banque_PathoType extends AbstractType
     {
         return 'adminbundle_banque_patho';
     }
-
 
 }
