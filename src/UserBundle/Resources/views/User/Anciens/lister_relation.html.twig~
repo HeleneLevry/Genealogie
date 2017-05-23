@@ -6,11 +6,12 @@
 	YourHealthyTree!
 {% endblock %}
 
+
 {% block fos_user_content %}
 	<h2> Vos relations enregistrées sont les suivantes: </h2>
 	<ul>
-		{% for indi in liste_individu %}
-			<li>{{ indi.nom }} </li>
-		{% endfor %}
+	{% for indi in liste_individu %}
+		<li>{{ indi.nom }} </li>
+	{% endfor %}
 	</ul>	
 {% endblock %}
