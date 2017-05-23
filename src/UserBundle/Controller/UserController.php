@@ -1,6 +1,6 @@
-// src/UserBundle/Controller/UserController.php
-
 <?php
+
+// src/UserBundle/Controller/UserController.php
 
 namespace UserBundle\Controller;
 

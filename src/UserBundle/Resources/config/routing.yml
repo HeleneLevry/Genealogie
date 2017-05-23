@@ -1,14 +1,14 @@
-###
+
 user_connected_index:
     path:     /user
     defaults: {_controller:UserBundle:User:index }
 
-###
+
 user_accueil:
     path:     /accueil
     defaults: { _controller:UserBundle:User:accueil }
 
-###
+
 user_ajout_proche:
     path:     /ajout_proche
     defaults: { _controller:UserBundle:User:ajout_proche }
