@@ -1,4 +1,5 @@
 <?php
+// src/AdminBundle/Entity/Compte.php
 
 namespace AdminBundle\Entity;
 

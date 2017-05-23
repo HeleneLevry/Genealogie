@@ -1,6 +1,5 @@
-// src/AdminBundle/Entity/Relation.php
-
 <?php
+// src/AdminBundle/Entity/Relation.php
 
 namespace AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;

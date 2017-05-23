@@ -1,4 +1,5 @@
 <?php
+// src/AdminBundle/Entity/Gravite.php
 
 namespace AdminBundle\Entity;
 

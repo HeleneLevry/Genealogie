@@ -1,6 +1,5 @@
-// src/AdminBundle/Form/IndividuType.php
-
 <?php
+// src/AdminBundle/Form/IndividuType.php
 
 namespace AdminBundle\Form;
 

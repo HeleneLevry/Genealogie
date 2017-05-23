@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-=======
-// src/AdminBundle/Entity/Banque_Patho.php
-
->>>>>>> master
 <?php
+// src/AdminBundle/Entity/Banque_Patho.php
 
 namespace AdminBundle\Entity;
 
@@ -11,10 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Banque_Patho
-<<<<<<< HEAD
- *
-=======
->>>>>>> master
  * @ORM\Table(name="banque__patho")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\Banque_PathoRepository")
  */
@@ -22,10 +14,6 @@ class Banque_Patho
 {
     /**
      * @var int
-<<<<<<< HEAD
-     *
-=======
->>>>>>> master
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -34,15 +22,6 @@ class Banque_Patho
 
     /**
      * @var string
-<<<<<<< HEAD
-     *
-     * @ORM\Column(name="nom_pathologie", type="string", length=255, unique=true)
-     */
-    private $nomPathologie;
-    
-    
-}
-=======
      * @ORM\Column(name="nom_pathologie", type="string", length=255, unique=true)
      */
     private $nomPathologie;
@@ -81,4 +60,3 @@ class Banque_Patho
         return $this->nomPathologie;
     }
 }
->>>>>>> master

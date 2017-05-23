@@ -1,70 +1,14 @@
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-user_connected_index:
-    path:     /
-    defaults: {_controller:UserBundle:User:index }
-
-=======
 ###
->>>>>>> Marine
 user_connected_index:
     path:     /user
     defaults: {_controller:UserBundle:User:index }
 
-<<<<<<< HEAD
-
-=======
 ###
->>>>>>> master
->>>>>>> Marine
 user_accueil:
     path:     /accueil
     defaults: { _controller:UserBundle:User:accueil }
 
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-user_modifier_supprimer:
-    path:     /modifier_supprimer
-    defaults: { _controller:UserBundle:User:modifier_supprimer }
-    
-user_modifier_infos_individu:
-    path:     /modifier_infos_individu
-    defaults: { _controller:UserBundle:User:modifier_infos_individu }
-
-user_choix_patho_modifier:
-    path:     /choix_patho_modifier
-    defaults: { _controller:UserBundle:User:choix_patho_modifier }
-    
-user_ajouter_patho_individu:
-    path:     /ajouter_patho_individu
-    defaults: { _controller:UserBundle:User:ajouter_patho_individu }
-    
-user_modifier_patho_individu:
-    path:     /modifier_patho_individu
-    defaults: { _controller:UserBundle:User:modifier_patho_individu }
- 
-user_lister_proches:
-    path:    /lister_proches
-    defaults: { _controller:UserBundle:User:lister_proches }
-user_liste_proches_vide:
-    path:    /liste_proches_vide
-    defaults: { _controller:UserBundle:User:lister_proches }
- 
-user_ajouter_proche:
-    path:     /ajouter_proche
-    defaults: { _controller:UserBundle:User:ajouter_proche }
-    
-user_nous_contacter_1:
-    path:     /nous_contacter
-    defaults: { _controller:UserBundle:User:nous_contacter }
-    
-=======
 ###
->>>>>>> Marine
 user_ajout_proche:
     path:     /ajout_proche
     defaults: { _controller:UserBundle:User:ajout_proche }
@@ -142,28 +86,15 @@ user_nous_contacter_1:
     defaults: { _controller:UserBundle:User:nous_contacter }
 
 ###
->>>>>>> master
 user_nous_contacter_2:
     path:     /nous_contacter_2
     defaults: { _controller:UserBundle:User:nous_contacter }
 
-<<<<<<< HEAD
-=======
 ###
->>>>>>> master
 supprimer_compte_1:
     path:     /validation_supprimer
     defaults: {_controller:UserBundle:User:supprimer_compte_1 }
 
-<<<<<<< HEAD
-supprimer_compte_2:
-    path:     /compte_supprime
-    defaults: {_controller:UserBundle:User:supprimer_compte_2 }
-    
-user_lister:
-    path:     /lister_membre
-defaults: { _controller:UserBundle:User:lister_relation }
-=======
 ###
 supprimer_compte_2:
     path:     /compte_supprime
@@ -212,7 +143,3 @@ supprimer_compte_2:
 # user_liste_relations:
 #     path:    /liste_relations
 #     defaults: { _controller:UserBundle:User:liste_relations }
-<<<<<<< HEAD
-=======
->>>>>>> master
->>>>>>> Marine

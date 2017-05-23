@@ -1,11 +1,5 @@
 <?php
 // src/AdminBundle/DataFixtures/ORM/LoadBanque_Patho.php
-<<<<<<< HEAD
-namespace AdminBundle\DataFixtures\ORM;
-use Doctrine\Common\DataFixtures\FixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
-use AdminBundle\Entity\Banque_Patho;
-=======
 
 namespace AdminBundle\DataFixtures\ORM;
 
@@ -13,16 +7,11 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AdminBundle\Entity\Banque_Patho;
 
->>>>>>> master
 class LoadBanque_Patho implements FixtureInterface
 {
   // Dans l'argument de la méthode load, l'objet $manager est l'EntityManager
   public function load(ObjectManager $manager)
   {
-<<<<<<< HEAD
-    
-=======
->>>>>>> master
     $nomPathologies = array(
       'Amyotrophie spinale',
       'Dystrophie musculaire',
