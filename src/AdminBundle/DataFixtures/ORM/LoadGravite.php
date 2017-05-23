@@ -1,5 +1,11 @@
 <?php
 // src/AdminBundle/DataFixtures/ORM/LoadGravite.php
+<<<<<<< HEAD
+namespace AdminBundle\DataFixtures\ORM;
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use AdminBundle\Entity\Gravite;
+=======
 
 namespace AdminBundle\DataFixtures\ORM;
 
@@ -7,11 +13,16 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AdminBundle\Entity\Gravite;
 
+>>>>>>> master
 class LoadGravite implements FixtureInterface
 {
   // Dans l'argument de la méthode load, l'objet $manager est l'EntityManager
   public function load(ObjectManager $manager)
   {
+<<<<<<< HEAD
+    
+=======
+>>>>>>> master
     $gravite_pathos = array(
       '1',
       '2',
