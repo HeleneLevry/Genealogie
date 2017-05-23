@@ -31,8 +31,8 @@ class IndividuType extends AbstractType
                 'genre', 
                 ChoiceType::class, 
                 array(
+                    'placeholder' => '...',
                     'choices'  => array(
-                        null => '...',
                         'Masculin' => 'Masculin',
                         'Feminin' => 'Féminin',
                         'Autre' => 'Autre'),
