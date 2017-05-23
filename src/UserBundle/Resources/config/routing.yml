@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5d58713fe69450909ec20fbd18b447b1e05959cc
 ###
 user_connected_index:
     path:     /user
@@ -143,3 +147,9 @@ supprimer_compte_2:
 # user_liste_relations:
 #     path:    /liste_relations
 #     defaults: { _controller:UserBundle:User:liste_relations }
+<<<<<<< HEAD
+=======
+
+=======
+>>>>>>> adaea51154026dae192641a1fa98c5effa683993
+>>>>>>> 5d58713fe69450909ec20fbd18b447b1e05959cc
