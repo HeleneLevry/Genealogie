@@ -3,19 +3,16 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	YourHealthyTree!
+    YourHealthyTree!
 {% endblock %}
 
-
 {% block fos_user_content %}
-	<h2> Liste des pathologies de {{num_indiv}} </h2>
-	
-	<ul>
-	
-		{% for pathologie in liste_patho %}
-			<li>
-				{{ pathologie.BanquePatho }}
-			</li>
-		{% endfor %}
-	</ul>
+    <h2> Liste des pathologies de {{num_indiv}} </h2>
+    <ul>
+        {% for pathologie in liste_patho %}
+            <li>
+                {{ pathologie.BanquePatho }}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

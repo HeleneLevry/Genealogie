@@ -6,7 +6,11 @@
 	YourHealthyTree!
 {% endblock %}
 
+
 {% block fos_user_content %}
 	<h2> Enregistrer une nouvelle pathologie </h2>
-	<div class="well"> {{form(form)}} </div>
+	
+	<div class="well">
+		{{form(form)}}
+	</div>
 {% endblock %}

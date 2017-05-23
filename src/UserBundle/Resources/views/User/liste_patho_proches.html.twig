@@ -1,51 +1,50 @@
-{# src/UserBundle/Resources/views/liste_patho_proche.html.twig #}
+{# src/UserBundle/Resources/views/liste_patho_proches.html.twig #}
 
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	YourHealthyTree!
+    YourHealthyTree!
 {% endblock %}
 
 
 {% block fos_user_content %}
-	<h2> Liste des pathologies de ma famille </h2>
-
-	<ul>
-		{% for individu in liste_indiv %}
-			<li>
-				{{ individu.nom }} {{ individu.prenom }}
-				<br/>
-					{% if individu.dateNaissance and individu.datedeces %} 
-						né(e) le {{ individu.dateNaissance|date("d/m/Y") }} - décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
-						<br/>	
-					{% elseif individu.dateNaissance %} 
-						né(e) le {{ individu.dateNaissance|date("d/m/Y") }}
-						<br/>
-					{% elseif individu.datedeces %}
-						décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
-						<br/>
-					{% else %}
-						<br/>
-					{%endif%}
-				{% for pathologie in liste_patho %}
-					<li>
-						{#{{ pathologie.banque_patho }}#}
-						<br/>
-							{% if pathologie.DateDebut and pathologie.DateFin %} 
-								Déclarée le {{ pathologie.DateDebut|date("d/m/Y") }} - Finie le {{ pathologie.DateFin|date("d/m/Y") }}
-								<br/>	
-							{% elseif pathologie.DateDebut %} 
-								né(e) le {{ pathologie.dateDebut|date("d/m/Y") }}
-								<br/>
-							{% elseif pathologie.DateFin %}
-								décédé(e) le {{ pathologie.DateFin|date("d/m/Y") }}
-								<br/>
-							{% else %}
-								<br/>
-							{%endif%}
-					</li>
-				{% endfor %}
-			</li>
-		{% endfor %}
-	</ul>
+    <h2> Liste des pathologies de ma famille </h2>
+    <ul>
+        {% for individu in liste_indiv %}
+            <li>
+                {{ individu.nom }} {{ individu.prenom }}
+                <br/>
+                    {% if individu.dateNaissance and individu.datedeces %} 
+                        né(e) le {{ individu.dateNaissance|date("d/m/Y") }} - décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
+                        <br/>   
+                    {% elseif individu.dateNaissance %} 
+                        né(e) le {{ individu.dateNaissance|date("d/m/Y") }}
+                        <br/>
+                    {% elseif individu.datedeces %}
+                        décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
+                        <br/>
+                    {% else %}
+                        <br/>
+                    {%endif%}
+                {% for pathologie in liste_patho %}
+                    <li>
+                        {#{{ pathologie.banque_patho }}#}
+                        <br/>
+                            {% if pathologie.DateDebut and pathologie.DateFin %} 
+                                Déclarée le {{ pathologie.DateDebut|date("d/m/Y") }} - Finie le {{ pathologie.DateFin|date("d/m/Y") }}
+                               <br/>   
+                           {% elseif pathologie.DateDebut %} 
+                               né(e) le {{ pathologie.dateDebut|date("d/m/Y") }}
+                               <br/>
+                           {% elseif pathologie.DateFin %}
+                               décédé(e) le {{ pathologie.DateFin|date("d/m/Y") }}
+                               <br/>
+                           {% else %}
+                               <br/>
+                           {%endif%}
+                   </li>
+               {% endfor %}
+           </li>
+       {% endfor %}
+   </ul>
 {% endblock %}

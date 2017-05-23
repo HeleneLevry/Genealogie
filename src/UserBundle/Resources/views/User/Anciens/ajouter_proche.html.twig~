@@ -1,4 +1,4 @@
-{# src/UserBundle/Resources/views/lister_pathos.html.twig #}
+{# src/UserBundle/Resources/views/ajouter_proche.html.twig #}
 
 {% extends "UserBundle::layout.html.twig" %} 
 
@@ -6,6 +6,11 @@
 	YourHealthyTree!
 {% endblock %}
 
+
 {% block fos_user_content %}
-	<h2> Lister les pathogies du proche </h2>
+	<h2> Ajouter un proche </h2>
+
+	<div class="well">
+		{{form(form)}}
+	</div>
 {% endblock %}

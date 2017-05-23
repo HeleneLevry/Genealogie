@@ -12,7 +12,6 @@ class LoadBanque_Patho implements FixtureInterface
   // Dans l'argument de la méthode load, l'objet $manager est l'EntityManager
   public function load(ObjectManager $manager)
   {
-    
     $nomPathologies = array(
       'Amyotrophie spinale',
       'Dystrophie musculaire',
@@ -25,7 +24,6 @@ class LoadBanque_Patho implements FixtureInterface
 		$banque_patho->setNomPathologie($nomPathologie);
 		$manager->persist($banque_patho);
 	}
-
 	// On déclenche l'enregistrement de toutes les catégories
 	$manager->flush();
 	}

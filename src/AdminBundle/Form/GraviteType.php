@@ -1,3 +1,5 @@
+// src/AdminBundle/Form/GraviteType.php
+
 <?php
 
 namespace AdminBundle\Form;
@@ -5,7 +7,7 @@ namespace AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EntityType;
 
 class GraviteType extends AbstractType
 {
@@ -17,17 +19,14 @@ class GraviteType extends AbstractType
         $builder
             ->add(
                 'gravitePatho', 
-                ChoiceType::class, 
+                EntityType::class,
                 array(
-                    'choices'  => array(
-                        null => '...',
-                        '0' => '0',
-                        '1' => '1',
-                        '2' => '2',
-                        '3' => '3',
-                        '4' => '4',
-                        '5' => '5'),
-                    'required' => false)
+                    'class' => 'AdminBundle:Gravite',
+                    'choice_label' => 'gravite_patho', 
+                    'placeholder' => 'gravite de la pathologie',
+                    'multiple' => false,
+                    'expanded' => false
+                )
             )
             ;
     }
@@ -37,9 +36,9 @@ class GraviteType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Gravite'
-        ));
+        $resolver->setDefaults(
+            array('data_class' => 'AdminBundle\Entity\Gravite')
+        );
     }
 
     /**
@@ -49,6 +48,5 @@ class GraviteType extends AbstractType
     {
         return 'adminbundle_gravite';
     }
-
 
 }

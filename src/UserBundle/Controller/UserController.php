@@ -1,6 +1,6 @@
-<?php
+// src/UserBundle/Controller/UserController.php
 
-//src/USerBundle/Controller/UserController.php
+<?php
 
 namespace UserBundle\Controller;
 
@@ -87,7 +87,7 @@ class UserController extends Controller
 
 
 ////////////////////////////////////////////////////////////////////////	
-	public function ajouter_patho_procheAction(Request $request){
+	public function ajout_patho_procheAction(Request $request){
 
 		$pathologie = new Pathologie();	
 		$form = $this->createForm('AdminBundle\Form\PathologieType', $pathologie);
@@ -97,7 +97,7 @@ class UserController extends Controller
 			$em->flush();
 			return $this->redirect($this->generateUrl('user_connected_index'));
 		}		
-		return $this->render('UserBundle:User:ajouter_patho_proche.html.twig', array('form' => $form->createView()));
+		return $this->render('UserBundle:User:ajout_patho_proche.html.twig', array('form' => $form->createView()));
 	}
 	
 ////////////////////////////////////////////////////////////////////////	
@@ -154,7 +154,7 @@ class UserController extends Controller
 				$listePathologies[] = $repository->findBy(array('individu' => $listeIndividu)); //, array('dateDebut' => 'desc'));
 			}
 			if($listePathologies){
-				return $this->render('UserBundle:User:liste_patho_proches.html.twig', array('liste_patho'=>$listePathologies, 'liste_indiv'=>$listeIndividus));
+				return $this->render('UserBundle:User:liste_patho_proches.html.twig', array('liste_patho'=>$istePathologies, 'liste_indiv'=>$listeIndividus));
 			}
 			return $this->render('UserBundle:User:liste_patho_proches_vide.html.twig');
 		}
@@ -292,7 +292,7 @@ class UserController extends Controller
 		//return $this->render('UserBundle:User:supprimer_patho_individu.html.twig');
 	//}
 	
-/////////////////////////////////////////---------------------------------
+////////////////////////////////////////---------------------------------
 	//public function lister_prochesAction()
 	//{
 		//$repository = $this
@@ -323,7 +323,7 @@ class UserController extends Controller
 		
 		////$queryBuilder = $this->_em->createQueryBuilder()
 			////->select('a')
-			////->from($this->AdminBundle\Entity\Pathologies
+		////->from($this->AdminBundle\Entity\Pathologies
 		////;
 		////$queryBuilder=$this->createQueryBuilder('p');
 		////$query = $queryBuilder->getQuery();
@@ -333,7 +333,7 @@ class UserController extends Controller
 			////->createQueryBuilder('p')
 			////->join('p.num_individu', 'indiv')
 			////->addSelect('indiv')
-			////;
+		////;
 		////$qb 
 			////->where('p.num_individu = :idIndividu')
 			////->setParameter('idIndividu', $numIndiv)
@@ -359,9 +359,8 @@ class UserController extends Controller
 	//{
 		//return $this->render('UserBundle:User:supprimer.html.twig');
 	//}
-
 ////////////////////////////////////////////////////////////////////////
-	//public function lister_relationAction()
+//public function lister_relationAction()
 	//{
 		 //$les_individu= new Individu;
 		  

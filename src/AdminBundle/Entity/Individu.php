@@ -1,3 +1,5 @@
+// src/AdminBundle/Entity/Individu.php
+
 <?php
 
 namespace AdminBundle\Entity;
@@ -7,14 +9,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Individu
- *
  * @ORM\Table(name="individu")
  * @ORM\Entity(repositoryClass="AdminBundle\Repository\IndividuRepository")
  */
 class Individu
 {    
-		
-	/**
+       
+   /**
     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Compte", cascade={"persist", "remove"}) //orphanRemoval=true
     * @ORM\JoinColumn(name="compte_id", referencedColumnName="id",nullable=true, onDelete="CASCADE")
     */
@@ -22,7 +23,6 @@ class Individu
   
     /**
      * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -42,10 +42,9 @@ class Individu
      * @Assert\Length(max=255)
      */
     private $prenom;
-    
+   
     /**
      * @var string
-     *
      * @ORM\Column(name="genre", type="string", length=255, nullable=true)
      */
     private $genre;
@@ -64,22 +63,18 @@ class Individu
 
     /**
      * @var string
-     *
      * @ORM\Column(name="commentaire", type="string", length=255, nullable=true)
      */
     private $commentaire;
-
-
    
-	
-	public function __construct()
-	{
-		$this->date = new \Datetime();
-	}
-	
+   
+   public function __construct()
+   {
+       $this->date = new \Datetime();
+   }
+   
     /**
      * Get id
-     *
      * @return integer
      */
     public function getId()
@@ -89,21 +84,17 @@ class Individu
 
     /**
      * Set nom
-     *
      * @param string $nom
-     *
      * @return Individu
      */
     public function setNom($nom)
     {
         $this->nom = $nom;
-
         return $this;
     }
 
     /**
      * Get nom
-     *
      * @return string
      */
     public function getNom()
@@ -113,21 +104,17 @@ class Individu
 
     /**
      * Set prenom
-     *
      * @param string $prenom
-     *
      * @return Individu
      */
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
-
         return $this;
     }
 
     /**
      * Get prenom
-     *
      * @return string
      */
     public function getPrenom()
@@ -137,21 +124,17 @@ class Individu
 
     /**
      * Set genre
-     *
      * @param boolean $genre
-     *
      * @return Individu
      */
     public function setGenre($genre)
     {
         $this->genre = $genre;
-
         return $this;
     }
 
     /**
      * Get genre
-     *
      * @return boolean
      */
     public function getGenre()
@@ -161,21 +144,17 @@ class Individu
 
     /**
      * Set dateNaissance
-     *
      * @param \DateTime $dateNaissance
-     *
      * @return Individu
      */
     public function setDateNaissance($dateNaissance)
     {
         $this->dateNaissance = $dateNaissance;
-
         return $this;
     }
 
     /**
      * Get dateNaissance
-     *
      * @return \DateTime
      */
     public function getDateNaissance()
@@ -185,21 +164,17 @@ class Individu
 
     /**
      * Set dateDeces
-     *
      * @param \DateTime $dateDeces
-     *
      * @return Individu
      */
     public function setDateDeces($dateDeces)
     {
         $this->dateDeces = $dateDeces;
-
         return $this;
     }
 
     /**
      * Get dateDeces
-     *
      * @return \DateTime
      */
     public function getDateDeces()
@@ -209,21 +184,17 @@ class Individu
 
     /**
      * Set commentaire
-     *
      * @param string $commentaire
-     *
      * @return Individu
      */
     public function setCommentaire($commentaire)
     {
         $this->commentaire = $commentaire;
-
         return $this;
     }
 
     /**
      * Get commentaire
-     *
      * @return string
      */
     public function getCommentaire()
@@ -233,22 +204,18 @@ class Individu
 
     /**
      * Set compte
-     *
      * @param \AdminBundle\Entity\Compte $compte
-     *
      * @return Individu
      */
     //public function setCompte(\AdminBundle\Entity\Compte $compte)
     public function setCompte($compte)
     {
         $this->compte = $compte;
-
         return $this;
     }
 
     /**
      * Get compte
-     *
      * @return \AdminBundle\Entity\Compte
      */
     public function getCompte()
@@ -258,11 +225,11 @@ class Individu
     
     /**
      * Get nom complet
-     *
      * @return string
      */
     public function getNomComplet()
     {
         return $this->prenom." ".$this->nom;
     }
+    
 }

@@ -1,3 +1,5 @@
+// src/AdminBundle/Form/PathologieType.php
+
 <?php
 
 namespace AdminBundle\Form;
@@ -68,9 +70,6 @@ class PathologieType extends AbstractType
                 'textarea', 
                 array('required' => false)
             )
-            // ->add(
-            //     'individu'
-            // )
             ->add(
                 'Enregistrer',
                 'submit'
@@ -84,9 +83,7 @@ class PathologieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
-            array(
-            'data_class' => 'AdminBundle\Entity\Pathologie'
-            )
+            array('data_class' => 'AdminBundle\Entity\Pathologie')
         );
     }
 
@@ -97,6 +94,5 @@ class PathologieType extends AbstractType
     {
         return 'adminbundle_pathologie';
     }
-
 
 }
