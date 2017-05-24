@@ -1,14 +1,19 @@
-{# src/UserBundle/Resources/views/ajout_proche.html.twig #}
+{# src/UserBundle/Resources/views/suppr_proche.html.twig #}
 
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	Ajouter un proche
+	Supprimer le proche
 {% endblock %}
 
 {% block fos_user_content %}
-	<h2> Ajouter un proche </h2>
+	<h2> Supprimer le proche "{{individu.getNomComplet}}" </h2>
 	<br/>
-	<p> Entrez les informations concernant votre proche : </p>
-	<div class="well"> {{form(form)}} </div>
+	<p> Etes-vous certain de vouloir supprimer l'annonce ? </p> {#"{{ individu.getNomComplet }}" #}
+	<form action="{{ path('user_suppr_proche', {'id_indiv': id_indiv}) }}" method="post">
+		<a href="{{ path('user_liste_proches') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i> Retour à la liste des proches </a>
+		<input type="submit" value="Supprimer" class="btn btn-danger" /> 
+		{{ form_rest(form) }}
+	</form>
 {% endblock %}
