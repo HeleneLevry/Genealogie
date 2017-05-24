@@ -102,6 +102,9 @@ class UserController extends Controller
 
 ////////////////////////////////////////////////////////////////////////	
 	public function suppr_proche_validerAction(){
+
+
+
 		return $this->render('UserBundle:User:suppr_proche_valider.html.twig');
 	}
 

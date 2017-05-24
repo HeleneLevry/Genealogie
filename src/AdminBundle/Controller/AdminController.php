@@ -12,6 +12,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use AdminBundle\Entity\Banque_Patho;
 use AdminBundle\Form\Banque_PathoType;
 use AdminBundle\Form\Banque_PathoSupprType;
+use AdminBundle\Form\Banque_Patho_AjoutType;
 
 class AdminController extends Controller
 {	
@@ -24,7 +25,7 @@ class AdminController extends Controller
 		$new_patho= new Banque_Patho;
 		
 		//On genere le formulaire
-		 $form=$this->createForm(new Banque_PathoType, $new_patho);
+		 $form=$this->createForm(new Banque_Patho_AjoutType, $new_patho);
 		 
 		 //On récupère la requête
 		 $request = $this->get('request');
@@ -66,7 +67,7 @@ class AdminController extends Controller
 		$nom_patho= new Banque_Patho;
 		
 		//On genere le formulaire
-		 $form=$this->createForm(new Banque_PathoType, $nom_patho);
+		 $form=$this->createForm(new Banque_Patho_AjoutType, $nom_patho);
 		 
 		 //On récupère la requête
 		 $request = $this->get('request');

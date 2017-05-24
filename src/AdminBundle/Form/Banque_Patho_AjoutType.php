@@ -1,5 +1,6 @@
 <?php
-// src/AdminBundle/Form/Banque_PathoType.php
+// src/AdminBundle/Form/Banque_PathoType.php 
+
 
 namespace AdminBundle\Form;
 
@@ -8,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class Banque_PathoType extends AbstractType
+class Banque_Patho_AjoutType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -17,15 +18,7 @@ class Banque_PathoType extends AbstractType
     {
         $builder
             ->add(
-                'nomPathologie',
-                EntityType::class,
-                array(
-                    'class' => 'AdminBundle:Banque_Patho',
-                    'choice_label' => 'nom_pathologie', 
-                    'placeholder' => 'nom de la pathologie',
-                    'multiple' => false,
-                    'expanded' => false
-                )
+                'nomPathologie'
             )
             ;
     }
