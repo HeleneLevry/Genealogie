@@ -53,8 +53,9 @@ class RelationEType extends AbstractType
 			)
 			->add(
 				'individuALier',
-				new IndividuEType($idcompte)
-			)
+				new IndividuEType(), 
+				['compte' => $options['compte']]
+    		)
 			->add(
 				'Enregistrer',
 				'submit'

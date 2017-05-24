@@ -3,9 +3,13 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	YourHealthyTree
+	Accueil
 {% endblock %}
 
 {% block fos_user_content %}
 	<h2> Bonjour {{ app.user.username }} </h2>
+	<br/>
+	<p> <a href= "{{ path('user_ajout_proche') }}" class="btn"> Ajouter un proche </a> </p>
+	<p> <a href= "{{ path('user_liste_proches') }}" class="btn"> Lister mes proches </a> </p>
+	<p> <a href= "{{ path('user_liste_patho_proches') }}" class="btn"> Toutes les pathologies de mes proches </a> </p>
 {% endblock %}

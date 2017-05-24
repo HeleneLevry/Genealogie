@@ -230,4 +230,9 @@ class Individu
     {
         return $this->prenom." ".$this->nom;
     }
+    
+    public function __toString() 
+    {
+        return $this->compte;
+    }
 }

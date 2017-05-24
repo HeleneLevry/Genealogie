@@ -33,7 +33,7 @@ user_liste_patho_proche_vide:
     defaults: { _controller:UserBundle:User:liste_patho_proche_vide }
 
 user_ajout_patho_proche:
-    path:     /ajout_patho_proche/{id_indiv}
+    path:     /ajout_patho_proche
     defaults: { _controller:UserBundle:User:ajout_patho_proche }
 
 user_modif_patho_proche:

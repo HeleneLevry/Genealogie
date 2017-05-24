@@ -2,21 +2,17 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	YourHealthyTree!
+	Suppression du compte
 {% endblock %}
 
 {% block fos_user_content %}
+	<h2> Suppression du compte <h2>
+	<br/>
 	<h4> {{ app.user.username }} voulez-vous réellement supprimer votre compte ?</h4>
 	<p> Toutes les données associées seront supprimées. </p>
-	
+	<br/>
 	<p> 
-		<a href= "{{ path('user_connected_index') }}" class="btn">
-			Retour
-		</a>
-		
-		<a href= "{{ path('supprimer_compte_2') }}" class="btn">
-			Valider et supprimer mon compte
-		</a>
+		<a href= "{{ path('user_connected_index') }}" class="btn"> Retour </a>
+		<a href= "{{ path('supprimer_compte_2') }}" class="btn"> Valider et supprimer mon compte </a>
 	</p>
-	
 {% endblock %}

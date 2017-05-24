@@ -3,16 +3,17 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-    YourHealthyTree!
+    Toutes les pathologies
 {% endblock %}
 
 
 {% block fos_user_content %}
     <h2> Liste des pathologies de ma famille </h2>
+    <br/>
     <ul>
         {% for individu in liste_indiv %}
             <li>
-                {{ individu.nom }} {{ individu.prenom }}
+                {{ individu.getNomComplet }}
                 <br/>
                     {% if individu.dateNaissance and individu.datedeces %} 
                         né(e) le {{ individu.dateNaissance|date("d/m/Y") }} - décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
@@ -24,11 +25,12 @@
                         décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
                         <br/>
                     {% else %}
+                        -
                         <br/>
                     {%endif%}
                 {% for pathologie in liste_patho %}
                     <li>
-                        {#{{ pathologie.banque_patho }}#}
+                        {#{{ pathologie.banque_patho }}
                         <br/>
                             {% if pathologie.DateDebut and pathologie.DateFin %} 
                                 Déclarée le {{ pathologie.DateDebut|date("d/m/Y") }} - Finie le {{ pathologie.DateFin|date("d/m/Y") }}
@@ -41,7 +43,7 @@
                                <br/>
                            {% else %}
                                <br/>
-                           {%endif%}
+                           {%endif%}#}
                    </li>
                {% endfor %}
            </li>

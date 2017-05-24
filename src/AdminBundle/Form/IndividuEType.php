@@ -67,12 +67,13 @@ class IndividuEType extends AbstractType
 					'format' => 'ddMMyyyy',
 					'required' => false)
 			)
-			//->add(
-				//'compte',
-				//'hidden',
-				//array('data' => $this->get('security.context')->getToken()->getUser(), 'required' => false)
-				//////array('data' => $_SESSION['iduser'])
-			//)
+			 ->add(
+			 	'compte',
+			 	'textarea',
+			// 	'hidden',
+			// 	//array('data' => $this->get('security.context')->getToken()->getUser(), 'required' => false)
+			 	array('data' => $options['compte'])
+			)
 			//->add(
 				//'compte', 
 				//new CompteIdType()
@@ -85,11 +86,11 @@ class IndividuEType extends AbstractType
 			->add(
 				'commentaire_num_compte', 
 				TextType::class,
-				array('data' => $_SESSION['iduser'], 'mapped' => false)
+				array('data' => $options['compte'], 'mapped' => false)
 			)
 			;
 			//$individu = new Individu();
-			//$individu->setCompte() = $_SESSION['iduser'];
+			//$individu->setCompte() = $options['compte'];
     }
     
     /**

@@ -1,6 +1,5 @@
-// src/AdminBundle/Form/PathologieType.php
-
 <?php
+// src/AdminBundle/Form/PathologieType.php
 
 namespace AdminBundle\Form;
 

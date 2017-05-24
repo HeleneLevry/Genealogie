@@ -3,11 +3,17 @@
  {% extends "UserBundle::layout.html.twig" %} 
  
  {% block title %}
- 	YourHealthyTree!
+ 	Toutes les pathologies
  {% endblock %}
  
  {% block fos_user_content %}
  	<h2> Liste des pathologies de ma famille </h2>
- 	<p> Vous n'avez pas encore ajouté de pathologie(s) à vos proches <p>
+ 	<br/>
+ 	<p> 
+ 		Vous n'avez pas encore ajouté de pathologie(s) à vos proches.
+ 		<br/>
+ 		Pour ajouter une pathologie, veuillez consulter la liste de vos proches et choisir le proche concerné.
+ 	</p>
+ 	<br/>
  	<p> <a href= "{{ path('user_liste_proches') }}" class="btn"> Voir mes proches </a></p>
  {% endblock %}
