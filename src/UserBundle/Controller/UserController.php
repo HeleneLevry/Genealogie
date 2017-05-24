@@ -101,16 +101,28 @@ class UserController extends Controller
 	}
 
 ////////////////////////////////////////////////////////////////////////	
-	public function suppr_proche_validerAction(){
+	public function suppr_procheAction($id_indiv, Request $request){
 
-
-
-		return $this->render('UserBundle:User:suppr_proche_valider.html.twig');
-	}
-
-////////////////////////////////////////////////////////////////////////	
-	public function suppr_procheAction(){
-		return $this->render('UserBundle:User:suppr_proche.html.twig');
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Individu')
+		;
+		$indiv_suppr = $repository->findOneBy(array('id' => $id_indiv));
+		$em = $this->getDoctrine()->getManager();
+		if (null === $indiv_suppr) {
+			throw new NotFoundHttpException("Le proche ".$id_indiv."n'existe pas.");
+		}
+		$form = $this->createFormBuilder()->getForm();
+		if ($form->handleRequest($request)->isValid()) {
+			$em->remove($indiv_suppr);
+			$em->flush();
+			//$request->getSession()->getFlashBag()->add('info', "Le proche a bien été supprimé.");
+			return $this->redirect($this->generateUrl('user_liste_proches'));
+		}
+		return $this->render('UserBundle:User:suppr_proche.html.twig', 
+			array('id_indiv' => $id_indiv, 'individu' => $indiv_suppr, 'form' => $form->createView())
+		);
 	}
 
 ////////////////////////////////////////////////////////////////////////	

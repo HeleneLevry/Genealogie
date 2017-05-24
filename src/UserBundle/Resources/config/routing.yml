@@ -26,10 +26,7 @@ user_modif_proche:
     path:     /modif_proche/{id_indiv}
     defaults: { _controller:UserBundle:User:modif_proche }
 
-user_suppr_proche_valider:
-    path:     /suppr_proche_valider/{id_indiv}
-    defaults: { _controller:UserBundle:User:suppr_proche_valider }
-
+###
 user_suppr_proche:
     path:     /suppr_proche/{id_indiv}
     defaults: { _controller:UserBundle:User:suppr_proche }
@@ -53,8 +50,6 @@ user_modif_patho_proche:
 user_suppr_patho_proche:
     path:     /suppr_patho_proche/{id_indiv}
     defaults: { _controller:UserBundle:User:suppr_patho_proche }
-
-
 
 user_liste_relation:
     path:    /liste_relation/{id_indiv}
@@ -102,6 +97,7 @@ supprimer_compte_1:
 supprimer_compte_2:
     path:     /compte_supprime
     defaults: {_controller:UserBundle:User:supprimer_compte_2 }
+
 
 # user_modifier_supprimer:
 #     path:     /modifier_supprimer
