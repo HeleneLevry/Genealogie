@@ -1,0 +1,15 @@
+{# src/UserBundle/Resources/views/suppr_proche_valider.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	Supprimer le proche
+{% endblock %}
+
+{% block fos_user_content %}
+	<h2> Supprimer le proche "{{id_indiv}}" </h2>
+	<br/>
+	<p> Etes-vous certain de vouloir supprimer l'annonce "{{ individu.getNomComplet }}" ? </p>
+	<p> Entrez les informations concernant votre proche : </p>
+	<div class="well"> {{form(form)}} </div>
+{% endblock %}
