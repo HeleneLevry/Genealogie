@@ -20,9 +20,10 @@ class Banque_PathoSupprType extends AbstractType
 				EntityType::class,
 				array(
 					'class' => 'AdminBundle:Banque_Patho',
-					'choice_label' => 'nom_pathologie', 
-					'multiple' => true,
-					'expanded' => true
+                    'choice_label' => 'nomPathologie', 
+                    'placeholder' => 'nom de la pathologie',
+                    'multiple' => false,
+                    'expanded' => false
 				)
 			)
 			->add(
