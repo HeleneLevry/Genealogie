@@ -1,6 +1,6 @@
 <?php
 
-//src/USerBundle/Controller/UserController.php
+//src/USerBundle/Controller/AdminController.php
 
 namespace AdminBundle\Controller;
 
