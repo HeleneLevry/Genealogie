@@ -228,7 +228,7 @@ class Individu
      */
     public function getNomComplet()
     {
-        return $this->prenom." ".$this->nom;
+        return $this->prenom." ".strtoupper($this->nom);
     }
     
     public function __toString() 

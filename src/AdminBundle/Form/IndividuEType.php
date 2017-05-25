@@ -83,11 +83,11 @@ class IndividuEType extends AbstractType
 				'textarea', 
 				array('required' => false)
 			)
-			->add(
-				'commentaire_num_compte', 
-				TextType::class,
-				array('data' => $options['compte'], 'mapped' => false)
-			)
+			// ->add(
+			// 	'commentaire_num_compte', 
+			// 	TextType::class,
+			// 	array('data' => $options['compte'], 'mapped' => false)
+			// )
 			;
 			//$individu = new Individu();
 			//$individu->setCompte() = $options['compte'];

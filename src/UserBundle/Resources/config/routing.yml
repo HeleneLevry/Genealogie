@@ -1,14 +1,27 @@
 ###
-user_connected_index:
-    path:     /
-    defaults: {_controller:UserBundle:User:index }
-
-###
 user_accueil:
     path:     /accueil
     defaults: { _controller:UserBundle:User:accueil }
 
 ###
+user_connected_index:
+    path:     /
+    defaults: {_controller:UserBundle:User:index }
+
+###
+user_mon_compte:
+    path:     /mon_compte
+    defaults: { _controller:UserBundle:User:mon_compte }
+
+user_mes infos:
+    path:     /mes_infos
+    defaults: { _controller:UserBundle:User:mes_infos }
+
+user_mes patho:
+    path:     /mes_patho
+    defaults: { _controller:UserBundle:User:mes_patho }
+
+#
 user_ajout_proche:
     path:     /ajout_proche
     defaults: { _controller:UserBundle:User:ajout_proche }
@@ -22,58 +35,42 @@ user_liste_proches_vide:
     path:    /liste_proches_vide
     defaults: { _controller:UserBundle:User:liste_proches_vide }
 
+user_infos_proche:
+    path:     /infos_proche/{id_indiv}
+    defaults: { _controller:UserBundle:User:infos_proche }
+
 user_modif_proche:
     path:     /modif_proche/{id_indiv}
     defaults: { _controller:UserBundle:User:modif_proche }
+
+user_liste_patho_proche:
+    path:     /liste_patho_proche/{id_indiv}
+    defaults: { _controller:UserBundle:User:liste_patho_proche }
+user_liste_patho_proche_vide:
+    path:     /liste_patho_proche_vide/{id_indiv}
+    defaults: { _controller:UserBundle:User:liste_patho_proche_vide }
+
+user_ajout_patho_proche:
+    path:     /ajout_patho_proche/{id_indiv}
+    defaults: { _controller:UserBundle:User:ajout_patho_proche }
+
+user_modif_patho_proche:
+    path:     /modif_patho_proche/{id_indiv}/{id_patho}
+    defaults: { _controller:UserBundle:User:modif_patho_proche }
+
+user_suppr_patho_proche:
+    path:     /suppr_patho_proche/{id_indiv}/{id_patho}
+    defaults: { _controller:UserBundle:User:suppr_patho_proche }
 
 ###
 user_suppr_proche:
     path:     /suppr_proche/{id_indiv}
     defaults: { _controller:UserBundle:User:suppr_proche }
 
-user_liste_patho_proche:
-    path:     /liste_patho_proche/{id_indiv}
-    defaults: { _controller:UserBundle:User:liste_patho_proche }
-###
-user_liste_patho_proche_vide:
-    path:     /liste_patho_proche_vide/{id_indiv}
-    defaults: { _controller:UserBundle:User:liste_patho_proche_vide }
-
-user_ajout_patho_proche:
-    path:     /ajout_patho_proche
-    defaults: { _controller:UserBundle:User:ajout_patho_proche }
-
-user_modif_patho_proche:
-    path:     /modif_patho_proche{id_indiv}
-    defaults: { _controller:UserBundle:User:modif_patho_proche }
-
-user_suppr_patho_proche:
-    path:     /suppr_patho_proche/{id_indiv}
-    defaults: { _controller:UserBundle:User:suppr_patho_proche }
-
-user_liste_relation:
-    path:    /liste_relation/{id_indiv}
-    defaults: { _controller:UserBundle:User:liste_relation }
-
-user_liste_relation_vide:
-    path:    /liste_relation_vide/{id_indiv}
-    defaults: { _controller:UserBundle:User:liste_relation_vide }
-
-user_ajout_relation:
-    path:    /ajout_relation/{id_indiv}
-    defaults: { _controller:UserBundle:User:ajout_relation }
-
-user_modif_relation:
-    path:    /modif_relation/{id_indivA}/{id_indivB}
-    defaults: { _controller:UserBundle:User:modif_relation }
-
-user_suppr_relation:
-    path:    /suppr_relation/{id_indivA}/{id_indivB}
-    defaults: { _controller:UserBundle:User:suppr_relation }
-
 user_liste_patho_proches:
     path:    /liste_patho_proches
     defaults: { _controller:UserBundle:User:liste_patho_proches }
+###
 user_liste_patho_proches_vide:
     path:    /liste_patho_proches_vide
     defaults: { _controller:UserBundle:User:liste_patho_proches_vide }

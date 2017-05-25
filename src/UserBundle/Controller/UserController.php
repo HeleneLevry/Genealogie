@@ -23,24 +23,40 @@ use AdminBundle\Form\PathologieEmbType;
 
 
 class UserController extends Controller
-{	
-	
+{
+
+//----------------------------------------------------------------------
+	public function menuAction(){//transmis via le render() depuis la vue /app		
+		return $this->render('UserBundle:User:menu.html.twig');
+	}
+
+//----------------------------------------------------------------------
+	public function accueilAction(){
+		return $this->render('UserBundle:User:accueil.html.twig');
+	}
+
 //----------------------------------------------------------------------	
 	public function indexAction(){
 		return $this->render('UserBundle:User:index.html.twig');
 	}
 
 //----------------------------------------------------------------------
-	public function accueilAction(){
-		return $this->render('UserBundle:User:accueil.html.twig');
-	}	
-	
-//----------------------------------------------------------------------
-	public function menuAction(){//transmis via le render() depuis la vue /app		
-		return $this->render('UserBundle:User:menu.html.twig');
+	public function mon_compteAction(){		
+		return $this->render('UserBundle:User:mon_compte.html.twig');
+	}
+
+////////////////////////////////////////////////////////////////////////
+	public function mes_infosAction(){
+		return $this->render('UserBundle:User:mes_infos.html.twig');
 	}
 	
-//----------------------------------------------------------------------	
+////////////////////////////////////////////////////////////////////////
+	public function mes_pathosAction()
+	{
+		return $this->render('UserBundle:User:mes_pathos.html.twig');
+	}
+
+/////////////-----------------------------------------------------------
 	public function ajout_procheAction(Request $request){
 		
 		$individu = new Individu();		
@@ -52,7 +68,7 @@ class UserController extends Controller
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($individu);
 			$em->flush();
-			return $this->redirect($this->generateUrl('user_connected_index'));
+			return $this->redirect($this->generateUrl('user_liste_proches'));
 		}		
 		return $this->render('UserBundle:User:ajout_proche.html.twig', array('form' => $form->createView()));
 	}
@@ -77,7 +93,6 @@ class UserController extends Controller
 
 //----------------------------------------------------------------------	
 	public function liste_prochesAction(){
-		
 		$repository = $this
 			->getDoctrine()
 			->getManager()
@@ -96,13 +111,81 @@ class UserController extends Controller
 	}
 
 ////////////////////////////////////////////////////////////////////////	
-	public function modif_procheAction($num_individu){
-		return $this->render('UserBundle:User:modif_proche.html.twig');
+	public function infos_procheAction($id_indiv){
+		return $this->render(
+			'UserBundle:User:infos_proche.html.twig', 
+			array('id_indiv' => $id_indiv)
+			);
 	}
 
 ////////////////////////////////////////////////////////////////////////	
-	public function suppr_procheAction($id_indiv, Request $request){
+	public function modif_procheAction($id_indiv){
+		return $this->render(
+			'UserBundle:User:modif_proche.html.twig',
+			array('id_indiv' => $id_indiv)
+			);
+	}
 
+
+////////////////////////////////////////////////////////////////////////	
+	public function liste_patho_procheAction($id_indiv){
+		$repository = $this ->getDoctrine()
+							->getManager()
+							->getRepository('AdminBundle:Pathologie');
+		$listePathologies = $repository->findBy(array('individu' => $id_indiv)); //,array('dateDebut' => 'desc'));
+		if($listePathologies){
+			return $this->render(
+				'UserBundle:User:liste_patho_proche.html.twig', 
+				array('liste_patho'=>$listePathologies, 'num_indiv'=>$id_indiv)
+			);
+		}
+		return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig');
+	}
+////////////////////////////////////////////////////////////////////////	
+	public function liste_patho_proche_videAction($id_indiv){
+		return $this->render(
+			'UserBundle:User:liste_patho_proche_vide.html.twig',
+			array('id_indiv' => $id_indiv)
+		);
+	}
+
+////////////////////////////////////////////////////////////////////////	
+	public function ajout_patho_procheAction($id_indiv, Request $request){
+		$pathologie = new Pathologie();	
+		$form = $this->createForm('AdminBundle\Form\PathologieType', $pathologie);
+		if ($form->handleRequest($request)->isValid()){
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($pathologie);
+			$em->flush();
+			return $this->redirect($this->generateUrl(
+				'user_liste_patho_proche', 
+				array('id_indiv' => $id_indiv)
+			));
+		}		
+		return $this->render(
+			'UserBundle:User:ajout_patho_proche.html.twig', 
+			array('id_indiv' => $id_indiv, 'form' => $form->createView())
+		);
+	}
+	
+////////////////////////////////////////////////////////////////////////	
+	public function modif_patho_proche($id_indiv, $id_patho){
+		return $this->render(
+			'UserBundle:User:modif_patho_proche.html.twig',
+			array('id_indiv' => $id_indiv, 'id_patho' => $id_patho)
+		);
+	}
+
+////////////////////////////////////////////////////////////////////////	
+	public function suppr_patho_proche($id_indiv, $id_patho){
+		return $this->render(
+			'UserBundle:User:suppr_patho_proche.html.twig',
+			array('id_indiv' => $id_indiv, 'id_patho' => $id_patho)
+		);
+	}
+
+//----------------------------------------------------------------------	
+	public function suppr_procheAction($id_indiv, Request $request){
 		$repository = $this
 			->getDoctrine()
 			->getManager()
@@ -117,65 +200,16 @@ class UserController extends Controller
 		if ($form->handleRequest($request)->isValid()) {
 			$em->remove($indiv_suppr);
 			$em->flush();
-			//$request->getSession()->getFlashBag()->add('info', "Le proche a bien été supprimé.");
 			return $this->redirect($this->generateUrl('user_liste_proches'));
 		}
-		return $this->render('UserBundle:User:suppr_proche.html.twig', 
+		return $this->render(
+			'UserBundle:User:suppr_proche.html.twig', 
 			array('id_indiv' => $id_indiv, 'individu' => $indiv_suppr, 'form' => $form->createView())
 		);
 	}
 
 ////////////////////////////////////////////////////////////////////////	
-	public function liste_patho_procheAction($num_indiv){
-		$repository = $this ->getDoctrine()
-							->getManager()
-							->getRepository('AdminBundle:Pathologie');
-		$listePathologies = $repository->findBy(array('individu' => $num_indiv)); //,array('dateDebut' => 'desc'));
-		if($listePathologies){
-			return $this->render('UserBundle:User:liste_patho_proche.html.twig', array('liste_patho'=>$listePathologies, 'num_indiv'=>$num_indiv));
-		}
-		return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig');
-	}
-
-//----------------------------------------------------------------------	
-	public function liste_patho_proche_videAction(){
-		return $this->render('UserBundle:User:liste_patho_proche_vide.html.twig');
-	}
-
-
-////////////////////////////////////////////////////////////////////////	
-	public function ajout_patho_procheAction(Request $request){
-
-		$pathologie = new Pathologie();	
-		$form = $this->createForm('AdminBundle\Form\PathologieType', $pathologie);
-		if ($form->handleRequest($request)->isValid()){
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($pathologie);
-			$em->flush();
-			return $this->redirect($this->generateUrl('user_connected_index'));
-		}		
-		return $this->render('UserBundle:User:ajout_patho_proche.html.twig', array('form' => $form->createView()));
-	}
-	
-////////////////////////////////////////////////////////////////////////	
-	public function modif_patho_proche(){
-		return $this->render('UserBundle:User:modif_patho_proche.html.twig');
-	}
-
-
-//////////////////////////////////////////////////////////////////////	
-	public function modif_relationAction(){
-		return $this->render('UserBundle:User:modif_relation.html.twig');
-	}
-
-////////////////////////////////////////////////////////////////////////	
-	public function suppr_relation(){
-		return $this->render('UserBundle:User:suppr_relation.html.twig');
-	}
-
-////////////////////////////////////////////////////////////////////////	
 	public function liste_patho_prochesAction(){
-
 		$repository = $this
 			->getDoctrine()
 			->getManager()
@@ -186,10 +220,10 @@ class UserController extends Controller
 		if($listeIndividus){
 			foreach ($listeIndividus as $listeIndividu)
 			{
-				$repository = $this ->getDoctrine()
-									->getManager()
-									->getRepository('AdminBundle:Pathologie');
-				$listePathologies = $repository->findBy(array('individu' => $listeIndividu));
+				// $repository = $this ->getDoctrine()
+				// 					->getManager()
+				// 					->getRepository('AdminBundle:Pathologie');
+				// $listePathologies = $repository->findBy(array('individu' => $listeIndividu));
 			// }
 			// if($listePathologies){
 			// 	return $this->render('UserBundle:User:liste_patho_proches.html.twig', array('liste_patho'=>$listePathologies, 'liste_indiv'=>$listeIndividus));
@@ -197,7 +231,6 @@ class UserController extends Controller
 			return $this->render('UserBundle:User:liste_patho_proches_vide.html.twig');
 		}
 		return $this->redirect($this->generateUrl('user_liste_proches_vide'));
-		
 	}
 
 //----------------------------------------------------------------------	
@@ -218,13 +251,10 @@ class UserController extends Controller
 	
 //----------------------------------------------------------------------
 	public function supprimer_compte_2Action()
-	{
-		//récupération user	
+	{	
 		$user = $this->container->get('security.context')->getToken()->getUser();
-		//récupération service UserManager 
 		$userManager = $this->get('fos_user.user_manager');
 		$userManager->deleteUser($user);
-		//return
 		return $this->render('UserBundle:User:supprimer_compte_2.html.twig');
 	}
 	

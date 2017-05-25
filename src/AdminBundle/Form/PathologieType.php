@@ -32,14 +32,21 @@ class PathologieType extends AbstractType
                 )
             )
             ->add(
-                'dateDebut',
-                BirthdayType::class,
-                array(
-                    'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
-                    'format' => 'ddMMyyyy',
-                    'required' => false
-                )
-            )
+				'dateDebut',
+				BirthdayType::class,
+				array(
+					'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+					'format' => 'ddMMyyyy',
+					'required' => false)
+			)
+			// ->add(
+			// 	'dateDebut',
+			// 	BirthdayType::class,
+			// 	array(
+			// 		'placeholder' => array('month' => 'Mois', 'year' => 'Année'),
+			// 		'format' => 'ddMMyyyy',
+			// 		'required' => false)
+			// )
             ->add(
                 'dateFin',
                 BirthdayType::class,

@@ -9,10 +9,10 @@
 {% block fos_user_content %}
 	<h2> Supprimer le proche "{{individu.getNomComplet}}" </h2>
 	<br/>
-	<p> Etes-vous certain de vouloir supprimer l'annonce ? </p> {#"{{ individu.getNomComplet }}" #}
+	<p> Etes-vous certain de vouloir supprimer le proche "{{ individu.getNomComplet }}" ? </p> {#"" #}
 	<form action="{{ path('user_suppr_proche', {'id_indiv': id_indiv}) }}" method="post">
 		<a href="{{ path('user_liste_proches') }}" class="btn btn-default">
-			<i class="glyphicon glyphicon-chevron-left"></i> Retour à la liste des proches </a>
+			<i class="icon-chevron-left"></i>  Retour à la liste des proches </a>
 		<input type="submit" value="Supprimer" class="btn btn-danger" /> 
 		{{ form_rest(form) }}
 	</form>

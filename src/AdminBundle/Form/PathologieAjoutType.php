@@ -32,12 +32,20 @@ class PathologieAjoutType extends AbstractType
 				'banque_patho',
 				new Banque_PathoListType
 			)
+			//->add(
+				//'dateDebut',
+				//BirthdayType::class,
+				//array(
+					//'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
+					//'format' => 'ddMMyyyy',
+					//'required' => false)
+			//)
 			->add(
 				'dateDebut',
 				BirthdayType::class,
 				array(
-					'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
-					'format' => 'ddMMyyyy',
+					'placeholder' => array('month' => 'Mois', 'year' => 'Année'),
+					'format' => 'MMyyyy',
 					'required' => false)
 			)
 			->add(

@@ -1,0 +1,49 @@
+{# src/UserBundle/Resources/views/mon_compte.html.twig #}
+ 
+ {% extends "UserBundle::layout.html.twig" %} 
+ 
+ {% block title %}
+ 	Mon compte
+ {% endblock %}
+ 
+ {% block fos_user_content %}
+ 	<h2> Mon compte </h2>
+ 	<br/>
+ 	<p> 
+ 		Accédez ici à toutes les informations de votre compte : 
+ 		<br/>
+ 		<br/>
+ 		<ul>
+ 			<li><a href="http://projet-genealogie/app_dev.php/profile"> Mes informations </a></li>
+ 			<br/>
+			<li><a href="http://projet-genealogie/app_dev.php/profile/edit"> Modifier mes informations </a></li>
+			<br/>
+			<li><a href="http://projet-genealogie/app_dev.php/profile/change-password"> Modifier mon mot de passe </a></li> 
+			<br/>
+			<li><a href= "{{path('supprimer_compte_1')}}"> Supprimer mon compte </a> </li>
+			<br/>
+			<li><a href="http://projet-genealogie/app_dev.php/logout"> Déconnexion </a></li>
+			<br/>
+ 		</ul>
+ 		<br/>
+ 		<p><a href= "{{ path('user_nous_contacter_2') }}"> Nous contacter</a> </p>
+ 	</p>
+ 	<br/>
+ 	<p> 
+ 		<a href= "{{ path('user_connected_index') }}" class="btn"> 
+ 		<i class="icon-chevron-left"></i> 
+ 		Retour à l'accueil </a>
+ 	</p>
+ {% endblock %}
+
+
+
+{# <br/>
+	<h3> Mon compte </h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="http://projet-genealogie/app_dev.php/profile"> Mes informations </a></li>
+		<li><a href="http://projet-genealogie/app_dev.php/profile/edit"> Modifier mes informations </a></li>
+		<li><a href="http://projet-genealogie/app_dev.php/profile/change-password"> Modifier mon mot de passe </a></li> 
+		<li><a href= "{{path('supprimer_compte_1')}}"> Supprimer mon compte </a> </li>
+		<li><a href="http://projet-genealogie/app_dev.php/logout"> Déconnexion </a></li>	
+	</ul> #}

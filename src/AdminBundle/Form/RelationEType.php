@@ -60,11 +60,11 @@ class RelationEType extends AbstractType
 				'Enregistrer',
 				'submit'
 			)
-			->add(
-				'commentaire_relation', 
-				TextType::class,
-				array('data' => $idcompte, 'mapped' => false)
-			)
+			// ->add(
+			// 	'commentaire_relation', 
+			// 	TextType::class,
+			// 	array('data' => $idcompte, 'mapped' => false)
+			// )
 			;
 			
 	}
