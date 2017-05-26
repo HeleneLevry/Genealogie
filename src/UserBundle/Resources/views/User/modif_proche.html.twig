@@ -3,11 +3,12 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	YourHealthyTree!
+	Ajouter un proche
 {% endblock %}
 
 {% block fos_user_content %}
-	<h2> modif proche </h2>
-	<p> Vous n'avez pas encore ajouté de pathologie(s) à {{}} <p>
-	<p> <a href= "{{ path('user_ajouter_patho_proche') }}" class="btn"> Ajouter une pathologie à ce proche</a></p>
+	<h2> Ajouter un proche </h2>
+	<br/>
+	<p> Entrez les informations concernant votre proche : </p>
+	<div class="well"> {{form(form)}} </div>
 {% endblock %}

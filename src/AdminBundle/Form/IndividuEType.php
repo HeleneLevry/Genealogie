@@ -26,6 +26,7 @@ class IndividuEType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 		$idcompte=$options['compte'];
+		//var_dump($idcompte);
 		//settype($_SESSION['iduser'], "integer");
 		//$id_compte = settype($_SESSION['iduser'], "string");
         $builder
@@ -49,8 +50,6 @@ class IndividuEType extends AbstractType
 						'Autre' => 'Autre'),
 					'required' => false)
 			)
-			//->add('dateNaissance')
-			//->add('dateDeces')
 			->add(
 				'dateNaissance',
 				BirthdayType::class,
@@ -67,13 +66,14 @@ class IndividuEType extends AbstractType
 					'format' => 'ddMMyyyy',
 					'required' => false)
 			)
-			 ->add(
-			 	'compte',
-			 	'textarea',
-			// 	'hidden',
-			// 	//array('data' => $this->get('security.context')->getToken()->getUser(), 'required' => false)
-			 	array('data' => $options['compte'])
-			)
+			// ->add(
+			//  	'compte',
+			//  	'textarea',
+			//  	'hidden',
+			//  	array('data' => $this->get('security.context')->getToken()->getUser())
+			//  	array('data' => $idcompte)
+			//  	array('data' => $options['compte'])
+			// )
 			//->add(
 				//'compte', 
 				//new CompteIdType()
@@ -83,14 +83,14 @@ class IndividuEType extends AbstractType
 				'textarea', 
 				array('required' => false)
 			)
-			// ->add(
-			// 	'commentaire_num_compte', 
-			// 	TextType::class,
-			// 	array('data' => $options['compte'], 'mapped' => false)
-			// )
+			->add(
+				'commentaire_num_compte', 
+				TextType::class,
+				array('data' => $options['compte'], 'mapped' => false)
+			)
 			;
 			//$individu = new Individu();
-			//$individu->setCompte() = $options['compte'];
+			//$individu->setCompte($options['compte']);
     }
     
     /**

@@ -14,8 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Pathologie
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Individu", cascade={"persist"})
+     * @ORM\JoinColumn(name="individu_id", referencedColumnName="id",nullable=false, onDelete="CASCADE")
      */
     private $individu;
     
@@ -26,9 +26,8 @@ class Pathologie
     private $gravite;
     
     /**
-     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="banque_patho_id", nullable=false, onDelete="CASCADE") 
-       //referencedColumnName="nom_pathologie",
+     * @ORM\ManyToOne(targetEntity="AdminBundle\Entity\Banque_Patho", cascade={"persist"})
+     * @ORM\JoinColumn(name="banque_patho_id", referencedColumnName="id",nullable=false)
      */
     private $banque_patho;
    
@@ -63,11 +62,11 @@ class Pathologie
      * @ORM\Column(name="commentaire_patho", type="string", length=255, nullable=true)
      */
     private $commentairePatho;
-
-
+    
 
     /**
      * Get id
+     *
      * @return integer
      */
     public function getId()
@@ -76,38 +75,22 @@ class Pathologie
     }
 
     /**
-     * Set numPathologie
-     * @param integer $numPathologie
-     * @return Pathologie
-     */
-    public function setNumPathologie($numPathologie)
-    {
-        $this->numPathologie = $numPathologie;
-        return $this;
-    }
-
-    /**
-     * Get numPathologie
-     * @return integer
-     */
-    public function getNumPathologie()
-    {
-        return $this->numPathologie;
-    }
-
-    /**
      * Set dateDebut
+     *
      * @param \DateTime $dateDebut
+     *
      * @return Pathologie
      */
     public function setDateDebut($dateDebut)
     {
         $this->dateDebut = $dateDebut;
+
         return $this;
     }
 
     /**
      * Get dateDebut
+     *
      * @return \DateTime
      */
     public function getDateDebut()
@@ -117,17 +100,21 @@ class Pathologie
 
     /**
      * Set dateFin
+     *
      * @param \DateTime $dateFin
+     *
      * @return Pathologie
      */
     public function setDateFin($dateFin)
     {
         $this->dateFin = $dateFin;
+
         return $this;
     }
 
-   /**
+    /**
      * Get dateFin
+     *
      * @return \DateTime
      */
     public function getDateFin()
@@ -137,17 +124,21 @@ class Pathologie
 
     /**
      * Set causeDeces
+     *
      * @param boolean $causeDeces
+     *
      * @return Pathologie
      */
     public function setCauseDeces($causeDeces)
     {
         $this->causeDeces = $causeDeces;
+
         return $this;
     }
 
     /**
      * Get causeDeces
+     *
      * @return boolean
      */
     public function getCauseDeces()
@@ -157,17 +148,21 @@ class Pathologie
 
     /**
      * Set commentairePatho
+     *
      * @param string $commentairePatho
+     *
      * @return Pathologie
      */
     public function setCommentairePatho($commentairePatho)
     {
         $this->commentairePatho = $commentairePatho;
+
         return $this;
     }
 
     /**
      * Get commentairePatho
+     *
      * @return string
      */
     public function getCommentairePatho()
@@ -177,17 +172,21 @@ class Pathologie
 
     /**
      * Set individu
+     *
      * @param \AdminBundle\Entity\Individu $individu
+     *
      * @return Pathologie
      */
-    public function setIndividu(\AdminBundle\Entity\Individu $individu)
+    public function setIndividu(\AdminBundle\Entity\Individu $individu = null)
     {
         $this->individu = $individu;
+
         return $this;
     }
 
     /**
      * Get individu
+     *
      * @return \AdminBundle\Entity\Individu
      */
     public function getIndividu()
@@ -197,17 +196,21 @@ class Pathologie
 
     /**
      * Set gravite
+     *
      * @param \AdminBundle\Entity\Gravite $gravite
+     *
      * @return Pathologie
      */
-    public function setGravite(\AdminBundle\Entity\Gravite $gravite)
+    public function setGravite(\AdminBundle\Entity\Gravite $gravite = null)
     {
         $this->gravite = $gravite;
+
         return $this;
     }
 
     /**
      * Get gravite
+     *
      * @return \AdminBundle\Entity\Gravite
      */
     public function getGravite()
@@ -217,17 +220,21 @@ class Pathologie
 
     /**
      * Set banquePatho
+     *
      * @param \AdminBundle\Entity\Banque_Patho $banquePatho
+     *
      * @return Pathologie
      */
     public function setBanquePatho(\AdminBundle\Entity\Banque_Patho $banquePatho)
     {
         $this->banque_patho = $banquePatho;
+
         return $this;
     }
 
     /**
      * Get banquePatho
+     *
      * @return \AdminBundle\Entity\Banque_Patho
      */
     public function getBanquePatho()

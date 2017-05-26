@@ -1,0 +1,13 @@
+{# src/UserBundle/Resources/views/modif_patho_proche.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	Modifier la pathologie de {{individu.getNomComplet}}
+{% endblock %}
+
+{% block fos_user_content %}
+	<h2> Ajouter une pathologie à {{ individu.getNomComplet }} </h2>
+	<p> Veuillez modifier les informations des champs de la pathologie de {{ individu.getNomComplet }} <p/>
+	<div class="well"> {{form(form)}} </div>
+{% endblock %}

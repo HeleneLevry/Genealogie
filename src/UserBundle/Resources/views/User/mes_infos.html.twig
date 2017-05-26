@@ -1,0 +1,14 @@
+{# src/UserBundle/Resources/views/mes_infos.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	Mes informations
+{% endblock %}
+
+{% block fos_user_content %}
+	<h2> Mes informations </h2>
+	<br/>
+	<p> Entrez ou modifiez vos informations : </p>
+	<div class="well"> {{form(form)}} </div>
+{% endblock %}

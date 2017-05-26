@@ -1,0 +1,54 @@
+{# src/UserBundle/Resources/views/suppr_patho_proche.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	Supprimer la pathologie de {{individu.getNomComplet}}
+{% endblock %}
+
+{% block fos_user_content %}
+	<h2> Supprimer la pathologie de {{individu.getNomComplet}} </h2>
+	<br/>
+	<p> 
+		Pathologie à supprimer : <br/>
+		<li>
+            {{ pathologie.BanquePatho }} <br/>
+
+            {% if pathologie.dateDebut and pathologie.dateFin %}
+				Du {{pathologie.dateDebut|date("d/m/Y")}} au {{pathologie.dateFin|date("d/m/Y")}}
+			{% elseif pathologie.dateDebut %}
+				A partir du {{pathologie.dateDebut|date("d/m/Y")}}
+			{% elseif pathologie.dateFin %}
+				Jusqu'au {{pathologie.dateFin|date("d/m/Y")}}
+			{% else %}
+				Pas de dates
+			{% endif %}
+
+			{# {% if pathologie.gravite %}
+				- gravité : {{ pathologie.gravite }}
+			{% endif %} #}
+
+			{% if pathologie.causeDeces %}
+				- cause de décès
+			{% endif %}
+
+			<br/>
+
+			{% if pathologie.commentairePatho %}
+				{{ pathologie.commentairePatho }}
+			{% endif %}
+
+			<br/> <br/>
+        </li>
+    </p>
+
+	<p> Etes-vous certain de vouloir supprimer la pathologie ? </p>
+
+	<form action="http://projet-genealogie/app_dev.php/suppr_patho_proche/{{id_indiv}}/{{id_patho}}" method="post">
+		<a href="{{ path('user_liste_patho_proche', {'id_indiv': id_indiv}) }}" class="btn btn-default">
+			<i class="icon-chevron-left"></i>  Retour à la liste des pahtologies de {{individu.getNomComplet}} </a>
+		<input type="submit" value="Supprimer" class="btn btn-danger" /> 
+		{{ form_rest(form) }}
+	</form>
+	
+{% endblock %}

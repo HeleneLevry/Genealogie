@@ -39,14 +39,6 @@ class PathologieType extends AbstractType
 					'format' => 'ddMMyyyy',
 					'required' => false)
 			)
-			// ->add(
-			// 	'dateDebut',
-			// 	BirthdayType::class,
-			// 	array(
-			// 		'placeholder' => array('month' => 'Mois', 'year' => 'Année'),
-			// 		'format' => 'ddMMyyyy',
-			// 		'required' => false)
-			// )
             ->add(
                 'dateFin',
                 BirthdayType::class,
@@ -56,18 +48,18 @@ class PathologieType extends AbstractType
                     'required' => false
                 )
             )
-            ->add(
-                'gravite',
-                EntityType::class,
-                array(
-                    'class' => 'AdminBundle:Gravite',
-                    'choice_label' => 'gravite_patho', 
-                    'placeholder' => 'gravité de la pathologie',
-                    'multiple' => false,
-                    'expanded' => false,
-                    'required' => false
-                )
-            )
+            // ->add(
+            //     'gravite',
+            //     EntityType::class,
+            //     array(
+            //         'class' => 'AdminBundle:Gravite',
+            //         'choice_label' => 'gravite_patho', 
+            //         'placeholder' => 'gravité de la pathologie',
+            //         'multiple' => false,
+            //         'expanded' => false,
+            //         'required' => false
+            //     )
+            // )
             ->add(
                 'causeDeces'
             )

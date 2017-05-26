@@ -1,0 +1,53 @@
+{# src/UserBundle/Resources/views/info_proche.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	Informations sur le proche
+{% endblock %}
+
+{% block fos_user_content %}
+
+	<h2> Informations du proche "{{individu.getNomComplet}}" </h2>
+	
+	<br/>
+	<p> Voici les informations de votre proche : <br/> <br/> <p>
+	
+	<p> 
+
+		{% if individu.nom %}
+			Nom : {{individu.nom}} - Prénom : {{individu.prenom}} <br/> <br/>
+		{% else %}
+			Nom : NC - Prénom : {{individu.prenom}} <br/> <br/>
+		{% endif %}
+
+		{% if individu.genre %}
+			Genre : {{individu.genre}} <br/> <br/>
+		{% else %}
+			Genre : NC <br/> <br/>
+		{% endif %}
+
+		{% if individu.dateNaissance and individu.dateDeces %}
+			Date de naissance : {{individu.dateNaissance|date("d/m/Y")}} - Date de décès : {{individu.dateDeces|date("d/m/Y")}} <br/> <br/>
+		{% elseif individu.dateNaissance %}
+			Date de naissance : {{individu.dateNaissance|date("d/m/Y")}} - Date de décès : NC <br/> <br/>
+		{% elseif individu.dateDeces %}
+			Date de naissance : NC - Date de décès : {{individu.dateDeces|date("d/m/Y")}} <br/> <br/>
+		{% else %}
+			Date de naissance : NC - Date de décès : NC <br/> <br/>
+		{% endif %}
+
+		{% if individu.commentaire %}
+			Commentaire : {{individu.commentaire}} <br/> <br/>
+		{% else %}
+			Commentaire : NC <br/> <br/>
+		{% endif %}
+
+	<p/>
+
+	<p> 
+	<a href="{{ path('user_liste_proches') }}" class="btn btn-default"> <i class="icon-chevron-left"></i>  Retour à la liste des proches </a>
+	<a href= "http://projet-genealogie/app_dev.php/modif_proche/{{individu.id}}" class="btn"> Modifier ces informations </a> 
+	</p>
+
+{% endblock %}

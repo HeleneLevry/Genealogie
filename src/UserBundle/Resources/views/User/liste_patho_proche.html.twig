@@ -3,16 +3,61 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-    YourHealthyTree!
+    Pathologies de {{individu.getNomComplet}}
 {% endblock %}
 
 {% block fos_user_content %}
-    <h2> Liste des pathologies de {{num_indiv}} </h2>
+    <h2> Liste des pathologies de {{individu.getNomComplet}} </h2>
+    
+    <br/>
+    <p> 
+		<a href="{{ path('user_liste_proches') }}" class="btn btn-default"> 
+			<i class="icon-chevron-left"></i>  Retour à la liste des proches </a>
+		<a href= "http://projet-genealogie/app_dev.php/ajout_patho_proche/{{id_indiv}}" class="btn"> Ajouter une pathologie à ce proche</a>
+	</p>
+	<br/>
+
+
     <ul>
-        {% for pathologie in liste_patho %}
+        
+        {% for pathologie in listePathologies %}
             <li>
-                {{ pathologie.BanquePatho }}
+                {{ pathologie.BanquePatho }} <br/>
+
+                {% if pathologie.dateDebut and pathologie.dateFin %}
+					Du {{pathologie.dateDebut|date("d/m/Y")}} au {{pathologie.dateFin|date("d/m/Y")}}
+				{% elseif pathologie.dateDebut %}
+					A partir du {{pathologie.dateDebut|date("d/m/Y")}}
+				{% elseif pathologie.dateFin %}
+					Jusqu'au {{pathologie.dateFin|date("d/m/Y")}}
+				{% else %}
+					Pas de dates
+				{% endif %}
+
+				{# {% if pathologie.gravite %}
+					- gravité : {{ pathologie.gravite }}
+				{% endif %} #}
+
+				{% if pathologie.causeDeces %}
+					- cause de décès
+				{% endif %}
+
+				<br/>
+
+				{% if pathologie.commentairePatho %}
+					{{ pathologie.commentairePatho }}
+				{% endif %}
+
+				<br/>
+				<a href= "http://projet-genealogie/app_dev.php/modif_patho_proche/{{id_indiv}}/{{pathologie.id}}" class="btn"> 
+					Modifier cette pathologie </a>
+				<a href= "http://projet-genealogie/app_dev.php/suppr_patho_proche/{{id_indiv}}/{{pathologie.id}}" class="btn"> 
+					Supprimer cette pathologie </a>
+
+				<br/> <br/>
             </li>
         {% endfor %}
+
     </ul>
+
 {% endblock %}

@@ -33,7 +33,7 @@ class Relation
 
     /**
      * @var string
-     * @ORM\Column(name="type_de_relation", type="boolean", length=255)
+     * @ORM\Column(name="type_de_relation", type="boolean", length=255, nullable=true)
      */
     private $typeRelation;
     
@@ -64,46 +64,6 @@ class Relation
     public function getTypeRelation()
     {
         return $this->typeRelation;
-    }
-
-    /**
-     * Set individuAscendant
-     * @param \AdminBundle\Entity\Individu $individuAscendant
-     * @return Relation
-     */
-    public function setIndividuAscendant(\AdminBundle\Entity\Individu $individuAscendant)
-    {
-        $this->individuAscendant = $individuAscendant;
-        return $this;
-    }
-
-    /**
-     * Get individuAscendant
-     * @return \AdminBundle\Entity\Individu
-     */
-    public function getIndividuAscendant()
-    {
-        return $this->individuAscendant;
-    }
-
-    /**
-     * Set individuDescendant
-     * @param \AdminBundle\Entity\Individu $individuDescendant
-     * @return Relation
-     */
-    public function setIndividuDescendant(\AdminBundle\Entity\Individu $individuDescendant)
-    {
-        $this->individuDescendant = $individuDescendant;
-        return $this;
-    }
-
-    /**
-     * Get individuDescendant
-     * @return \AdminBundle\Entity\Individu
-     */
-    public function getIndividuDescendant()
-    {
-        return $this->individuDescendant;
     }
 
     /**

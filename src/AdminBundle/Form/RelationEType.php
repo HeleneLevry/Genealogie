@@ -31,6 +31,7 @@ class RelationEType extends AbstractType
 				EntityType::class,
 				array(
 					'class' => 'AdminBundle:Individu', 
+					'placeholder' => 'sélectionner le proche ascendant ou descendant', 
 					'query_builder' => function (EntityRepository $er) use ($idcompte) {
 						return $er->createQueryBuilder('i')
 							->where('i.compte = :idcompte')
@@ -46,10 +47,12 @@ class RelationEType extends AbstractType
 			->add(
 				'typeRelation', 
 				ChoiceType::class, 
-				array('choices'  => array(
-					true => 'ascendant',
-					false => 'descendant',
-					null => 'Moi - Premier individu'))
+				array(
+					'choices'  => array(
+						true => 'ascendant',
+						false => 'descendant'
+					),
+					'placeholder' => '...')
 			)
 			->add(
 				'individuALier',
@@ -60,11 +63,6 @@ class RelationEType extends AbstractType
 				'Enregistrer',
 				'submit'
 			)
-			// ->add(
-			// 	'commentaire_relation', 
-			// 	TextType::class,
-			// 	array('data' => $idcompte, 'mapped' => false)
-			// )
 			;
 			
 	}
@@ -87,6 +85,5 @@ class RelationEType extends AbstractType
     {
         return 'adminbundle_relation';
     }
-
 
 }

@@ -3,11 +3,15 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	YourHealthyTree!
+	Pathologies de {# {{individu.getNomComplet}} #}
 {% endblock %}
 
 {% block fos_user_content %}
-	<h2> Liste des pathologies de {{ }} </h2>
-	<p> Vous n'avez pas encore ajouté de pathologie(s) à {{}} <p>
-	<p> <a href= "{{ path('user_ajouter_patho_proche') }}" class="btn"> Ajouter une pathologie à ce proche</a></p>
+	<h2> Liste des pathologies de {{ individu.getNomComplet }} </h2>
+	<p> Vous n'avez pas encore ajouté de pathologie(s) à {{ individu.getNomComplet }} <p>
+	<p> 
+		<a href="{{ path('user_liste_proches') }}" class="btn btn-default"> 
+			<i class="icon-chevron-left"></i>  Retour à la liste des proches </a>
+		<a href= "http://projet-genealogie/app_dev.php/ajout_patho_proche/{{id_indiv}}" class="btn"> Ajouter une pathologie à ce proche</a>
+	</p>
 {% endblock %}

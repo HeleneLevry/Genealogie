@@ -3,10 +3,11 @@
 {% extends "UserBundle::layout.html.twig" %} 
 
 {% block title %}
-	YourHealthyTree!
+	Ajouter une pathologie à {{individu.getNomComplet}}
 {% endblock %}
 
 {% block fos_user_content %}
-	<h2> Ajouter une pathologie à </h2>
+	<h2> Ajouter une pathologie à {{ individu.getNomComplet }} </h2>
+	<p> Veuillez enregistrer une nouvelle pathologie de {{ individu.getNomComplet }} <p/>
 	<div class="well"> {{form(form)}} </div>
 {% endblock %}

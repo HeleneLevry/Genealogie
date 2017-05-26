@@ -13,11 +13,11 @@ user_mon_compte:
     path:     /mon_compte
     defaults: { _controller:UserBundle:User:mon_compte }
 
-user_mes infos:
+user_mes_infos:
     path:     /mes_infos
     defaults: { _controller:UserBundle:User:mes_infos }
 
-user_mes patho:
+user_mes_patho:
     path:     /mes_patho
     defaults: { _controller:UserBundle:User:mes_patho }
 
@@ -35,10 +35,12 @@ user_liste_proches_vide:
     path:    /liste_proches_vide
     defaults: { _controller:UserBundle:User:liste_proches_vide }
 
+###
 user_infos_proche:
     path:     /infos_proche/{id_indiv}
     defaults: { _controller:UserBundle:User:infos_proche }
 
+###
 user_modif_proche:
     path:     /modif_proche/{id_indiv}
     defaults: { _controller:UserBundle:User:modif_proche }
