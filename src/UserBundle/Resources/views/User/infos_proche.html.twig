@@ -22,9 +22,15 @@
 		{% endif %}
 
 		{% if individu.genre %}
-			Genre : {{individu.genre}} <br/> <br/>
+			Genre : {{individu.genre}}
 		{% else %}
-			Genre : NC <br/> <br/>
+			Genre : NC
+		{% endif %}
+		 - 
+		{% if individu.relationType %}
+			Relation : {{individu.getRelations}} <br/> <br/>
+		{% else %}
+			Relation : NC <br/> <br/>
 		{% endif %}
 
 		{% if individu.dateNaissance and individu.dateDeces %}

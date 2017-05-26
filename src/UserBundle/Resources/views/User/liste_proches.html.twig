@@ -14,7 +14,10 @@
 		{% for individu in liste_indiv %}
 			<li>
 
-				{{ individu.getNomComplet }} 
+				{{ individu.getNomComplet }}
+				{% if individu.relationType %}
+					- {{individu.getRelations}}
+				{% endif %}
 				<br/>
 
 				{% if individu.dateNaissance and individu.datedeces %} 

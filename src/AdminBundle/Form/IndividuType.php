@@ -39,6 +39,34 @@ class IndividuType extends AbstractType
                     'required' => false)
             )
             ->add(
+                'relationType', 
+                ChoiceType::class, 
+                array(
+                    'placeholder' => '...',
+                    'choices'  => array(
+                        '.' => 'Moi',
+                        '1' => 'Petit-fils',
+                        '2' => 'Petite-fille',
+                        '3' => 'Fils',
+                        '4' => 'Fille',
+                        '5' => 'Frère',
+                        '6' => 'Soeur',
+                        '7' => 'Père',
+                        '8' => 'Mère',
+                        '9' => 'Grand-père',
+                        '10' => 'Grand-mère',
+                        '11' => 'Arrière-grand-père',
+                        '12' => 'Arrière-grand-mère',
+                        '13' => 'Oncle',
+                        '14' => 'Tante',
+                        '15' => 'Beau-frère',
+                        '16' => 'Belle-soeur',
+                        '17' => 'Cousin',
+                        '18' => 'Cousine',
+                        '19' => 'Autre'),
+                    'required' => false)
+            )
+            ->add(
                 'dateNaissance',
                 BirthdayType::class,
                 array(

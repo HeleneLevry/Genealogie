@@ -49,6 +49,12 @@ class Individu
     private $genre;
 
     /**
+     * @var string
+     * @ORM\Column(name="relation_type", type="string", length=255, nullable=true)
+     */
+    private $relationType;
+
+    /**
      * @var \DateTime
      * @ORM\Column(name="date_naissance", type="date", nullable=true)
      */
@@ -236,4 +242,118 @@ class Individu
         return $this->compte;
     }
     
+
+    /**
+     * Set relationType
+     *
+     * @param string $relationType
+     *
+     * @return Individu
+     */
+    public function setRelationType($relationType)
+    {
+        $this->relationType = $relationType;
+
+        return $this;
+    }
+
+    /**
+     * Get relationType
+     *
+     * @return string
+     */
+    public function getRelationType()
+    {
+        return $this->relationType;
+    }
+
+    /**
+     * Get relationType
+     *
+     * @return string
+     */
+    public function getRelations()
+    {
+        // return $this->relationType;
+        if ($this->relationType == '.')
+        {
+            return 'Moi';
+        }
+        if ($this->relationType == '1')
+        {
+            return 'Petit-fils';
+        }
+        if ($this->relationType == '2')
+        {
+            return 'Petite-fille';
+        }
+        if ($this->relationType == '3')
+        {
+            return 'Fils';
+        }
+        if ($this->relationType == '4')
+        {
+            return 'Fille';
+        }
+        if ($this->relationType == '5')
+        {
+            return 'Frère';
+        }
+        if ($this->relationType === '6')
+        {
+            return 'Soeur';
+        }
+        if ($this->relationType == '7')
+        {
+            return 'Père';
+        }
+        if ($this->relationType == '8')
+        {
+            return 'Mère';
+        }
+        if ($this->relationType == '9')
+        {
+            return 'Grand-père';
+        }
+        if ($this->relationType == '10')
+        {
+            return 'Grand-mère';
+        }
+        if ($this->relationType == '11')
+        {
+            return 'Arrière-grand-père';
+        }
+        if ($this->relationType == '12')
+        {
+            return 'Arrière-grand-mère';
+        }
+        if ($this->relationType == '13')
+        {
+            return 'Oncle';
+        }
+        if ($this->relationType == '14')
+        {
+            return 'Tante';
+        }
+        if ($this->relationType == '15')
+        {
+            return 'Beau-frère';
+        }
+        if ($this->relationType == '16')
+        {
+            return 'Belle-soeur';
+        }if ($this->relationType == '17')
+        {
+            return 'Cousin';
+        }if ($this->relationType == '18')
+        {
+            return 'Cousine';
+        }if ($this->relationType == '19')
+        {
+            return 'Autre';
+        }else
+        {
+            return 'Autre';
+        }
+    }
 }
