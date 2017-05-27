@@ -195,6 +195,16 @@ class Pathologie
     }
 
     /**
+     * Get individuInt
+     *
+     * @return string
+     */
+    public function getIndividuInt(\AdminBundle\Entity\Individu $individu = null)
+    {
+        return (int) $this->individu->getId();
+    }
+
+    /**
      * Set gravite
      *
      * @param \AdminBundle\Entity\Gravite $gravite

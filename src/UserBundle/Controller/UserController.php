@@ -56,11 +56,8 @@ class UserController extends Controller
 	}
 
 
-////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------
 	public function mes_infosAction(Request $request){
-		//$individu = new Individu();
-		//$indiv_moi = new Individu();
-		// test individus compte
 		// Lister les individus du compte 
 		$user = $this->container->get('security.context')->getToken()->getUser();
 		$repository = $this
@@ -85,12 +82,12 @@ class UserController extends Controller
 			}
 		}
 		// si pas d'individus sur le compte ou  pas d'individu moi, création indiv_moi
-			$indiv_moi = new Individu();
-			$user = $this->get('security.context')->getToken()->getUser();
-			return $this->render('UserBundle:User:mes_infos.html.twig', array('individu' => $indiv_moi));		
+		$indiv_moi = new Individu();
+		$user = $this->get('security.context')->getToken()->getUser();
+		return $this->render('UserBundle:User:mes_infos.html.twig', array('individu' => $indiv_moi));		
 	}
 
-////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------
 	public function modifier_mes_infosAction(Request $request){
 		// Lister les individus du compte 
 		$user = $this->container->get('security.context')->getToken()->getUser();
@@ -139,7 +136,7 @@ class UserController extends Controller
 	}
 
 	
-////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------
 	public function mes_pathoAction()
 	{
 		// Recherche individus compte dont relation est moi-même
@@ -162,7 +159,7 @@ class UserController extends Controller
 	}
 
 
-/////////////-----------------------------------------------------------
+//----------------------------------------------------------------------
 	public function ajout_procheAction(Request $request){
 		$individu = new Individu();
 		$form = $this->createForm('AdminBundle\Form\IndividuType', $individu);
@@ -473,8 +470,9 @@ class UserController extends Controller
 	}
 
 
-////////////////////////////////////////////////////////////////////////	
+//----------------------------------------------------------------------
 	public function liste_patho_prochesAction(){
+		// Trouver la liste des individus du compte
 		$repository = $this
 			->getDoctrine()
 			->getManager()
@@ -482,25 +480,24 @@ class UserController extends Controller
 		;
 		$user = $this->container->get('security.context')->getToken()->getUser();
 		$listeIndividus = $repository->findBy(array('compte' => $user), array('dateNaissance' => 'desc'));
+		// Si individus sur le compte
 		if($listeIndividus){
-			foreach ($listeIndividus as $listeIndividu)
-			{
-				$repository = $this ->getDoctrine()
-									->getManager()
-									->getRepository('AdminBundle:Pathologie');
-				$listePathologies = $repository->findBy(array('individu' => $listeIndividu));
-				if($listePathologies){
-					// Affichage vue liste_patho_proche avec individu et listePathologies
-					return $this->render(
-						'UserBundle:User:liste_patho_proches.html.twig', 
-						array('liste_indiv'=>$listeIndividus,  'listePathologies' => $listePathologies)
-				 	);
-				}
+			// Lister les pathologies de ces individus
+			$repository = $this ->getDoctrine()
+								->getManager()
+								->getRepository('AdminBundle:Pathologie');
+			$listePathologies = $repository->findBy(array('individu' => $listeIndividus), array('banque_patho' => 'asc', 'dateDebut' => 'desc'));
+			// Si il y a des pathologies associées aux individus du compte
+			if($listePathologies){
+				// Affichage vue liste_patho_proche avec individu et listePathologies
+				return $this->render(
+					'UserBundle:User:liste_patho_proches.html.twig', 
+					array('liste_indiv'=>$listeIndividus,  'listePathologies' => $listePathologies)
+			 	);
 			}
-			
 			return $this->redirect($this->generateUrl('user_liste_patho_proches_vide'));
-			//return $this->render('UserBundle:User:liste_patho_proches_vide.html.twig');
 		}
+		// si pas individus compte
 		else{
 			return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 		}
