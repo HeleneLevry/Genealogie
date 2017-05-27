@@ -7,8 +7,49 @@
 {% endblock %}
 
 {% block fos_user_content %}
+
 	<h2> Mes informations </h2>
+	
 	<br/>
-	<p> Entrez ou modifiez vos informations : </p>
-	<div class="well"> {{form(form)}} </div>
+	<p> Voici les informations sur vous-mêmz que vous avez entrées : <br/> <br/> <p>
+	
+	<p> 
+
+		{% if individu.nom %}
+			Mon nom : {{individu.nom}} - Mon prénom : {{individu.prenom}} <br/> <br/>
+		{% else %}
+			Mon nom : NC - PMon pénom : {{individu.prenom}} <br/> <br/>
+		{% endif %}
+
+		{% if individu.genre %}
+			Mon genre : {{individu.genre}}
+		{% else %}
+			Mon genre : NC
+		{% endif %}
+		 - 
+		{% if individu.relationType %}
+			Relation : {{individu.getRelations}} <br/> <br/>
+		{% else %}
+			Relation : NC <br/> <br/>
+		{% endif %}
+
+		{% if individu.dateNaissance %}
+			Ma date de naissance : {{individu.dateNaissance|date("d/m/Y")}} <br/> <br/>
+		{% else %}
+			Ma date de naissance : NC <br/> <br/>
+		{% endif %}
+
+		{% if individu.commentaire %}
+			Commentaire : {{individu.commentaire}} <br/> <br/>
+		{% else %}
+			Commentaire : NC <br/> <br/>
+		{% endif %}
+
+	<p/>
+
+	<p> 
+	<a href="{{ path('user_connected_index') }}" class="btn btn-default"> <i class="icon-chevron-left"></i>  Retour à l'accueil </a>
+	<a href= "{{ path('user_modifier_mes_infos') }}" class="btn"> Modifier mes informations </a> 
+	</p>
+
 {% endblock %}

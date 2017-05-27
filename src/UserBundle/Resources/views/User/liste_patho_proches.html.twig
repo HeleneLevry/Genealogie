@@ -10,43 +10,88 @@
 {% block fos_user_content %}
     <h2> Liste des pathologies de ma famille </h2>
     <br/>
+
     <ul>
         {% for individu in liste_indiv %}
-            <li>
+            
+             <li>
+
+                boucle indiv
                 {{ individu.getNomComplet }}
+
+                {# 
+                {{ individu.getNomComplet }}
+
+                {% if individu.relationType %}
+                    {{ individu.getRelations }}
+                {% endif %}
                 <br/>
-                    {% if individu.dateNaissance and individu.datedeces %} 
-                        né(e) le {{ individu.dateNaissance|date("d/m/Y") }} - décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
-                        <br/>   
-                    {% elseif individu.dateNaissance %} 
-                        né(e) le {{ individu.dateNaissance|date("d/m/Y") }}
-                        <br/>
-                    {% elseif individu.datedeces %}
-                        décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
-                        <br/>
+
+                {% if individu.dateNaissance and individu.datedeces %} 
+                    {% if individu.genre == 'Masculin' %}
+                        né le {{ individu.dateNaissance|date("d/m/Y") }} - décédé le {{ individu.datedeces|date("d/m/Y") }} 
+                    {% if individu.genre == 'Feminin' %}
+                        née le {{ individu.dateNaissance|date("d/m/Y") }} - décédée le {{ individu.datedeces|date("d/m/Y") }}
                     {% else %}
-                        -
-                        <br/>
-                    {%endif%}
-                {% for pathologie in liste_patho %}
+                        né(e) le {{ individu.dateNaissance|date("d/m/Y") }} - décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
+                    {% endif %}  
+                {% elseif individu.dateNaissance %} 
+                    {% if individu.genre == 'Masculin' %}
+                        né le {{ individu.dateNaissance|date("d/m/Y") }} 
+                    {% if individu.genre == 'Feminin' %}
+                        née le {{ individu.dateNaissance|date("d/m/Y") }}
+                    {% else %}
+                        né(e) le {{ individu.dateNaissance|date("d/m/Y") }}
+                    {% endif %}
+                {% elseif individu.datedeces %}
+                    {% if individu.genre == 'Masculin' %}
+                        décédé le {{ individu.datedeces|date("d/m/Y") }} 
+                    {% if individu.genre == 'Feminin' %}
+                        décédée le {{ individu.datedeces|date("d/m/Y") }}
+                    {% else %}
+                        décédé(e) le {{ individu.datedeces|date("d/m/Y") }}
+                    {% endif %}
+                {% else %}
+                    -
+                {%endif%}
+                <br/> 
+
+                #}
+                
+                <ul>
+                {% for pathologie in listePathologies %}
+                
                     <li>
-                        {#{{ pathologie.banque_patho }}
+
+                        boucle patho
+                        {{ pathologie.BanquePatho }}
+
+                        {#
+                        {{ pathologie.banque_patho }}
                         <br/>
-                            {% if pathologie.DateDebut and pathologie.DateFin %} 
-                                Déclarée le {{ pathologie.DateDebut|date("d/m/Y") }} - Finie le {{ pathologie.DateFin|date("d/m/Y") }}
-                               <br/>   
-                           {% elseif pathologie.DateDebut %} 
-                               né(e) le {{ pathologie.dateDebut|date("d/m/Y") }}
-                               <br/>
-                           {% elseif pathologie.DateFin %}
-                               décédé(e) le {{ pathologie.DateFin|date("d/m/Y") }}
-                               <br/>
-                           {% else %}
-                               <br/>
-                           {%endif%}#}
-                   </li>
+
+                        {% if pathologie.DateDebut and pathologie.DateFin %} 
+                            Déclarée le {{ pathologie.DateDebut|date("d/m/Y") }} - Finie le {{ pathologie.DateFin|date("d/m/Y") }}   
+                       {% elseif pathologie.DateDebut %} 
+                           né(e) le {{ pathologie.dateDebut|date("d/m/Y") }}
+                       {% elseif pathologie.DateFin %}
+                           décédé(e) le {{ pathologie.DateFin|date("d/m/Y") }}
+                       {% else %}
+                            -
+                       {%endif%}
+                       <br/>
+                       
+                       #}
+
+                   </li> 
+
                {% endfor %}
+               </ul>
+
            </li>
+
        {% endfor %}
+
    </ul>
+
 {% endblock %}

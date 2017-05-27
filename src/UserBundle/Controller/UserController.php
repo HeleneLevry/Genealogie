@@ -20,6 +20,7 @@ use AdminBundle\Entity\Gravite;
 use AdminBundle\Entity\Banque_Patho;
 
 use AdminBundle\Form\IndividuType;
+use AdminBundle\Form\IndividuMoiType;
 use AdminBundle\Form\IndividuEType;
 use AdminBundle\Form\RelationType;
 use AdminBundle\Form\RelationEType;
@@ -80,34 +81,61 @@ class UserController extends Controller
 			}
 			// si indiv_moi, chargement entité
 			if($indiv_moi){
-				$form = $this->createForm('AdminBundle\Form\IndividuType', $indiv_moi);
+				return $this->render('UserBundle:User:mes_infos.html.twig', array('individu' => $indiv_moi));
+			}
+		}
+		// si pas d'individus sur le compte ou  pas d'individu moi, création indiv_moi
+			$indiv_moi = new Individu();
+			$user = $this->get('security.context')->getToken()->getUser();
+			return $this->render('UserBundle:User:mes_infos.html.twig', array('individu' => $indiv_moi));		
+	}
+
+////////////////////////////////////////////////////////////////////////
+	public function modifier_mes_infosAction(Request $request){
+		// Lister les individus du compte 
+		$user = $this->container->get('security.context')->getToken()->getUser();
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Individu')
+		;
+		$listeIndividus = $repository->findBy(array('compte' => $user));
+		// Si individus sur le compte, recherche indiv_moi
+		if($listeIndividus){
+			foreach ($listeIndividus as $listeIndividu) {
+				$repository = $this
+					->getDoctrine()
+					->getManager()
+					->getRepository('AdminBundle:Individu')
+				;
+				$indiv_moi = $repository->findOneBy(array('relationType' => '.'));
+			}
+			// si indiv_moi, chargement entité
+			if($indiv_moi){
+				$form = $this->createForm('AdminBundle\Form\IndividuMoiType', $indiv_moi);
 				if ($form->handleRequest($request)->isValid()){
-					//$indiv_moi->setRelationType('.');
 					$em = $this->getDoctrine()->getManager();
 					$em->persist($indiv_moi);
 					$em->flush();
 					return $this->redirect($this->generateUrl('user_mes_infos'));
 				}
-				return $this->render('UserBundle:User:mes_infos.html.twig', array('form' => $form->createView()));
+				return $this->render('UserBundle:User:modifier_mes_infos.html.twig', array('form' => $form->createView()));
 			}
 		}
 		// si pas d'individus sur le compte ou  pas d'individu moi, création indiv_moi
 			$indiv_moi = new Individu();
-			$form = $this->createForm('AdminBundle\Form\IndividuType', $indiv_moi);
+			$form = $this->createForm('AdminBundle\Form\IndividuMoiType', $indiv_moi);
 			$user = $this->get('security.context')->getToken()->getUser();
 			if ($form->handleRequest($request)->isValid()){
 				$indiv_moi->setCompte($user);
 				$indiv_moi->setRelationType('.');
-				// $rel_moi->setIndividuConnu($individu);
-				// $rel_moi->setTypeRelation(null);
-				// $rel_moi->setIndividuALier($individu);
+				$indiv_moi->setDateDeces(null);
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($indiv_moi);
-				//$em->persist($rel_moi);
 				$em->flush();
-				return $this->redirect($this->generateUrl('user_mes_infos'));
+				return $this->redirect($this->generateUrl('user_modifier_mes_infos'));
 			}
-			return $this->render('UserBundle:User:mes_infos.html.twig', array('form' => $form->createView()));		
+			return $this->render('UserBundle:User:modifier_mes_infos.html.twig', array('form' => $form->createView()));		
 	}
 
 	
@@ -457,20 +485,25 @@ class UserController extends Controller
 		if($listeIndividus){
 			foreach ($listeIndividus as $listeIndividu)
 			{
-				// $repository = $this ->getDoctrine()
-				// 					->getManager()
-				// 					->getRepository('AdminBundle:Pathologie');
-				// $listePathologies = $repository->findBy(array('individu' => $listeIndividu));
-			// }
-			// if($listePathologies){
-			// 	return $this->return $this->redirect($this->generateUrl('user_liste_proches_vide'));render('UserBundle:User:liste_patho_proches.html.twig', array('liste_patho'=>$listePathologies, 'liste_indiv'=>$listeIndividus));
+				$repository = $this ->getDoctrine()
+									->getManager()
+									->getRepository('AdminBundle:Pathologie');
+				$listePathologies = $repository->findBy(array('individu' => $listeIndividu));
+				if($listePathologies){
+					// Affichage vue liste_patho_proche avec individu et listePathologies
+					return $this->render(
+						'UserBundle:User:liste_patho_proches.html.twig', 
+						array('liste_indiv'=>$listeIndividus,  'listePathologies' => $listePathologies)
+				 	);
+				}
 			}
-			return $this->render('UserBundle:User:liste_patho_proches_vide.html.twig');
+			
+			return $this->redirect($this->generateUrl('user_liste_patho_proches_vide'));
+			//return $this->render('UserBundle:User:liste_patho_proches_vide.html.twig');
 		}
 		else{
 			return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 		}
-		//return $this->redirect($this->generateUrl('user_liste_proches_vide'));
 	}
 //----------------------------------------------------------------------	
 	public function liste_patho_proches_videAction(){
