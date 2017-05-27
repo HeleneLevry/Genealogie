@@ -277,7 +277,7 @@ class Individu
         // return $this->relationType;
         if ($this->relationType == '.')
         {
-            return 'Moi';
+            return 'Moi-même';
         }
         if ($this->relationType == '1')
         {

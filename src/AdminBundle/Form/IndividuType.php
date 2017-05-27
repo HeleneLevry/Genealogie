@@ -21,16 +21,23 @@ class IndividuType extends AbstractType
             ->add(
                 'nom', 
                 'text', 
-                array('required' => false)
+                array(
+                    'label' => 'Nom : ',
+                    'required' => false
+                )
             )
             ->add(
                 'prenom', 
-                'text'
+                'text',
+                array(
+                    'label' => 'Prénom : '
+                )
             )
             ->add(
                 'genre', 
                 ChoiceType::class, 
                 array(
+                    'label' => 'Genre : ',
                     'placeholder' => '...',
                     'choices'  => array(
                         'Masculin' => 'Masculin',
@@ -42,9 +49,10 @@ class IndividuType extends AbstractType
                 'relationType', 
                 ChoiceType::class, 
                 array(
+                    'label' => 'Relation : ',
                     'placeholder' => '...',
                     'choices'  => array(
-                        '.' => 'Moi',
+                        '.' => 'Moi-même',
                         '1' => 'Petit-fils',
                         '2' => 'Petite-fille',
                         '3' => 'Fils',
@@ -70,6 +78,7 @@ class IndividuType extends AbstractType
                 'dateNaissance',
                 BirthdayType::class,
                 array(
+                    'label' => 'Date de naissance : ',
                     'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
                     'format' => 'ddMMyyyy',
                     'required' => false)
@@ -78,6 +87,7 @@ class IndividuType extends AbstractType
                 'dateDeces',
                 BirthdayType::class,
                 array(
+                    'label' => 'Date de décès : ',
                     'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
                     'format' => 'ddMMyyyy',
                     'required' => false)
@@ -85,7 +95,10 @@ class IndividuType extends AbstractType
             ->add(
                 'commentaire', 
                 'textarea', 
-                array('required' => false)
+                array(
+                    'label' => 'Commentaire : ',
+                    'required' => false
+                )
             )
             ->add(
                 'Enregistrer',
