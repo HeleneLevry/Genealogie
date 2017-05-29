@@ -104,15 +104,33 @@ class AdminController extends Controller
 		if (!$this->get('security.context')->isGranted('ROLE_ADMIN')){
 			return $this->redirect($this->generateUrl('reserve_admin'));
 		}
-		$banque_patho = new Banque_Patho();
-		$form = $this->get('form.factory')->create(new Banque_PathoSupprType(),$banque_patho);
+		
+		$banque_patho = new Banque_Patho;
+		
+		$form = $this->get('form.factory')->create(new Banque_PathoSupprType,$banque_patho);
+		
 		if ($form->handleRequest($request)->isValid()){
-			$em = $this->getDoctrine()->getManager();
-			$em->remove($banque_patho);
-			$em->flush();
-			$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
-			return $this->redirect($this->generateUrl('admin_lister_patho'));
-		}
+			 $em = $this->getDoctrine()->getManager();
+			 $repository=$em->getRepository('AdminBundle:Banque_Patho');
+			
+			$patho=$banque_patho->getNomPathologie();
+			
+			//$pathologie=$repository->findOneBy(array('nomPathologie' =>$patho));
+			
+			$pathologie=$banque_patho;
+			if ($pathologie){
+					 
+					$em->remove($pathologie);
+					$em->flush();
+					return $this->redirect($this->generateUrl('admin_lister_patho'));
+				}
+			return $this->redirect($this->generateUrl('admin_Patho_inconnu'));
+			}
+			//$em->remove($pathologie);
+			//$em->flush();
+			//$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
+			//return $this->redirect($this->generateUrl('admin_lister_patho'));
+		//}
 		return $this->render('AdminBundle:Admin:suppr_patho.html.twig', array('form' => $form->createView(),));
 	}
 	

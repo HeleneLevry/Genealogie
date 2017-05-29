@@ -4,6 +4,11 @@
     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
     {% if app.session is not empty %}
         {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+        <p> Votre inscription est validée.
+        Pour compléter votre profil veuillez à présent vous connecter.
+        <a href="http://projet-genealogie/app_dev.php/login" class="btn"> Connexion </a>
+        
+        </p>
         {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
     {% endif %}
 {% endblock fos_user_content %}
