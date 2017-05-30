@@ -25,6 +25,10 @@ user_mes_patho:
     path:     /mes_patho
     defaults: { _controller:UserBundle:User:mes_patho }
 
+user_mes_patho_vide:
+    path:     /mes_patho_vide
+    defaults: { _controller:UserBundle:User:mes_patho_vide }
+
 #
 user_ajout_proche:
     path:     /ajout_proche

@@ -11,14 +11,14 @@
 	<h2> Mes informations </h2>
 	
 	<br/>
-	<p> Voici les informations sur vous-mêmz que vous avez entrées : <br/> <br/> <p>
+	<p> Voici les informations sur vous-même que vous avez entrées : <br/> <br/> <p>
 	
 	<p> 
 
 		{% if individu.nom %}
 			Mon nom : {{individu.nom}} - Mon prénom : {{individu.prenom}} <br/> <br/>
 		{% else %}
-			Mon nom : NC - PMon pénom : {{individu.prenom}} <br/> <br/>
+			Mon nom : NC - Mon pénom : {{individu.prenom}} <br/> <br/>
 		{% endif %}
 
 		{% if individu.genre %}

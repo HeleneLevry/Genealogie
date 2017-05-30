@@ -139,7 +139,61 @@ class UserController extends Controller
 //----------------------------------------------------------------------
 	public function mes_pathoAction()
 	{
-		// Recherche individus compte dont relation est moi-même
+		// Lister les individus du compte 
+		$user = $this->container->get('security.context')->getToken()->getUser();
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('AdminBundle:Individu')
+		;
+		$listeIndividus = $repository->findBy(array('compte' => $user));
+		// Si individus sur le compte, recherche indiv_moi
+		if($listeIndividus){
+			foreach ($listeIndividus as $listeIndividu) {
+				$repository = $this
+					->getDoctrine()
+					->getManager()
+					->getRepository('AdminBundle:Individu')
+				;
+				$indiv_moi = $repository->findOneBy(array('relationType' => '.'));
+			}
+			if ($indiv_moi){
+			// liste des pathologies de indiv_moi
+			$repository = $this
+				->getDoctrine()
+				->getManager()
+				->getRepository('AdminBundle:Pathologie')
+			;
+			$liste_patho_moi = $repository->findBy(array('individu' => $indiv_moi), array ('dateDebut' => 'desc'));
+			// Afficher vue mes_pathos
+			return $this->render('UserBundle:User:mes_patho.html.twig', array('individu' => $indiv_moi, 'liste_pathos' => $liste_patho_moi));
+		}
+		return $this->redirect($this->generateUrl('user_mes_patho_vide'));
+		
+		// // Recherche individus compte dont relation est moi-même
+		// $user = $this->container->get('security.context')->getToken()->getUser();
+		// $repository = $this
+		// 	->getDoctrine()
+		// 	->getManager()
+		// 	->getRepository('AdminBundle:Individu')
+		// ;
+		// $indiv_moi = $repository->findOneBy(array('compte' => $user, 'relationType' => '.'));
+		// if ($indiv_moi){
+		// 	// liste des pathologies de indiv_moi
+		// 	$repository = $this
+		// 		->getDoctrine()
+		// 		->getManager()
+		// 		->getRepository('AdminBundle:Pathologie')
+		// 	;
+		// 	$liste_patho_moi = $repository->findBy(array('individu' => $indiv_moi), array ('dateDebut' => 'desc'));
+		// 	// Afficher vue mes_pathos
+		// 	return $this->render('UserBundle:User:mes_patho.html.twig', array('individu' => $indiv_moi, 'liste_pathos' => $liste_patho_moi));
+		 }
+		// return $this->redirect($this->generateUrl('user_mes_patho_vide'));
+	}
+
+//----------------------------------------------------------------------
+	public function mes_patho_videAction(){
 		$user = $this->container->get('security.context')->getToken()->getUser();
 		$repository = $this
 			->getDoctrine()
@@ -147,15 +201,7 @@ class UserController extends Controller
 			->getRepository('AdminBundle:Individu')
 		;
 		$indiv_moi = $repository->findOneBy(array('compte' => $user, 'relationType' => '.'));
-		// liste des pathologies de indiv_moi
-		$repository = $this
-			->getDoctrine()
-			->getManager()
-			->getRepository('AdminBundle:Pathologie')
-		;
-		$liste_patho_moi = $repository->findBy(array('individu' => $indiv_moi), array ('dateDebut' => 'desc'));
-		// Afficher vue mes_pathos
-		return $this->render('UserBundle:User:mes_patho.html.twig', array('individu' => $indiv_moi, 'liste_pathos' => $liste_patho_moi));
+		return $this->render('UserBundle:User:mes_patho_vide.html.twig', array('id_indiv' => $indiv_moi));
 	}
 
 
