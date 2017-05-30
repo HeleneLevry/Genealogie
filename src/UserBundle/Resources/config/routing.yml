@@ -17,6 +17,10 @@ user_mes_infos:
     path:     /mes_infos
     defaults: { _controller:UserBundle:User:mes_infos }
 
+user_mes_infos_vide:
+    path:     /mes_infos_vide
+    defaults: { _controller:UserBundle:User:mes_infos_vide }
+
 user_modifier_mes_infos:
     path:     /modifier_mes_infos
     defaults: { _controller:UserBundle:User:modifier_mes_infos }

@@ -9,7 +9,7 @@
 
 {% block admin_block %}
 	<p> Désolé, vous n'avez pas les droits pour accéder au contenu demandé.<p>
-	<br/>
+	
 	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 	
 	<p> <a href= "{{ path('user_connected_index') }}"  class="btn" > Retour espace membre </a> </p>
