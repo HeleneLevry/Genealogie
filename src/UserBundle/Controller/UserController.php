@@ -125,18 +125,8 @@ class UserController extends Controller
 			->getManager()
 			->getRepository('AdminBundle:Individu')
 		;
-		$listeIndividus = $repository->findBy(array('compte' => $user));
-		// Si individus sur le compte, recherche indiv_moi
-		if($listeIndividus){
-			foreach ($listeIndividus as $listeIndividu) {
-				$repository = $this
-					->getDoctrine()
-					->getManager()
-					->getRepository('AdminBundle:Individu')
-				;
-				$indiv_moi = $repository->findOneBy(array('relationType' => '.'));
-			}
-			if ($indiv_moi){
+		$indiv_moi = $repository->findOneBy(array('compte' => $user, 'relationType' => '.'));
+		if ($indiv_moi){
 			// liste des pathologies de indiv_moi
 			$repository = $this
 				->getDoctrine()
@@ -144,12 +134,14 @@ class UserController extends Controller
 				->getRepository('AdminBundle:Pathologie')
 			;
 			$liste_patho_moi = $repository->findBy(array('individu' => $indiv_moi), array ('dateDebut' => 'desc'));
-			// Afficher vue mes_pathos
-			return $this->render('UserBundle:User:mes_patho.html.twig', array('individu' => $indiv_moi, 'liste_pathos' => $liste_patho_moi));
+			if ($liste_patho_moi)
+			{
+				// Afficher vue mes_pathos
+				return $this->render('UserBundle:User:mes_patho.html.twig', array('individu' => $indiv_moi, 'liste_pathos' => $liste_patho_moi));
 			}
-			return $this->redirect($this->generateUrl('user_mes_patho_vide'));
+			return $this->redirect($this->generateUrl('user_mes_patho_vide', array('id_indiv' => $indiv_moi)));
 		}
-		
+		return $this->render('UserBundle:User:mes_infos_vide.html.twig');
 	}
 
 //----------------------------------------------------------------------
@@ -161,7 +153,8 @@ class UserController extends Controller
 			->getRepository('AdminBundle:Individu')
 		;
 		$indiv_moi = $repository->findOneBy(array('compte' => $user, 'relationType' => '.'));
-		return $this->render('UserBundle:User:mes_patho_vide.html.twig', array('id_indiv' => $indiv_moi));
+		$id_indiv = $indiv_moi->getId();
+		return $this->render('UserBundle:User:mes_patho_vide.html.twig', array('id_indiv' => $id_indiv));
 	}
 
 
@@ -179,23 +172,6 @@ class UserController extends Controller
 		}		
 		return $this->render('UserBundle:User:ajout_proche.html.twig', array('form' => $form->createView()));
 	}
-	// public function ajout_procheAction(Request $request)
-	// {
-	// 	$relation = new Relation();
-	// 	$individu = new Individu();
-	// 	$user = $this->get('security.context')->getToken()->getUser();
-	// 	$form = $this->createForm('AdminBundle\Form\RelationEType', $relation, array('compte' => $user));
-	// 	if ($form->handleRequest($request)->isValid()){
-	// 		//$individu->setCompte($user);
-	// 		$em = $this->getDoctrine()->getManager();
-	// 		$em->persist($relation);
-	// 		$em->flush();
-	// 		//$request->getsession()->getFlashBag()->add('notice','Données bien enregistrées');
-	// 		return $this->redirect($this->generateUrl('user_liste_proches'));
-	// 	}		
-	// 	return $this->render('UserBundle:User:ajout_proche.html.twig', array('form' => $form->createView(),));
-	// }	
-
 
 //----------------------------------------------------------------------	
 	public function liste_prochesAction(){
