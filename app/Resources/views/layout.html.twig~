@@ -4,8 +4,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<<<<<<< HEAD
+		<title>{% block title %}Disease Memory{% endblock %}</title>
+=======
 		<title>{% block title %}Diseases Memory{% endblock %}</title>
+>>>>>>> helene
 		
 		{% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" />
@@ -15,8 +18,11 @@
 	<body>
 		<div class="container">
 			<div id="header" class="hero-unit">
-
+<<<<<<< HEAD
+				<h1> Disease Memory </h1>
+=======
 				<h1> Diseases Memory </h1>
+>>>>>>> helene
 				<p> Le site qui vous aide à garder un oeil sur votre santé ! </p>
 				
 			</div>
