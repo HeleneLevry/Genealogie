@@ -1,0 +1,19 @@
+{# src/UserBundle/Resources/views/mes_patho__vide.html.twig #}
+
+{% extends "UserBundle::layout.html.twig" %} 
+
+{% block title %}
+	Mes pathologies
+{% endblock %}
+
+{% block fos_user_content %}
+	<h2> Mes pathologies </h2>
+	<br/>
+	<p> Vous n'avez pas encore ajouté de pathologie(s) </p>
+	</br>
+	<p> 
+		<a href="{{ path('user_liste_proches') }}" class="btn btn-default"> 
+			<i class="icon-chevron-left"></i>  Retour à la liste des proches </a>
+		<a href= "http://projet-genealogie/app_dev.php/ajout_patho_proche/{{id_indiv}}" class="btn"> Ajouter une pathologie </a>
+	</p>
+{% endblock %}
