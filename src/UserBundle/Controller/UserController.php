@@ -65,21 +65,10 @@ class UserController extends Controller
 			->getManager()
 			->getRepository('AdminBundle:Individu')
 		;
-		$listeIndividus = $repository->findBy(array('compte' => $user));
-		// Si individus sur le compte, recherche indiv_moi
-		if($listeIndividus){
-			foreach ($listeIndividus as $listeIndividu) {
-				$repository = $this
-					->getDoctrine()
-					->getManager()
-					->getRepository('AdminBundle:Individu')
-				;
-				$indiv_moi = $repository->findOneBy(array('relationType' => '.'));
-			}
-			// si indiv_moi, chargement entité
-			if($indiv_moi){
-				return $this->render('UserBundle:User:mes_infos.html.twig', array('individu' => $indiv_moi));
-			}
+		$indiv_moi = $repository->findOneBy(array('compte' => $user, 'relationType' => '.'));
+		// si indiv_moi, chargement entité
+		if($indiv_moi){
+			return $this->render('UserBundle:User:mes_infos.html.twig', array('individu' => $indiv_moi));
 		}
 		// si pas d'individus sur le compte ou  pas d'individu moi, création indiv_moi
 		$indiv_moi = new Individu();
@@ -96,43 +85,33 @@ class UserController extends Controller
 			->getManager()
 			->getRepository('AdminBundle:Individu')
 		;
-		$listeIndividus = $repository->findBy(array('compte' => $user));
-		// Si individus sur le compte, recherche indiv_moi
-		if($listeIndividus){
-			foreach ($listeIndividus as $listeIndividu) {
-				$repository = $this
-					->getDoctrine()
-					->getManager()
-					->getRepository('AdminBundle:Individu')
-				;
-				$indiv_moi = $repository->findOneBy(array('relationType' => '.'));
-			}
-			// si indiv_moi, chargement entité
-			if($indiv_moi){
-				$form = $this->createForm('AdminBundle\Form\IndividuMoiType', $indiv_moi);
-				if ($form->handleRequest($request)->isValid()){
-					$em = $this->getDoctrine()->getManager();
-					$em->persist($indiv_moi);
-					$em->flush();
-					return $this->redirect($this->generateUrl('user_mes_infos'));
-				}
-				return $this->render('UserBundle:User:modifier_mes_infos.html.twig', array('form' => $form->createView()));
-			}
-		}
-		// si pas d'individus sur le compte ou  pas d'individu moi, création indiv_moi
-			$indiv_moi = new Individu();
+		$indiv_moi = $repository->findOneBy(array('compte' => $user, 'relationType' => '.'));
+
+		// si indiv_moi, chargement entité
+		if($indiv_moi){
 			$form = $this->createForm('AdminBundle\Form\IndividuMoiType', $indiv_moi);
-			$user = $this->get('security.context')->getToken()->getUser();
 			if ($form->handleRequest($request)->isValid()){
-				$indiv_moi->setCompte($user);
-				$indiv_moi->setRelationType('.');
-				$indiv_moi->setDateDeces(null);
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($indiv_moi);
 				$em->flush();
-				return $this->redirect($this->generateUrl('user_modifier_mes_infos'));
+				return $this->redirect($this->generateUrl('user_mes_infos'));
 			}
-			return $this->render('UserBundle:User:modifier_mes_infos.html.twig', array('form' => $form->createView()));		
+			return $this->render('UserBundle:User:modifier_mes_infos.html.twig', array('form' => $form->createView()));
+		}
+		// si pas d'individus sur le compte ou  pas d'individu moi, création indiv_moi
+		$indiv_moi = new Individu();
+		$form = $this->createForm('AdminBundle\Form\IndividuMoiType', $indiv_moi);
+		$user = $this->get('security.context')->getToken()->getUser();
+		if ($form->handleRequest($request)->isValid()){
+			$indiv_moi->setCompte($user);
+			$indiv_moi->setRelationType('.');
+			$indiv_moi->setDateDeces(null);
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($indiv_moi);
+			$em->flush();
+			return $this->redirect($this->generateUrl('user_modifier_mes_infos'));
+		}
+		return $this->render('UserBundle:User:modifier_mes_infos.html.twig', array('form' => $form->createView()));		
 	}
 
 	
@@ -167,29 +146,10 @@ class UserController extends Controller
 			$liste_patho_moi = $repository->findBy(array('individu' => $indiv_moi), array ('dateDebut' => 'desc'));
 			// Afficher vue mes_pathos
 			return $this->render('UserBundle:User:mes_patho.html.twig', array('individu' => $indiv_moi, 'liste_pathos' => $liste_patho_moi));
+			}
+			return $this->redirect($this->generateUrl('user_mes_patho_vide'));
 		}
-		return $this->redirect($this->generateUrl('user_mes_patho_vide'));
 		
-		// // Recherche individus compte dont relation est moi-même
-		// $user = $this->container->get('security.context')->getToken()->getUser();
-		// $repository = $this
-		// 	->getDoctrine()
-		// 	->getManager()
-		// 	->getRepository('AdminBundle:Individu')
-		// ;
-		// $indiv_moi = $repository->findOneBy(array('compte' => $user, 'relationType' => '.'));
-		// if ($indiv_moi){
-		// 	// liste des pathologies de indiv_moi
-		// 	$repository = $this
-		// 		->getDoctrine()
-		// 		->getManager()
-		// 		->getRepository('AdminBundle:Pathologie')
-		// 	;
-		// 	$liste_patho_moi = $repository->findBy(array('individu' => $indiv_moi), array ('dateDebut' => 'desc'));
-		// 	// Afficher vue mes_pathos
-		// 	return $this->render('UserBundle:User:mes_patho.html.twig', array('individu' => $indiv_moi, 'liste_pathos' => $liste_patho_moi));
-		 }
-		// return $this->redirect($this->generateUrl('user_mes_patho_vide'));
 	}
 
 //----------------------------------------------------------------------
