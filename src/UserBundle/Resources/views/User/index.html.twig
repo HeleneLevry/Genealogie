@@ -8,8 +8,20 @@
 
 {% block fos_user_content %}
 	<h2> Bonjour {{ app.user.username }} </h2>
+	<br/> <br/> 
+
+	<h4> Mon profil </h4>
+	<p> <a href= "{{ path('user_mes_infos') }}" class="btn"> Mes informations </a> </p>
+	<p> <a href= "{{ path('user_mes_patho') }}" class="btn"> Mes pathologies </a> </p>
 	<br/>
+
+	<h4> Mes proches </h4>
 	<p> <a href= "{{ path('user_ajout_proche') }}" class="btn"> Ajouter un proche </a> </p>
 	<p> <a href= "{{ path('user_liste_proches') }}" class="btn"> Lister mes proches </a> </p>
 	<p> <a href= "{{ path('user_liste_patho_proches') }}" class="btn"> Toutes les pathologies de mes proches </a> </p>
+	<br/>
+
+	<h4> Mon compte </h4>
+	<p> <a href= "{{ path('user_mon_compte') }}" class="btn"> Mon compte </a> </p>
+
 {% endblock %}

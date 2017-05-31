@@ -28,7 +28,7 @@
                     {% if pathologie.dateDebut and pathologie.dateFin %}
                         Du {{pathologie.dateDebut|date("d/m/Y")}} au {{pathologie.dateFin|date("d/m/Y")}}
                     {% elseif pathologie.dateDebut %}
-                        A partir du {{pathologie.dateDebut|date("d/m/Y")}}
+                        Depuis le {{pathologie.dateDebut|date("d/m/Y")}}
                     {% elseif pathologie.dateFin %}
                         Jusqu'au {{pathologie.dateFin|date("d/m/Y")}}
                     {% else %}

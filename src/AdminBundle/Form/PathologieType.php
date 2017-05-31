@@ -24,6 +24,7 @@ class PathologieType extends AbstractType
                 'banque_patho',
                 EntityType::class,
                 array(
+                    'label' => 'Nom de la pathologie :',
                     'class' => 'AdminBundle:Banque_Patho',
                     'choice_label' => 'nomPathologie', 
                     'placeholder' => 'nom de la pathologie',
@@ -35,6 +36,7 @@ class PathologieType extends AbstractType
 				'dateDebut',
 				BirthdayType::class,
 				array(
+                    'label' => 'Date de début :',
 					'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
 					'format' => 'ddMMyyyy',
 					'required' => false)
@@ -43,6 +45,7 @@ class PathologieType extends AbstractType
                 'dateFin',
                 BirthdayType::class,
                 array(
+                    'label' => 'Date de fin :',
                     'placeholder' => array('day' => 'Jour', 'month' => 'Mois', 'year' => 'Année'),
                     'format' => 'ddMMyyyy',
                     'required' => false
@@ -61,12 +64,20 @@ class PathologieType extends AbstractType
             //     )
             // )
             ->add(
-                'causeDeces'
+                'causeDeces',
+                'checkbox',
+                array(
+                    'label' => 'Cause de décès :', 
+                    'required' => false
+                    )
             )
             ->add(
                 'commentairePatho', 
                 'textarea', 
-                array('required' => false)
+                array(
+                    'label' => 'Commentaire :',
+                    'required' => false
+                )
             )
             ->add(
                 'Enregistrer',
